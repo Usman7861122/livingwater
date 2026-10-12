@@ -1,0 +1,26 @@
+---
+import HeroText from '../islands/HeroText';
+import Icon from '../ui/Icon.astro';
+---
+
+<section id="home" class="relative isolate flex min-h-[100svh] items-end overflow-hidden bg-navy-950 pb-16 pt-32 md:pb-20">
+  <!-- Background: swap this <img> for <video autoplay muted loop playsinline poster="/images/hero.jpg"> later -->
+  <img src="/images/hero.jpg" alt="" width="2400" height="1600" fetchpriority="high" class="absolute inset-0 -z-20 h-full w-full object-cover" />
+  <div class="absolute inset-0 -z-10 bg-navy-950/30"></div>
+  <div class="absolute inset-x-0 bottom-0 -z-10 h-[75%] bg-gradient-to-t from-navy-950/90 via-navy-950/45 to-transparent"></div>
+
+  <div class="container-x relative flex flex-col justify-between gap-10 md:flex-row md:items-end">
+    <div>
+      <p class="mb-5 text-xs font-medium uppercase tracking-[0.28em] text-gold-300" data-i18n="hero.eyebrow">Living Water Clinic · Clínica Agua Viva</p>
+      <HeroText client:load />
+      <div class="mt-9 flex flex-wrap items-center gap-6">
+        <a href="#contact" class="btn btn-gold"><span data-i18n="hero.cta1">Book a visit</span><Icon name="arrow" size={18} /></a>
+        <a href="#locations" class="link-underline text-sm font-medium text-white" data-i18n="hero.cta2">Find a clinic</a>
+      </div>
+    </div>
+    <a href="#about" aria-label="Scroll to About" class="group hidden items-center gap-4 text-xs uppercase tracking-[0.28em] text-white/70 transition-colors hover:text-white md:flex">
+      <span data-i18n="hero.scroll">Scroll</span>
+      <span class="relative block h-px w-14 overflow-hidden bg-white/30"><span class="absolute inset-0 bg-gold-300" style="animation: scroll-x 2.2s var(--ease-lux) infinite"></span></span>
+    </a>
+  </div>
+</section>

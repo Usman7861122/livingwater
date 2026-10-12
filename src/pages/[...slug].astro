@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { allPaths } from '../data/site';
+import { services } from '../data/servicePages';
+
+export function getStaticPaths() {
+  return allPaths.filter((p) => !['resources','blog'].includes(p.slug.split('/')[0]) && p.slug !== 'services' && p.slug !== 'dental' && p.slug !== 'ecm' && p.slug !== 'dental/services' && p.slug !== 'providers' && p.slug !== 'about' && !p.slug.startsWith('about/') && p.slug !== 'contact' && !p.slug.startsWith('contact/') && !services.some((x) => p.slug === `services/${x.slug}`)).map((p) => ({ params: { slug: p.slug }, props: { title: p.title } }));
+}
+const { title } = Astro.props;
+---
+
+<BaseLayout title={title} solidHeader>
+  <section class="bg-cream-100 pt-40 pb-24">
+    <div class="container-x">
+      <p class="eyebrow">Living Water Clinic</p>
+      <h1 class="h-display mt-5 text-navy-900">{title}</h1>
+      <p class="mt-6 max-w-xl text-lg text-mist">This page is coming soon. Content and design will be added next.</p>
+      <a href="/" class="btn btn-navy mt-10">Back to home</a>
+    </div>
+  </section>
+</BaseLayout>

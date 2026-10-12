@@ -1,0 +1,244 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Icon from '../ui/Icon.astro';
+import { locations, type Location } from '../../data/site';
+import { services, bySlug, svcPath, fillS, seoS, siblingOf, type Svc } from '../../data/servicePages';
+
+interface Props { svc: Svc; location?: Location }
+const { svc, location } = Astro.props;
+const sib = location ? siblingOf(location) : undefined;
+const pathFor = (l?: Location) => svcPath(svc, l);
+const fm = { ...svc, images: { hero: svc.images.hero } };
+const related = svc.related.map((r) => [bySlug[r].title, svcPath(bySlug[r])]);
+const lower = svc.short;
+const ctx = { city: location ? location.city : 'Tulare County', clinic: location ? (sib ? sib.name : location.name) : 'Living Water Clinic' };
+const f = (t: string) => fillS(t, ctx);
+const meta = seoS(svc, location);
+const canonical = new URL(pathFor(location), Astro.site ?? 'https://livingwaterclinic.com').href;
+const ld = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    { '@type': 'MedicalClinic', name: location ? `Living Water Clinic – ${location.name}` : 'Living Water Clinic', availableService: { '@type': 'MedicalProcedure', name: svc.title }, url: canonical, ...(location ? { telephone: location.phone, address: { '@type': 'PostalAddress', streetAddress: location.address, addressLocality: location.city, addressRegion: 'CA', postalCode: location.cityLine.slice(-5), addressCountry: 'US' }, geo: { '@type': 'GeoCoordinates', latitude: location.lat, longitude: location.lng } } : { areaServed: 'Tulare County, CA' }) },
+    { '@type': 'FAQPage', mainEntity: fm.faq.map(([q, a]) => ({ '@type': 'Question', name: f(q), acceptedAnswer: { '@type': 'Answer', text: f(a) } })) },
+  ],
+};
+const where = location ? ` in ${location.city}` : '';
+const h1 = `${fm.title}${where}`;
+const title = `${meta.title}`;
+const others = location ? locations.filter((x) => x.id !== location.id) : locations;
+const sorted = [...others].sort((a, b) => a.city.localeCompare(b.city) || a.name.localeCompare(b.name));
+const phone = location!;
+const mapSrc = location ? `https://www.google.com/maps?q=${encodeURIComponent(`Living Water Clinic ${location.address}, ${location.cityLine}`)}&output=embed` : '';
+---
+
+<BaseLayout title={title} description={meta.description} solidHeader>
+  <Fragment slot="head">
+    <link rel="canonical" href={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={meta.description} />
+    <meta property="og:image" content={new URL(fm.images.hero, canonical).href} />
+    <script type="application/ld+json" set:html={JSON.stringify(ld)} />
+  </Fragment>
+  <!-- Hero -->
+  <section class="on-dark relative overflow-hidden bg-navy-950 pt-36 pb-20 lg:pt-44">
+    <div class="container-x grid items-center gap-12 lg:grid-cols-12">
+      <div class="lg:col-span-6">
+        <nav aria-label="Breadcrumb" class="text-sm text-cream-200/80" data-reveal>
+          <a href="/" class="link-underline">Home</a> <span class="mx-2">/</span>
+          <a href="/services" class="link-underline">Services</a> <span class="mx-2">/</span>
+          {location ? (<><a href={pathFor()} class="link-underline">{fm.title}</a> <span class="mx-2">/</span> <span class="text-gold-400">{location.city}</span></>) : (<span class="text-gold-400">{fm.title}</span>)}
+        </nav>
+        <p class="eyebrow mt-8" data-reveal style="--d:60ms">{location ? location.name : 'Our services'}</p>
+        <h1 class="h-display mt-5" data-reveal style="--d:120ms">{fm.title}{location && <><br /><em>in {location.city}</em></>}</h1>
+        <p class="mt-6 max-w-xl text-lg leading-relaxed text-cream-200" data-reveal style="--d:180ms">{location ? (sib ? `${location.name} is our dental office. For ${lower} visits in ${location.city}, please see ${sib.name}.` : `Our ${location.name} clinic offers ${lower} for families in ${location.city} and nearby communities. ${svc.summary}`) : fm.summary}</p>
+        {sib && (
+          <p class="mt-5 max-w-xl rounded-xl border border-gold-400/40 bg-white/5 p-4 text-cream-100" data-reveal style="--d:200ms">
+            Looking for medical care? <a class="link-underline text-gold-300" href={pathFor(sib)}>See {svc.title} at {sib.name}</a>.
+          </p>
+        )}
+        <div class="mt-9 flex flex-wrap gap-3" data-reveal style="--d:240ms">
+          <a href="#contact" class="btn btn-gold">Request an appointment</a>
+          {location ? <a href={`tel:${phone.tel}`} class="btn btn-outline-light"><Icon name="phone" size={18} /> {phone.phone}</a> : <a href="#locations" class="btn btn-outline-light">Find your clinic</a>}
+        </div>
+      </div>
+      <div class="lg:col-span-6" data-reveal style="--d:200ms">
+        <div class="relative">
+          <div class="absolute -right-3 -bottom-3 h-full w-full rounded-2xl border border-gold-400/60"></div>
+          <img src={fm.images.hero} alt={`${svc.heroAlt}${location ? ` at Living Water Clinic in ${location.city}` : ''}`} width="2000" height="1311" class="relative aspect-[4/3] w-full rounded-2xl object-cover" fetchpriority="high" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Intro -->
+  <section class="section bg-cream-50">
+    <div class="container-x grid gap-12 lg:grid-cols-12">
+      <div class="lg:col-span-6">
+        <p class="eyebrow" data-reveal>Overview</p>
+        <h2 class="h-section mt-5 text-navy-900" data-reveal style="--d:80ms">Understanding {lower}{where} <em>and your options.</em></h2>
+      </div>
+      <div class="lg:col-span-6">
+        {fm.intro.map((t, i) => <p class="text-lg leading-relaxed text-mist mt-0 mb-5" data-reveal style={`--d:${i * 80}ms`}>{f(t)}</p>)}
+        {location && <p class="text-lg leading-relaxed text-mist" data-reveal>Visit our {location.city} clinic for {lower} at <strong class="text-navy-900">{location.address}, {location.cityLine}</strong>.</p>}
+        <div class="mt-8 flex flex-wrap gap-3" data-reveal>
+          <a href="#contact" class="btn btn-navy">Request an appointment</a>
+          {location ? <a href={`tel:${phone.tel}`} class="btn btn-outline">Call {phone.phone}</a> : <a href="#locations" class="btn btn-outline">Find your clinic</a>}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What we help with / When to visit -->
+  <section class="section bg-cream-100">
+    <div class="container-x grid gap-16 lg:grid-cols-2">
+      <div>
+        <p class="eyebrow" data-reveal>What we help with</p>
+        <h2 class="h-section mt-5 text-navy-900" data-reveal style="--d:80ms">How we help {location ? `${location.city} families` : 'families'} <em>with {lower}.</em></h2>
+        <ol class="mt-10 divide-y divide-navy-900/10 border-t border-navy-900/10">
+          {fm.help.map(([h, t], i) => (
+            <li class="flex gap-6 py-6" data-reveal style={`--d:${i * 70}ms`}>
+              <span class="font-serif text-2xl text-gold-700">{String(i + 1).padStart(2, '0')}</span>
+              <div><h3 class="font-serif text-xl text-navy-900">{f(h)}</h3><p class="mt-2 text-mist">{f(t)}</p></div>
+            </li>
+          ))}
+        </ol>
+      </div>
+      <div>
+        <p class="eyebrow" data-reveal>When to visit</p>
+        <h2 class="h-section mt-5 text-navy-900" data-reveal style="--d:80ms">Good reasons <em>to book a visit{location ? ` in ${location.city}` : ''}.</em></h2>
+        <ol class="mt-10 divide-y divide-navy-900/10 border-t border-navy-900/10">
+          {fm.when.map(([h, t], i) => (
+            <li class="flex gap-6 py-6" data-reveal style={`--d:${i * 70}ms`}>
+              <span class="font-serif text-2xl text-gold-700">{String(i + 1).padStart(2, '0')}</span>
+              <div><h3 class="font-serif text-xl text-navy-900">{f(h)}</h3><p class="mt-2 text-mist">{f(t)}</p></div>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- Photo trio -->
+  <section class="bg-cream-50 pb-4 pt-20">
+    <div class="container-x grid gap-5 md:grid-cols-3">
+      {[0, 1, 2].map((k) => [svc.images.trio[k], svc.alts[k] + (location ? ` at Living Water Clinic in ${location.city}` : ''), svc.labels[k]]).map(([src, alt, label], i) => (
+        <figure class="group relative overflow-hidden rounded-2xl" data-reveal style={`--d:${i * 90}ms`}>
+          <img src={src} alt={alt} loading="lazy" width="1600" height="1067" class="aspect-[4/5] w-full object-cover transition duration-700 group-hover:scale-105" />
+          <div class="absolute inset-0 bg-gradient-to-t from-navy-950/80 via-navy-950/10 to-transparent"></div>
+          <figcaption class="absolute bottom-5 left-5 font-serif text-2xl text-white">{label}</figcaption>
+        </figure>
+      ))}
+    </div>
+  </section>
+
+  <!-- Steps -->
+  <section class="section bg-cream-50">
+    <div class="container-x">
+      <p class="eyebrow" data-reveal>How it works</p>
+      <h2 class="h-section mt-5 max-w-2xl text-navy-900" data-reveal style="--d:80ms">{location ? `Your visit in ${location.city},` : 'Simple, caring,'} <em>{location ? 'simple and never rushed.' : 'and never rushed.'}</em></h2>
+      <div class="mt-12 grid gap-6 md:grid-cols-2">
+        {fm.steps.map(([h, t], i) => (
+          <div class="rounded-2xl bg-navy-900 p-8 text-cream-50 md:p-10" data-reveal style={`--d:${i * 100}ms`}>
+            <p class="text-sm font-semibold tracking-widest text-gold-400 uppercase">{h}</p>
+            <p class="mt-4 text-lg leading-relaxed text-cream-200">{f(t)}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Do not wait -->
+  <section class="on-dark bg-navy-950 py-20">
+    <div class="container-x flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
+      <div>
+        <h2 class="h-section" data-reveal>Do not <em>wait it out.</em></h2>
+        <p class="mt-4 max-w-xl text-lg text-cream-200" data-reveal style="--d:80ms">Small health problems are easier to treat early. If something feels wrong, {location ? `call our ${location.city} clinic` : 'call us'}. In an emergency, dial 911.</p>
+      </div>
+      {location ? <a href={`tel:${phone.tel}`} class="btn btn-gold shrink-0" data-reveal><Icon name="phone" size={18} /> Call {phone.phone}</a> : <a href="#locations" class="btn btn-gold shrink-0" data-reveal>Find your clinic</a>}
+    </div>
+  </section>
+
+  <!-- Related -->
+  <section class="section bg-cream-100">
+    <div class="container-x">
+      <p class="eyebrow" data-reveal>Related care</p>
+      <h2 class="h-section mt-5 text-navy-900" data-reveal style="--d:80ms">More ways <em>we can help{location ? ` in ${location.city}` : ''}.</em></h2>
+      <ul class="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        {related.map(([label, href], i) => (
+          <li data-reveal style={`--d:${i * 50}ms`}><a href={href} class="group flex items-center justify-between rounded-xl border border-navy-900/10 bg-white px-6 py-5 text-navy-900 transition hover:border-gold-500 hover:shadow-md"><span class="font-serif text-lg">{label}</span><span class="text-gold-700 transition group-hover:translate-x-1"><Icon name="arrow" size={18} /></span></a></li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section bg-cream-50">
+    <div class="container-x grid gap-12 lg:grid-cols-12">
+      <div class="lg:col-span-4">
+        <p class="eyebrow" data-reveal>FAQ</p>
+        <h2 class="h-section mt-5 text-navy-900" data-reveal style="--d:80ms">{location ? `${location.city} patients` : 'Patients'} <em>ask us often.</em></h2>
+      </div>
+      <div class="lg:col-span-8 divide-y divide-navy-900/10 border-y border-navy-900/10">
+        {fm.faq.map(([q, a]) => (
+          <details class="group py-5" data-reveal>
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-6 font-serif text-xl text-navy-900">
+              {f(q)}<span class="text-2xl text-gold-700 transition group-open:rotate-45">+</span>
+            </summary>
+            <p class="mt-3 max-w-2xl text-mist">{f(a)}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Where we offer it -->
+  <section id="locations" class="on-dark bg-navy-950 section">
+    <div class="container-x">
+      <p class="eyebrow" data-reveal>Where we offer it</p>
+      <h2 class="h-section mt-5 max-w-3xl" data-reveal style="--d:80ms">
+        {location ? <>Also available at <em>6 more clinics.</em></> : <>{svc.title} care at <em>7 clinics.</em></>}
+      </h2>
+      {location && (
+        <div class="mt-10 grid gap-6 overflow-hidden rounded-2xl border border-white/10 bg-white/5 lg:grid-cols-2" data-reveal>
+          <div class="p-8 md:p-10">
+            <p class="text-sm tracking-widest text-gold-400 uppercase">You are viewing</p>
+            <h3 class="mt-3 font-serif text-3xl">{location.name}</h3>
+            <p class="mt-4 text-cream-200">{location.address}<br />{location.cityLine}</p>
+            <div class="mt-7 flex flex-wrap gap-3">
+              <a href={`tel:${location.tel}`} class="btn btn-gold"><Icon name="phone" size={18} /> {location.phone}</a>
+              <a href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(location.address + ', ' + location.cityLine)}`} target="_blank" rel="noopener" class="btn btn-outline-light">Get directions</a>
+            </div>
+          </div>
+          <iframe title={`Map of ${location.name}`} src={mapSrc} loading="lazy" class="h-72 w-full border-0 lg:h-full" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      )}
+      <ul class="mt-12 grid gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-3">
+        {sorted.map((x) => (
+          <li class="bg-navy-950">
+            <a href={pathFor(x)} class="group flex h-full items-center justify-between gap-4 p-7 transition hover:bg-navy-900">
+              <div>
+                <p class="text-xs tracking-widest text-gold-400 uppercase">{x.city} · {x.type}</p>
+                <p class="mt-2 font-serif text-xl">{x.name}</p>
+                <p class="mt-1 text-sm text-cream-200/80">{x.address}, {x.cityLine}</p>
+              </div>
+              <span class="text-gold-400 transition group-hover:translate-x-1"><Icon name="arrow" size={20} /></span>
+            </a>
+          </li>
+        ))}
+      </ul>
+      {location && <p class="mt-8" data-reveal><a href={pathFor()} class="link-underline text-gold-300">View the main {svc.title} page</a></p>}
+    </div>
+  </section>
+
+  <!-- Closing CTA -->
+  <section id="contact" class="section bg-cream-100 text-center">
+    <div class="container-x">
+      <h2 class="h-section mx-auto max-w-3xl text-navy-900" data-reveal>Get {lower}{where}, <em>starting today.</em></h2>
+      <p class="mx-auto mt-5 max-w-xl text-lg text-mist" data-reveal style="--d:80ms">{location ? "Call us or send a message." : "Pick your nearest clinic below, or send a message."} A team member will help you book your visit.</p>
+      <div class="mt-9 flex flex-wrap justify-center gap-3" data-reveal style="--d:140ms">
+        <a href="/#contact" class="btn btn-navy">Request an appointment</a>
+        {location ? <a href={`tel:${phone.tel}`} class="btn btn-outline">Call {phone.phone}</a> : <a href="#locations" class="btn btn-outline">Find your clinic</a>}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/ui/PageHero.astro';
+import { management } from '../../data/about';
+const initials = (n: string) => n.replace(/^Dr\.\s*/, '').split(' ').map((w) => w[0]).slice(0, 2).join('');
+---
+<BaseLayout title="Management | Living Water Clinic" description="Meet the leadership team of Living Water Clinic – Clínica Agua Viva, from our founder and CEO to our clinic, medical, dental and quality managers." solidHeader>
+  <PageHero crumbs={[['Home', '/'], ['About', '/about'], ['Management']]} eyebrow="About us" title="The people <em>behind the care.</em>" text="Our leaders work every day to keep our clinics welcoming, safe and focused on patients." />
+  <section class="section bg-cream-50">
+    <div class="container-x">
+      <ul class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8" style="gap:2rem 1.5rem">
+        {management.map((m, i) => (
+          <li class="rounded-2xl border border-navy-900/10 bg-white p-3 pb-5 shadow-sm transition hover:border-gold-500 hover:shadow-md" data-reveal style={`--d:${(i % 4) * 70}ms`}>
+            <div class="overflow-hidden rounded-2xl bg-cream-200">
+              {m.photo ? (
+                <img src={`/images/management/${m.photo}.webp`} alt={`${m.name}, ${m.role}`} loading="lazy" width="600" height="750" class="aspect-[4/5] w-full object-cover object-top transition duration-700 hover:scale-105" />
+              ) : (
+                <div class="grid aspect-[4/5] w-full place-items-center bg-navy-900 font-serif text-5xl text-gold-400" role="img" aria-label={`${m.name}, ${m.role}`}>{initials(m.name)}</div>
+              )}
+            </div>
+            <h2 class="mt-4 px-1 font-serif text-xl text-navy-900">{m.name}</h2>
+            <p class="mt-1 px-1 text-mist">{m.role}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+</BaseLayout>

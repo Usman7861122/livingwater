@@ -1,0 +1,32 @@
+---
+import { dentalServices } from '../../data/site';
+import Icon from '../ui/Icon.astro';
+---
+
+<section id="dental" class="section bg-cream-50">
+  <div class="container-x grid items-center gap-16 lg:grid-cols-12">
+    <div class="lg:col-span-6 lg:order-2" data-reveal>
+      <div class="group relative aspect-square w-full overflow-hidden rounded-2xl">
+        <img src="/images/dental.jpg" alt="A friendly dentist with a smiling child patient" width="1600" height="1067" loading="lazy" class="h-full w-full object-cover transition-transform duration-[1400ms] ease-[var(--ease-lux)] group-hover:scale-105" />
+      </div>
+    </div>
+    <div class="lg:col-span-6 lg:order-1 lg:pr-8">
+      <p class="eyebrow" data-reveal data-i18n="dental.eyebrow">Dental</p>
+      <h2 class="h-section mt-5 text-navy-900" data-reveal style="--d:80ms" data-i18n="dental.title">Complete dental services <em>for all ages</em></h2>
+      <p class="mt-6 text-lg leading-relaxed text-mist" data-reveal style="--d:160ms" data-i18n="dental.text">From a child’s first visit to routine cleanings for adults, our dental team keeps every smile healthy in a calm, friendly setting.</p>
+      <ul class="mt-8 grid gap-3 sm:grid-cols-2">
+        {dentalServices.map((s, i) => (
+          <li class="flex items-center gap-3" data-reveal style={`--d:${200 + i * 60}ms`}>
+            <span class="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-gold-500/15 text-gold-700"><Icon name="check" size={16} /></span>
+            <span class="text-ink" data-es={s.es}>{s.en}</span>
+          </li>
+        ))}
+      </ul>
+      <div class="mt-10 flex flex-wrap gap-4" data-reveal style="--d:300ms">
+        <a href="/dental" class="btn btn-navy"><span data-i18n="dental.cta">Explore dental care</span><Icon name="arrow" size={18} /></a>
+        <a href="/contact/lindsay-dental" class="btn btn-outline">Lindsay Dental</a>
+        <a href="/contact/visalia-dental" class="btn btn-outline">Visalia Dental</a>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,25 @@
+---
+import { insurance } from '../../data/site';
+---
+
+<section id="insurance" class="section bg-cream-100">
+  <div class="container-x">
+    <div class="mx-auto max-w-2xl text-center">
+      <p class="eyebrow justify-center" data-reveal data-i18n="ins.eyebrow">Insurance</p>
+      <h2 class="h-section mt-5 text-navy-900" data-reveal style="--d:80ms" data-i18n="ins.title">Accepted <em>insurance plans</em></h2>
+      <p class="mt-5 text-lg text-mist" data-reveal style="--d:160ms" data-i18n="ins.text">We work with many insurance plans. If you don’t see yours, please call your nearest clinic and we’ll confirm it for you.</p>
+    </div>
+
+    <ul class="mx-auto mt-14 flex max-w-5xl flex-wrap justify-center gap-4">
+      {insurance.map((p, i) => (
+        <li class="w-[calc(50%-0.5rem)] sm:w-[calc(33.333%-0.75rem)] md:w-[calc(25%-0.75rem)] lg:w-[calc(20%-0.8rem)]" data-reveal style={`--d:${(i % 5) * 60}ms`}>
+          <div class="group grid aspect-[3/2] place-items-center rounded-2xl border border-navy-900/10 bg-white p-5 transition-all duration-500 hover:-translate-y-1.5 hover:border-gold-500 hover:shadow-xl">
+            <img src={`/images/insurance/${p.file}.webp`} alt={p.name} width="420" height="200" loading="lazy" class="max-h-16 w-auto max-w-full object-contain opacity-80 grayscale transition-all duration-500 group-hover:opacity-100 group-hover:grayscale-0" />
+          </div>
+        </li>
+      ))}
+    </ul>
+    <p class="mx-auto mt-10 max-w-2xl text-center text-mist" data-reveal data-i18n="ins.cash">We also welcome self-pay patients. Charges vary by diagnosis and the time spent with your provider.</p>
+    <div class="mt-8 text-center" data-reveal><a href="/resources/insurances" class="btn btn-outline" data-i18n="ins.cta">See insurance details</a></div>
+  </div>
+</section>

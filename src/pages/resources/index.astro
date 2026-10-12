@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/ui/PageHero.astro';
+const cards = [
+  ['Insurances', 'See the plans we accept, and how self-pay works.', '/resources/insurances'],
+  ['Pricing', 'Learn about our sliding fee program and self-pay options.', '/resources/pricing'],
+  ['FAQ', 'Quick answers to common questions.', '/resources/faq'],
+  ['Testimonials', 'Read what patients say about their care.', '/resources/testimonials'],
+];
+---
+<BaseLayout title="Patient Resources | Living Water Clinic" description="Insurance, pricing, frequently asked questions and patient reviews for Living Water Clinic in Tulare County, CA." solidHeader>
+  <PageHero crumbs={[['Home', '/'], ['Resources']]} eyebrow="Resources" title="Care within <em>your reach.</em>" text="Insurance, prices and answers to your questions, all in one place." />
+  <section class="section bg-cream-50"><div class="container-x">
+    <ul class="grid gap-5 md:grid-cols-2">
+      {cards.map(([t, d, h], i) => (
+        <li data-reveal style={`--d:${i * 70}ms`}><a href={h} class="group block h-full rounded-2xl border border-navy-900/10 bg-white p-8 transition hover:border-gold-500 hover:shadow-lg">
+          <h2 class="font-serif text-3xl text-navy-900">{t}</h2><p class="mt-3 text-mist">{d}</p>
+          <span class="mt-6 inline-block text-sm font-semibold text-gold-700">Open →</span></a></li>
+      ))}
+    </ul>
+  </div></section>
+</BaseLayout>

@@ -1,0 +1,41 @@
+---
+import Icon from '../ui/Icon.astro';
+---
+
+<section id="mission" class="section bg-cream-50">
+  <div class="container-x grid items-center gap-16 lg:grid-cols-12">
+    <div class="lg:col-span-7 lg:pr-10">
+      <p class="eyebrow" data-reveal data-i18n="mission.eyebrow">Our Mission</p>
+      <blockquote class="mt-6" data-reveal style="--d:80ms">
+        <p class="font-serif text-[clamp(1.9rem,3.6vw,3.1rem)] leading-[1.2] text-navy-900" data-i18n="mission.quote">
+          “Compassionate healthcare for the <em class="text-gold-700">body, mind and spirit.</em>”
+        </p>
+      </blockquote>
+      <p class="mt-8 max-w-2xl text-lg leading-relaxed text-mist" data-reveal style="--d:160ms" data-i18n="mission.text">
+        We deliver high-quality, evidence-based care with strong customer service, grounded in treating others the way we would want to be treated, and in fostering love, hope and faith.
+      </p>
+      <ul class="mt-10 grid gap-5 sm:grid-cols-3">
+        {[
+          { en: 'Love', es: 'Amor', t: { en: 'Every patient is welcomed with warmth.', es: 'Cada paciente es recibido con calidez.' } },
+          { en: 'Hope', es: 'Esperanza', t: { en: 'Care that looks ahead with you.', es: 'Cuidado que mira hacia adelante con usted.' } },
+          { en: 'Faith', es: 'Fe', t: { en: 'Service rooted in our values.', es: 'Servicio basado en nuestros valores.' } },
+        ].map((v, i) => (
+          <li class="group rounded-2xl border border-navy-900/10 p-6 transition-all duration-500 hover:-translate-y-1.5 hover:border-gold-500 hover:bg-cream-100 hover:shadow-xl" data-reveal style={`--d:${200 + i * 90}ms`}>
+            <Icon name="heart" size={22} class="text-gold-700 transition-transform duration-500 group-hover:scale-125" />
+            <h3 class="mt-4 text-2xl text-navy-900" data-es={v.es}>{v.en}</h3>
+            <p class="mt-1 text-sm text-mist" data-es={v.t.es}>{v.t.en}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+    <div class="lg:col-span-5" data-reveal style="--d:120ms">
+      <div class="group relative overflow-hidden rounded-2xl">
+        <img src="/images/mission.jpg" alt="A doctor reviewing a care plan with a patient" width="1600" height="1067" loading="lazy" class="aspect-square w-full object-cover transition-transform duration-[1400ms] ease-[var(--ease-lux)] group-hover:scale-105" />
+        <div class="absolute inset-x-4 bottom-4 rounded-2xl bg-cream-50/95 p-6 backdrop-blur">
+          <p class="eyebrow" data-i18n="mission.vision.label">Our Vision</p>
+          <p class="mt-2 font-serif text-lg leading-snug text-navy-900" data-i18n="mission.vision">To be a leading community provider for customer service and quality care.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

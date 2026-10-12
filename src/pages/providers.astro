@@ -1,0 +1,79 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/ui/PageHero.astro';
+import { providers, catLabels, type Cat } from '../data/providers';
+const cats = Object.keys(catLabels) as Cat[];
+const count = (c: Cat) => providers.filter((p) => p.cat === c).length;
+---
+<BaseLayout title="Our Providers | Living Water Clinic" description="Meet the 37 doctors, physician assistants, nurse practitioners, dentists and specialists of Living Water Clinic in Tulare County, California." solidHeader>
+  <PageHero crumbs={[['Home', '/'], ['Providers']]} eyebrow="Our providers" title="Meet the people <em>who care for you.</em>" text={`${providers.length} doctors, nurse practitioners, physician assistants, dentists and specialists, ready to care for your whole family.`}>
+    <a href="/#contact" class="btn btn-gold">Request an appointment</a>
+    <a href="/contact" class="btn btn-outline-light">Find a clinic</a>
+  </PageHero>
+
+  <section class="section bg-cream-50">
+    <div class="container-x">
+      <div class="flex flex-wrap items-center gap-3" role="group" aria-label="Filter providers by specialty" data-reveal>
+        <button type="button" data-filter="all" aria-pressed="true" class="filter-chip">All <span class="opacity-70">({providers.length})</span></button>
+        {cats.map((c) => <button type="button" data-filter={c} aria-pressed="false" class="filter-chip">{catLabels[c]} <span class="opacity-70">({count(c)})</span></button>)}
+      </div>
+      <p class="mt-6 text-mist" aria-live="polite"><span id="prov-count">{providers.length}</span> providers shown</p>
+
+      <ul id="prov-grid" class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4" style="gap:2rem 1.5rem">
+        {providers.map((p, i) => (
+          <li data-cat={p.cat} class="rounded-2xl border border-navy-900/10 bg-white p-3 pb-5 shadow-sm transition hover:border-gold-500 hover:shadow-md" data-reveal style={`--d:${(i % 4) * 60}ms`}>
+            <div class="overflow-hidden rounded-xl bg-cream-200">
+              <img src={`/images/doctors/${p.slug}.webp`} alt={`${p.name}, ${p.creds}`} loading="lazy" width="500" height="600" class="aspect-[4/5] w-full object-cover object-top transition duration-700 hover:scale-105" />
+            </div>
+            <h2 class="mt-4 px-1 font-serif text-xl leading-snug text-navy-900">{p.name}<span class="block text-base text-mist">{p.creds}</span></h2>
+            <p class="mt-2 px-1 text-sm font-semibold tracking-wide text-gold-700 uppercase">{p.role}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section bg-cream-100 text-center">
+    <div class="container-x">
+      <h2 class="h-section mx-auto max-w-3xl text-navy-900" data-reveal>Not sure who to see? <em>We will help.</em></h2>
+      <p class="mx-auto mt-5 max-w-xl text-lg text-mist" data-reveal style="--d:80ms">Call your nearest clinic and our team will match you with the right provider.</p>
+      <div class="mt-9 flex flex-wrap justify-center gap-3" data-reveal style="--d:140ms">
+        <a href="/#contact" class="btn btn-navy">Request an appointment</a>
+        <a href="/contact" class="btn btn-outline">See our locations</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style is:global>
+  .filter-chip { min-height: 2.75rem; padding: 0 1.25rem; border-radius: 9999px; border: 1px solid rgba(15,35,71,.2); background: #fff; color: var(--color-navy-900); font-weight: 500; cursor: pointer; transition: background .25s, color .25s, border-color .25s; }
+  .filter-chip:hover { border-color: var(--color-gold-500); }
+  .filter-chip[aria-pressed="true"] { background: var(--color-navy-900); color: #fff; border-color: var(--color-navy-900); }
+  .filter-chip:focus-visible { outline: 2px solid var(--color-gold-500); outline-offset: 2px; }
+</style>
+
+<script>
+  const chips = document.querySelectorAll<HTMLButtonElement>('.filter-chip');
+  const items = document.querySelectorAll<HTMLElement>('#prov-grid > li');
+  const out = document.getElementById('prov-count');
+  function apply(chip: HTMLButtonElement) {
+      const f = chip.dataset.filter!;
+      chips.forEach((c) => c.setAttribute('aria-pressed', String(c === chip)));
+      let n = 0;
+      items.forEach((li) => {
+        const show = f === 'all' || li.dataset.cat === f;
+        li.hidden = !show;
+        li.classList.add('is-in');
+        if (show) n++;
+      });
+      if (out) out.textContent = String(n);
+  }
+  chips.forEach((chip) => chip.addEventListener('click', () => apply(chip)));
+  const fromHash = () => {
+    const h = location.hash.slice(1);
+    const c = [...chips].find((x) => x.dataset.filter === h);
+    if (c) apply(c);
+  };
+  fromHash();
+  window.addEventListener('hashchange', fromHash);
+</script>

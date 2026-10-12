@@ -1,0 +1,96 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Icon from '../../components/ui/Icon.astro';
+import { bySlug, svcPath, categories } from '../../data/servicePages';
+import { locations } from '../../data/site';
+
+const sorted = [...locations].sort((a, b) => a.city.localeCompare(b.city) || a.name.localeCompare(b.name));
+const total = categories.reduce((n, c) => n + c.items.length, 0);
+---
+
+<BaseLayout title="Our Services | Living Water Clinic" description="Family medicine, pediatrics, chronic care and specialty services at 7 Living Water Clinic locations across Tulare County, California.">
+  <section class="on-dark relative overflow-hidden bg-navy-950 pt-36 pb-20 lg:pt-44">
+    <div class="container-x grid items-end gap-12 lg:grid-cols-12">
+      <div class="lg:col-span-7">
+        <nav aria-label="Breadcrumb" class="text-sm text-cream-200/80" data-reveal><a href="/" class="link-underline">Home</a> <span class="mx-2">/</span> <span class="text-gold-400">Services</span></nav>
+        <p class="eyebrow mt-8" data-reveal style="--d:60ms">What we offer</p>
+        <h1 class="h-display mt-5" data-reveal style="--d:120ms">Care for the whole person, <em>all in one place.</em></h1>
+        <p class="mt-6 max-w-xl text-lg leading-relaxed text-cream-200" data-reveal style="--d:180ms">{total} services across primary care, chronic care and specialties, available at 7 clinics in Tulare County.</p>
+        <div class="mt-9 flex flex-wrap gap-3" data-reveal style="--d:240ms">
+          {categories.map((c) => <a href={`#${c.id}`} class="btn btn-outline-light">{c.eyebrow}</a>)}
+        </div>
+      </div>
+      <figure class="hidden lg:col-span-5 lg:block" data-reveal style="--d:200ms">
+        <div class="relative">
+          <div class="absolute -right-3 -bottom-3 h-full w-full rounded-2xl border border-gold-400/60"></div>
+          <img src="/images/services/family-medicine/hero.jpg" alt="Family doctor talking with a mother and her young daughter" width="2000" height="1311" class="relative aspect-[4/3] w-full rounded-2xl object-cover" fetchpriority="high" />
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  {categories.map((c, ci) => (
+    <section id={c.id} class={`section ${ci % 2 === 0 ? 'bg-cream-50' : 'bg-cream-100'}`}>
+      <div class="container-x">
+        <div class="grid gap-6 lg:grid-cols-12 lg:items-end">
+          <div class="lg:col-span-7">
+            <p class="eyebrow" data-reveal>{c.eyebrow}</p>
+            <h2 class="h-section mt-5 text-navy-900" data-reveal style="--d:80ms">{c.title} <em>{c.em}</em></h2>
+          </div>
+          <p class="text-lg leading-relaxed text-mist lg:col-span-5" data-reveal style="--d:120ms">{c.text}</p>
+        </div>
+        <ul class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {c.items.map((slug, i) => {
+            const s = bySlug[slug];
+            return (
+              <li data-reveal style={`--d:${i * 80}ms`}>
+                <a href={svcPath(s)} class="group relative flex h-[26rem] flex-col justify-end overflow-hidden rounded-2xl bg-navy-900 text-white">
+                  <img src={s.images.hero} alt={s.heroAlt} loading="lazy" width="1600" height="1067" class="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-105" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-navy-950/90 via-navy-950/35 to-transparent"></div>
+                  <div class="relative p-6">
+                    <h3 class="font-serif text-2xl leading-tight">{s.title}</h3>
+                    <p class="mt-3 line-clamp-3 text-sm leading-relaxed text-cream-100/90">{s.summary}</p>
+                    <span class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-gold-300">Learn more <span class="transition group-hover:translate-x-1"><Icon name="arrow" size={16} /></span></span>
+                  </div>
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    </section>
+  ))}
+
+  <section class="on-dark bg-navy-950 section">
+    <div class="container-x">
+      <p class="eyebrow" data-reveal>Find your clinic</p>
+      <h2 class="h-section mt-5 max-w-3xl" data-reveal style="--d:80ms">Every service, <em>7 clinics near you.</em></h2>
+      <p class="mt-5 max-w-2xl text-lg text-cream-200" data-reveal style="--d:120ms">Choose a service above, then pick your city on its page to see the local clinic, phone number and directions.</p>
+      <ul class="mt-10 grid gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-4">
+        {sorted.map((x) => (
+          <li class="bg-navy-950">
+            <a href={`/contact/${x.id}`} class="group flex h-full items-center justify-between gap-4 p-6 transition hover:bg-navy-900">
+              <div>
+                <p class="text-xs tracking-widest text-gold-400 uppercase">{x.city} · {x.type}</p>
+                <p class="mt-2 font-serif text-xl">{x.name}</p>
+                <p class="mt-1 text-sm text-cream-200/80">{x.phone}</p>
+              </div>
+              <span class="text-gold-400 transition group-hover:translate-x-1"><Icon name="arrow" size={18} /></span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section bg-cream-100 text-center">
+    <div class="container-x">
+      <h2 class="h-section mx-auto max-w-3xl text-navy-900" data-reveal>Not sure where to start? <em>We will help.</em></h2>
+      <p class="mx-auto mt-5 max-w-xl text-lg text-mist" data-reveal style="--d:80ms">Call your nearest clinic or send a message. A team member will help you choose the right care.</p>
+      <div class="mt-9 flex flex-wrap justify-center gap-3" data-reveal style="--d:140ms">
+        <a href="/#contact" class="btn btn-navy">Request an appointment</a>
+        <a href="/#locations" class="btn btn-outline">See all locations</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

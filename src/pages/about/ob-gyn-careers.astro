@@ -1,0 +1,204 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/ui/PageHero.astro';
+import Icon from '../../components/ui/Icon.astro';
+
+const apply = 'mailto:mireyaguzman@livingwaterclinic.com?subject=OB%2FGYN%20Opportunity%20Application';
+const ask = 'mailto:mireyaguzman@livingwaterclinic.com?subject=Confidential%20OB%2FGYN%20Opportunity%20Inquiry';
+const foundation: [string, string][] = [
+  ['A foundation to build on', 'An established women’s health patient panel'],
+  ['Room to shape your role', 'Full-scope and outpatient-focused opportunities'],
+  ['A shared purpose', '“God’s Love through Healthcare”'],
+];
+const structure: [string, string][] = [
+  ['Thoughtful call coverage', 'Call duties will reflect team size at the time of hire and may include working with community OB/GYN groups. Our goal is sustainable coverage with meaningful recovery time.'],
+  ['Team-based care', 'Work with certified nurse-midwives and with primary care, behavioral health, dental and pharmacy teams. Physician assistant integration is planned. Resident participation depends on the future residency program.'],
+  ['Scheduling flexibility', 'A four- to five-day workweek is negotiable. Part-time and hybrid plans will be considered for experienced physicians. Post-call recovery will be part of the coverage model.'],
+  ['Hospital-based opportunities', 'Hospital relationships include Sierra View Medical Center in Porterville and Kaweah Health Medical Center in Visalia. Labor and delivery and surgical duties depend on the agreed role and individual privileges.'],
+];
+const scope: [string, string][] = [
+  ['Full-scope OB/GYN care', 'Prenatal care, well-woman care, gynecologic evaluations, minor procedures, deliveries, hospital-based services and a share of call coverage as part of the OB/GYN team.'],
+  ['Outpatient-focused care', 'Prenatal care, well-woman care, gynecologic evaluations and minor procedures, with hospital-based services shared or referred.'],
+  ['Focused clinical interests', 'Explore how maternal-fetal medicine, minimally invasive gynecologic surgery, colposcopy, urogynecology or related interests could fit your role, qualifications and resources.'],
+];
+const quals = [
+  'Board certification in obstetrics and gynecology, or board eligibility with a clear path to certification.',
+  'An active California medical license or eligibility for California licensure.',
+  'DEA registration.',
+  'An interest in serving underserved, rural and bilingual patient populations.',
+  'Alignment with our Christian faith-based mission and a commitment to compassionate, team-based care.',
+  'Openness to teaching and mentorship as the planned residency develops.',
+];
+const extra: [string, string][] = [
+  ['Loan repayment and service programs', 'Ask our recruitment team about possible loan repayment and service-based programs for your role and practice site. HPSA designation alone does not establish eligibility. Participation depends on current program rules, site approval, employer eligibility, funding and your qualifications. Please confirm specific programs and award amounts before relying on them in a pay decision.'],
+  ['Visa sponsorship', 'Living Water Clinic is willing to explore sponsorship for qualifying international physicians, including possible J-1 visa waiver placements through California’s Conrad 30 program. Availability depends on program requirements and approval.'],
+  ['Teaching and leadership', 'Help shape a growing women’s health department and talk about possible leadership roles. Future teaching is tied to a planned family medicine residency, targeting a first class in fall 2027, subject to accreditation and program readiness.'],
+];
+---
+<BaseLayout title="OB/GYN Careers in California’s Central Valley | Living Water Clinic" description="OB/GYN physician opportunities at Living Water Clinic in Lindsay, Woodlake, Selma and Porterville, California. Build a women’s health practice with a faith-based team." solidHeader>
+  <PageHero crumbs={[['Home', '/'], ['About', '/about'], ['OB/GYN Careers']]} eyebrow="OB/GYN careers · Central Valley, California" title="Build a practice. <em>Shape a department.</em> Make a difference." text="Help build the future of women’s health at Living Water Clinic, a growing, faith-based healthcare organization serving California’s Central Valley.">
+    <a href={apply} class="btn btn-gold">Apply by email</a>
+    <a href={ask} class="btn btn-outline-light">Ask a confidential question</a>
+    <p class="w-full text-sm text-cream-200/80">Just exploring? No CV or cover letter is needed to start a conversation.</p>
+  </PageHero>
+
+  <section class="section bg-cream-50">
+    <div class="container-x grid gap-10 lg:grid-cols-12">
+      <div class="rounded-2xl bg-navy-900 p-10 text-cream-50 lg:col-span-5" data-reveal>
+        <p class="text-xs font-semibold tracking-widest text-gold-400 uppercase">Your next chapter</p>
+        <p class="mt-5 font-serif text-5xl text-white">$500,000</p>
+        <p class="mt-1 font-serif text-2xl text-gold-300">to $650,000+</p>
+        <p class="mt-3 text-cream-200">Annual base compensation</p>
+        <p class="mt-8 text-sm text-cream-200/80">Pay depends on experience, credentials, clinical scope, hospital duties and call participation.</p>
+      </div>
+      <ul class="grid gap-4 lg:col-span-7">
+        {foundation.map(([h, t], i) => (
+          <li class="rounded-2xl border border-navy-900/10 bg-white p-7" data-reveal style={`--d:${i * 70}ms`}><p class="text-xs font-semibold tracking-widest text-gold-700 uppercase">{h}</p><p class="mt-2 font-serif text-xl text-navy-900">{t}</p></li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section bg-cream-100">
+    <div class="container-x grid gap-12 lg:grid-cols-12">
+      <div class="lg:col-span-5">
+        <p class="eyebrow" data-reveal>The opportunity</p>
+        <h2 class="h-section mt-5 text-navy-900" data-reveal style="--d:80ms">An established foundation. <em>A department you can help shape.</em></h2>
+      </div>
+      <div class="space-y-5 text-lg leading-relaxed text-mist lg:col-span-7">
+        <p data-reveal>Living Water Clinic is expanding its women’s health team and can welcome two to four full-time OB/GYN physicians over the next 18 to 24 months. Our vision includes certified nurse-midwife support and future physician assistant integration.</p>
+        <p data-reveal>The immediate opportunity includes succeeding our current OB/GYN, who is moving to a reduced schedule. An incoming physician can build on their experience while forming strong ties in local communities, supported by existing hospital relationships and a working clinical flow. Hospital privileges are subject to individual credentialing and approval.</p>
+        <p data-reveal>Our Rural Health Clinics serve historically underserved agricultural communities, while our private and PPO-participating clinics offer a broader mix of payers.</p>
+        <p data-reveal>For physicians who like to teach, our vision includes a family medicine residency with women’s health as a core rotation. The first class is targeted for fall 2027, subject to accreditation and program readiness.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-cream-50">
+    <div class="container-x grid gap-12 lg:grid-cols-12">
+      <div class="lg:col-span-5">
+        <p class="eyebrow" data-reveal>Compensation and benefits</p>
+        <h2 class="h-section mt-5 text-navy-900" data-reveal style="--d:80ms">A package shaped around <em>your experience and role.</em></h2>
+      </div>
+      <div class="grid gap-5 sm:grid-cols-2 lg:col-span-7">
+        <div class="rounded-2xl border border-navy-900/10 bg-white p-8" data-reveal>
+          <h3 class="font-serif text-2xl text-navy-900">Compensation</h3>
+          <ul class="mt-4 space-y-3 text-mist">
+            <li>Base pay: $500,000 to $650,000+ a year. It may reach $700,000+ with subspecialty training, leadership interest or an established local patient panel.</li>
+            <li>W-2 employment, or possible 1099 work through a professional corporation, based on eligibility and practice fit.</li>
+            <li>Performance and productivity bonuses.</li>
+            <li>Sign-on bonus and relocation help.</li>
+            <li>Physician referral bonuses.</li>
+          </ul>
+        </div>
+        <div class="rounded-2xl border border-navy-900/10 bg-white p-8" data-reveal style="--d:80ms">
+          <h3 class="font-serif text-2xl text-navy-900">Benefits to discuss</h3>
+          <ul class="mt-4 space-y-3 text-mist">
+            <li>Malpractice coverage, with tail options open to negotiation.</li>
+            <li>CME allowance and paid time.</li>
+            <li>401(k) with an employer match.</li>
+            <li>Cash balance plan eligibility.</li>
+          </ul>
+        </div>
+        <p class="text-sm text-mist sm:col-span-2" data-reveal>The final package depends on the agreed role and type of engagement. Benefits and retirement plans are subject to plan rules and eligibility, and may differ for employees and independent contractors.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="on-dark bg-navy-950 section">
+    <div class="container-x">
+      <p class="eyebrow" data-reveal>Practice structure and support</p>
+      <h2 class="h-section mt-5 max-w-3xl" data-reveal style="--d:80ms">Build a sustainable <em>long-term practice.</em></h2>
+      <ol class="mt-12 grid gap-5 sm:grid-cols-2">
+        {structure.map(([h, t], i) => (
+          <li class="rounded-2xl border border-white/10 bg-white/5 p-8" data-reveal style={`--d:${i * 70}ms`}>
+            <span class="font-serif text-2xl text-gold-400">{String(i + 1).padStart(2, '0')}</span>
+            <h3 class="mt-3 font-serif text-2xl">{h}</h3>
+            <p class="mt-3 text-cream-200">{t}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="section bg-cream-50">
+    <div class="container-x">
+      <p class="eyebrow" data-reveal>Clinical scope</p>
+      <h2 class="h-section mt-5 max-w-3xl text-navy-900" data-reveal style="--d:80ms">Choose the direction <em>of your practice.</em></h2>
+      <ul class="mt-12 grid gap-5 md:grid-cols-3">
+        {scope.map(([h, t], i) => (
+          <li class="rounded-2xl border border-navy-900/10 bg-white p-8" data-reveal style={`--d:${i * 70}ms`}><h3 class="font-serif text-2xl text-navy-900">{h}</h3><p class="mt-3 text-mist">{t}</p></li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section bg-cream-100">
+    <div class="container-x grid gap-12 lg:grid-cols-12">
+      <div class="lg:col-span-5">
+        <p class="eyebrow" data-reveal>Location and community</p>
+        <h2 class="h-section mt-5 text-navy-900" data-reveal style="--d:80ms">Find your place <em>in the Central Valley.</em></h2>
+      </div>
+      <div class="space-y-5 text-lg leading-relaxed text-mist lg:col-span-7">
+        <p data-reveal>Practice opportunities include Lindsay, Woodlake, Selma and Porterville, with expansion planned for more California communities.</p>
+        <p data-reveal>Enjoy life near Yosemite, Sequoia National Park and the Sierra Nevada, with access to the greater Fresno area. Our communities suit physicians who value lasting patient relationships and local involvement.</p>
+        <p data-reveal>About 60% of our patients speak Spanish. Spanish fluency is highly valued, but it is not required for consideration.</p>
+        <p data-reveal>Living Water Clinic / Clínica Agua Viva is grounded in Christian faith and the mission “God’s Love through Healthcare.” We provide primary care, dental, behavioral health and women’s health services through Rural Health Clinics and private and PPO-participating clinics serving Tulare and Fresno counties.</p>
+        <a href="/contact" class="link-underline inline-block font-semibold text-navy-900" data-reveal>See our locations</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-cream-50">
+    <div class="container-x grid gap-12 lg:grid-cols-12">
+      <div class="lg:col-span-5">
+        <p class="eyebrow" data-reveal>Qualifications</p>
+        <h2 class="h-section mt-5 text-navy-900" data-reveal style="--d:80ms">What <em>you bring.</em></h2>
+      </div>
+      <ul class="space-y-4 lg:col-span-7">
+        {quals.map((q, i) => (
+          <li class="flex items-start gap-4 rounded-xl border border-navy-900/10 bg-white p-5" data-reveal style={`--d:${i * 50}ms`}>
+            <span class="mt-0.5 grid h-8 w-8 shrink-0 place-items-center rounded-full bg-navy-900 text-gold-400"><Icon name="check" size={16} /></span>
+            <span class="text-mist">{q}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section bg-cream-100">
+    <div class="container-x">
+      <p class="eyebrow" data-reveal>Additional opportunities</p>
+      <h2 class="h-section mt-5 max-w-3xl text-navy-900" data-reveal style="--d:80ms">Explore the details <em>that matter to you.</em></h2>
+      <div class="mt-12 grid gap-5 md:grid-cols-3">
+        {extra.map(([h, t], i) => (
+          <details class="group rounded-2xl border border-navy-900/10 bg-white p-8" data-reveal style={`--d:${i * 70}ms`} open>
+            <summary class="cursor-pointer list-none font-serif text-2xl text-navy-900">{h}</summary>
+            <p class="mt-3 text-mist">{t}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="on-dark bg-navy-950 section">
+    <div class="container-x grid gap-10 lg:grid-cols-12">
+      <div class="lg:col-span-5">
+        <p class="eyebrow" data-reveal>Start a conversation</p>
+        <h2 class="h-section mt-5" data-reveal style="--d:80ms">Your next chapter <em>can begin with a question.</em></h2>
+      </div>
+      <div class="grid gap-5 sm:grid-cols-2 lg:col-span-7">
+        <div class="rounded-2xl border border-white/10 bg-white/5 p-8" data-reveal>
+          <h3 class="font-serif text-2xl">Ready to apply?</h3>
+          <p class="mt-3 text-cream-200">Send your CV and a short cover letter to Mireya Guzman. Confidential inquiries are welcome.</p>
+          <a href={apply} class="btn btn-gold mt-6">Apply by email</a>
+        </div>
+        <div class="rounded-2xl border border-white/10 bg-white/5 p-8" data-reveal style="--d:80ms">
+          <h3 class="font-serif text-2xl">Still exploring?</h3>
+          <p class="mt-3 text-cream-200">Ask about pay, scheduling, clinical scope or practice options. No CV is needed to start a confidential talk.</p>
+          <a href={ask} class="btn btn-outline-light mt-6">Ask a confidential question</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

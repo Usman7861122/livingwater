@@ -1,0 +1,32 @@
+---
+import { doctors } from '../../data/site';
+import Icon from '../ui/Icon.astro';
+---
+
+<section id="doctors" class="section bg-cream-100">
+  <div class="container-x">
+    <div class="flex flex-col justify-between gap-8 md:flex-row md:items-end">
+      <div class="max-w-2xl">
+        <p class="eyebrow" data-reveal data-i18n="doc.eyebrow">Our Providers</p>
+        <h2 class="h-section mt-5 text-navy-900" data-reveal style="--d:80ms" data-i18n="doc.title">Meet our <em>doctors</em></h2>
+      </div>
+      <a href="/providers" class="btn btn-outline self-start md:self-auto" data-reveal><span data-i18n="doc.cta">View all 37 providers</span><Icon name="arrow" size={18} /></a>
+    </div>
+
+    <ul class="mt-14 grid grid-cols-2 gap-x-5 gap-y-10 lg:grid-cols-4">
+      {doctors.map((d, i) => (
+        <li data-reveal style={`--d:${(i % 4) * 90}ms`}>
+          <a href="/providers" class="group block">
+            <div class="relative aspect-[4/5] overflow-hidden rounded-2xl bg-gradient-to-b from-cream-200 to-cream-100 ring-1 ring-navy-900/10">
+              <img src={`/images/doctors/${d.slug}.webp`} alt={`${d.name}, ${d.creds}`} width="500" height="600" loading="lazy" class="h-full w-full object-cover object-top transition-transform duration-[1200ms] ease-[var(--ease-lux)] group-hover:scale-105" />
+              <div class="absolute inset-0 bg-gradient-to-t from-navy-950/70 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
+              <span class="absolute inset-x-3 bottom-3 translate-y-4 rounded-full bg-gold-500 py-2.5 text-center text-sm font-semibold text-navy-950 opacity-0 transition-all duration-500 ease-[var(--ease-lux)] group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100 [@media(hover:none)]:hidden" data-i18n="doc.profile">View profile</span>
+            </div>
+            <h3 class="mt-4 text-xl leading-snug text-navy-900 transition-colors duration-300 group-hover:text-gold-700 md:text-2xl">{d.name}<span class="block text-sm font-normal text-mist">{d.creds}</span></h3>
+            <p class="mt-1 text-xs uppercase tracking-[0.14em] text-gold-700" data-es={d.role.es}>{d.role.en}</p>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>

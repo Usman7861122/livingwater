@@ -1,0 +1,46 @@
+---
+import { legal } from '../../data/legal';
+import { locations, nav } from '../../data/site';
+const cols = ['services', 'resources', 'about'].map((k) => nav.find((n) => n.key === k)!);
+---
+
+<footer class="on-dark bg-navy-950 pt-20 pb-8">
+  <div class="container-x">
+    <div class="grid gap-12 border-b border-white/15 pb-14 lg:grid-cols-12">
+      <div class="lg:col-span-4">
+        <img src="/images/logo.png" alt="Living Water Clinic – Clínica Agua Viva" width="200" height="50" loading="lazy" class="h-14 w-auto brightness-0 invert" />
+        <p class="mt-6 max-w-xs text-cream-50/70" data-i18n="footer.text">Faith-based family medicine, dental and specialty care across Tulare County.</p>
+        <a href="#contact" class="btn btn-gold mt-8" data-i18n="hero.cta1">Book a visit</a>
+      </div>
+      <div class="grid gap-10 sm:grid-cols-3 lg:col-span-8">
+        {cols.map((c) => (
+          <div>
+            <h3 class="font-sans text-xs font-semibold uppercase tracking-[0.2em] text-gold-400" data-es={c.label.es}>{c.label.en}</h3>
+            <ul class="mt-5 space-y-1">
+              {c.mega!.columns.flatMap((x) => x.links).slice(0, 7).map((l) => (
+                <li><a href={l.href} target={/^https?:/.test(l.href) ? "_blank" : undefined} rel={/^https?:/.test(l.href) ? "noopener noreferrer" : undefined} class="link-underline inline-flex min-h-9 items-center text-cream-50/75 transition-colors hover:text-white" data-es={l.label.es}>{l.label.en}</a></li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+    <div class="grid gap-10 border-b border-white/15 py-12 sm:grid-cols-2 lg:grid-cols-4">
+      {locations.slice(0, 7).map((l) => (
+        <div>
+          <p class="font-serif text-lg text-gold-300">{l.name}</p>
+          <p class="mt-1 text-sm text-cream-50/70">{l.address}<br />{l.cityLine}</p>
+          <a href={`tel:${l.tel}`} class="link-underline mt-2 inline-block text-sm text-cream-50">{l.phone}</a>
+        </div>
+      ))}
+    </div>
+    <div class="flex flex-col justify-between gap-3 pt-8 text-sm text-cream-50/55 sm:flex-row">
+      <p>© {new Date().getFullYear()} Living Water Clinic · Clínica Agua Viva. <span data-i18n="footer.rights">All rights reserved.</span></p>
+      <p data-i18n="footer.emergency">For emergencies, call 911.</p>
+    </div>
+    <ul class="flex flex-wrap gap-x-6 gap-y-2 pt-5 text-sm text-cream-50/65">
+      {legal.map((x) => <li><a href={`/${x.slug}`} class="link-underline">{x.title}</a></li>)}
+      <li><button type="button" data-cookie-open class="link-underline">Cookie settings</button></li>
+    </ul>
+  </div>
+</footer>

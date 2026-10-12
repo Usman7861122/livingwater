@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/ui/PageHero.astro';
+import { faqs } from '../../data/resources';
+const jsonld = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) };
+---
+<BaseLayout title="Frequently Asked Questions | Living Water Clinic" description="Answers about our Sliding Fee Discount Program, insurance, self-pay, languages and locations at Living Water Clinic." solidHeader>
+  <script type="application/ld+json" set:html={JSON.stringify(jsonld)} slot="head" />
+  <PageHero crumbs={[['Home', '/'], ['Resources', '/resources'], ['FAQ']]} eyebrow="FAQ" title="Your questions, <em>answered.</em>" text="Can’t find your answer? Call your nearest clinic. We are happy to help." />
+  <section class="section bg-cream-50"><div class="container-x max-w-4xl">
+    <div class="divide-y divide-navy-900/10 border-y border-navy-900/10">
+      {faqs.map(([q, a]) => (
+        <details class="group py-5" data-reveal><summary class="flex cursor-pointer list-none items-center justify-between gap-6 font-serif text-xl text-navy-900">{q}<span class="text-2xl text-gold-700 transition group-open:rotate-45">+</span></summary><p class="mt-3 max-w-2xl text-mist">{a}</p></details>
+      ))}
+    </div>
+  </div></section>
+</BaseLayout>

@@ -1,0 +1,33 @@
+---
+import Icon from '../ui/Icon.astro';
+---
+
+<section id="about" class="section bg-cream-50">
+  <div class="container-x grid items-center gap-16 lg:grid-cols-12">
+    <div class="relative lg:col-span-5" data-reveal>
+      <div class="absolute -left-4 -top-4 hidden h-full w-full rounded-2xl border border-gold-500/50 sm:block" aria-hidden="true"></div>
+      <div class="group relative aspect-square w-full overflow-hidden rounded-2xl">
+        <img src="/images/about.jpg" alt="A family doctor explaining a care plan to an older patient" width="1600" height="1067" loading="lazy" class="h-full w-full object-cover transition-transform duration-[1400ms] ease-[var(--ease-lux)] group-hover:scale-105" />
+      </div>
+      <div class="absolute -bottom-6 -right-2 max-w-[15rem] rounded-2xl bg-navy-900 p-5 text-cream-50 shadow-2xl sm:-right-8" data-reveal style="--d:300ms">
+        <Icon name="heart" size={26} class="mb-2 text-gold-400" />
+        <p class="font-serif text-lg leading-snug" data-i18n="about.badge">Faith-based family medicine and a patient-centered medical home.</p>
+      </div>
+    </div>
+
+    <div class="lg:col-span-7 lg:pl-10">
+      <p class="eyebrow" data-reveal data-i18n="about.eyebrow">About Us</p>
+      <h2 class="h-section mt-5 text-navy-900" data-reveal style="--d:80ms" data-i18n="about.title">Care that treats you like <em>family</em>, because you are.</h2>
+      <div class="mt-8 space-y-5 text-lg leading-relaxed text-mist" data-reveal style="--d:160ms">
+        <p data-i18n="about.p1">Living Water Clinic, also known as Clínica Agua Viva, is a faith-based family medicine practice serving Porterville, Lindsay, Woodlake, Selma and Visalia, plus a mobile clinic.</p>
+        <p data-i18n="about.p2">Our team brings high-quality, evidence-based care together with warm, personal service, so every visit feels welcoming.</p>
+      </div>
+      <dl class="mt-12 grid grid-cols-3 gap-6 border-t border-navy-900/10 pt-8" data-reveal style="--d:240ms">
+        <div><dt class="font-serif text-4xl text-navy-900 md:text-5xl">7</dt><dd class="mt-1 text-sm text-mist" data-i18n="about.stat1">Clinic locations</dd></div>
+        <div><dt class="font-serif text-4xl text-navy-900 md:text-5xl">37</dt><dd class="mt-1 text-sm text-mist" data-i18n="about.stat2">Caring providers</dd></div>
+        <div><dt class="font-serif text-4xl text-navy-900 md:text-5xl">2</dt><dd class="mt-1 text-sm text-mist" data-i18n="about.stat3">Languages spoken</dd></div>
+      </dl>
+      <a href="/about" class="btn btn-outline mt-10" data-reveal style="--d:300ms"><span data-i18n="about.cta">Our story</span><Icon name="arrow" size={18} /></a>
+    </div>
+  </div>
+</section>
