@@ -44,13 +44,11 @@ const fullTitle = title && title.includes('|') ? title : title ? `${title} | ${s
     <Footer />
     <BookingModal client:idle />
 
-    <div id="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent" hidden class="fixed inset-x-4 bottom-4 z-[80] mx-auto max-w-3xl rounded-2xl border border-navy-900/10 bg-white p-5 text-navy-900 shadow-2xl sm:p-6">
-      <p class="font-serif text-lg" data-es="Su privacidad importa">Your privacy matters</p>
-      <p class="mt-2 text-sm leading-relaxed text-mist" data-es="Usamos cookies necesarias para que el sitio funcione. Con su permiso, también usamos cookies de preferencias y de contenido de terceros, como mapas. Puede cambiar su elección en cualquier momento.">We use necessary cookies to make this site work. With your permission, we also use preference and third-party content cookies, such as maps. You can change your choice at any time.</p>
-      <div class="mt-4 flex flex-wrap items-center gap-3">
-        <button type="button" data-cookie="all" class="btn btn-navy" data-es="Aceptar todas">Accept all</button>
-        <button type="button" data-cookie="necessary" class="btn btn-outline" data-es="Solo necesarias">Necessary only</button>
-        <a href="/cookie-policy" class="link-underline text-sm font-semibold" data-es="Política de cookies">Cookie Policy</a>
+    <div id="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent" hidden class="fixed bottom-3 left-3 right-3 z-[80] flex flex-wrap items-center gap-x-4 gap-y-2 rounded-xl border border-navy-900/10 bg-white px-4 py-3 text-navy-900 shadow-xl sm:right-auto sm:max-w-md">
+      <p class="min-w-0 flex-1 basis-48 text-xs leading-snug text-mist"><span data-es="Usamos cookies para que el sitio funcione.">We use cookies to make this site work.</span> <a href="/cookie-policy" class="link-underline font-semibold text-navy-900" data-es="Más información">Learn more</a></p>
+      <div class="flex gap-2">
+        <button type="button" data-cookie="necessary" class="rounded-full border border-navy-900/25 px-3.5 py-1.5 text-xs font-semibold transition hover:bg-navy-900/5" data-es="Solo necesarias">Necessary only</button>
+        <button type="button" data-cookie="all" class="rounded-full bg-navy-900 px-3.5 py-1.5 text-xs font-semibold text-white transition hover:bg-navy-800" data-es="Aceptar">Accept</button>
       </div>
     </div>
 
