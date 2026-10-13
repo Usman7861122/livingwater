@@ -114,7 +114,7 @@ export const nav: NavItem[] = [
       columns: [
         { title: l('For Patients', 'Para pacientes'), links: [
           { label: l('Insurances', 'Seguros'), href: '/resources/insurances' },
-          { label: l('Pricing', 'Precios'), href: '/resources/pricing' },
+          { label: l('Pricing', 'Precios'), href: 'https://www.phreesia.net/25/patient/Payment.aspx/Start?encrypted=nbQ3NEXtPyONdOyRAwR6PTqeRKZ1WssfUpMK1UIEkPXtiut3_zkPABG8HaHyCENRUNhRKs7Cx_xYXsOZAE6bgjl5ETsM7ywLwAujSQGNQP38eWJK7WaYfw5BlqhrzDQ6U1wg2csgEpYGVL2L2w-usRXhM0Ht4SZ9NSzCBbGGvK01' },
           { label: l('FAQ', 'Preguntas frecuentes'), href: '/resources/faq' },
           { label: l('Testimonials', 'Testimonios'), href: '/resources/testimonials' },
         ] },
