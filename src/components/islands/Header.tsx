@@ -16,6 +16,16 @@ const Arrow = () => (
 
 const ext = (h: string) => (/^https?:/.test(h) ? { target: '_blank', rel: 'noopener noreferrer' } : {});
 
+const ico = (d: string) => (
+  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d={d} /></svg>
+);
+const topLinks = [
+  { href: 'tel:559-784-5483', label: { en: '559-784-5483', es: '559-784-5483' }, icon: ico('M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z') },
+  { href: '/telemedicine', label: { en: 'Telemedicine', es: 'Telemedicina' }, icon: ico('M15 10l5-3v10l-5-3M3 6h12a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1z') },
+  { href: 'https://6501.portal.athenahealth.com/', label: { en: 'Patient Portal', es: 'Portal del paciente' }, icon: ico('M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z') },
+  { href: '/providers', label: { en: 'Providers', es: 'Proveedores' }, icon: ico('M6 3v6a4 4 0 0 0 8 0V3M10 13v2a5 5 0 0 0 10 0v-1.5M20 11a2 2 0 1 0 0 3') },
+];
+
 export default function Header({ solid = false }: { solid?: boolean }) {
   const lang = useLang();
   const [scrolled, setScrolled] = useState(false);
@@ -64,6 +74,25 @@ export default function Header({ solid = false }: { solid?: boolean }) {
         onMouseEnter={() => clearTimeout(closeTimer.current)}
         onMouseLeave={scheduleClose}
       >
+        {/* Utility bar (desktop): phone, telemedicine, patient portal, providers */}
+        <div
+          className={`hidden overflow-hidden bg-navy-950 text-cream-100 transition-[max-height,opacity] duration-500 ease-[var(--ease-lux)] lg:block ${scrolled || mobile ? 'max-h-0 opacity-0' : 'max-h-12 opacity-100'}`}
+          aria-hidden={scrolled || mobile ? true : undefined}
+        >
+          <div className="container-x">
+            <ul className="flex items-center justify-end gap-1 py-1.5 text-[0.8rem] font-medium">
+              {topLinks.map((b) => (
+                <li key={b.href}>
+                  <a href={b.href} {...ext(b.href)} tabIndex={scrolled || mobile ? -1 : undefined}
+                    className="inline-flex min-h-8 items-center gap-2 rounded-full px-3.5 transition-colors duration-300 hover:bg-white/10 hover:text-gold-300">
+                    <span className="text-gold-400">{b.icon}</span>
+                    {T(b.label)}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
         <div
           className={`transition-[background-color,box-shadow,padding] duration-500 ease-[var(--ease-lux)] ${
             light ? 'bg-transparent py-5' : 'bg-cream-50/95 py-3 shadow-[0_1px_0_rgba(15,35,71,0.08)] backdrop-blur-md'
@@ -213,6 +242,17 @@ export default function Header({ solid = false }: { solid?: boolean }) {
                   </li>
                 ))}
               </ul>
+              <div className="container-x pb-4">
+                <ul className="grid grid-cols-2 gap-2">
+                  {topLinks.map((b) => (
+                    <li key={b.href}>
+                      <a href={b.href} {...ext(b.href)} onClick={() => setMobile(false)} className="flex min-h-11 items-center gap-2 rounded-xl border border-navy-900/15 px-3 text-sm font-medium text-navy-900">
+                        <span className="text-gold-700">{b.icon}</span>{T(b.label)}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
               <div className="container-x pb-10">
                 <a href="/#contact" onClick={() => setMobile(false)} className="btn btn-navy w-full">{lang === 'es' ? 'Reservar cita' : 'Book a visit'}</a>
               </div>

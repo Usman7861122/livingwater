@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/ui/PageHero.astro';
+import Icon from '../components/ui/Icon.astro';
+const schedule = 'https://z1-rpw.phreesia.net/selfscheduling.app/#/2bf3f981-5366-4327-9848-4bbb8383f9c0/select-type?flowtypes=ReturningPatient&flowtypes=NewPatient&visittypes=2322642a-b071-4c9a-970c-a24e95404380&visittypes=62344cbb-3115-4461-85b8-620dd012c0e2&visittypes=c87b3480-9c7a-41b7-8a78-f20d421935c0&visittypes=3ce0da74-ff9a-4c15-b5ed-09cb945e38b4&visittypes=c16d5965-6d53-4fe5-9697-4e0991af2897&visittypes=031a49d3-70ad-4575-b97d-a48b2f5a1eb3&visittypes=0eeda8a4-c6ce-43bf-8be4-4f90ec56f2a7&visittypes=77ecb35a-d166-4c27-b586-bc6bf0d9d07f&visittypes=ff55f6c4-cd6f-4001-a746-5fadf1d85473&visittypes=79223fe1-a09d-4b58-ba61-24593c5cbb48&visittypes=b204dfd8-85c0-49f9-8f85-fbf5040a7c49&visittypes=1bf120eb-a151-4201-8b3c-c955f0db4438&locations=08414b62-4e7d-419d-89f0-7c3ba4f86c94&locations=8951ae6d-1fac-4b5c-bad2-65d64faa1e2b&locations=b4f49268-e32c-4ccc-862a-541a1926e0e3&locations=cef7c154-fd88-4dab-84cc-38dae2ff560f&providers=3597e960-9393-4954-8e82-b8ae5ac934ad&providers=f7d7d19d-be96-4ad9-b4ae-b5ac4ef85fa2&providers=fac4ee36-a240-4169-b3f3-4e92d5a62895&providers=49af598f-506d-4525-bfba-717513557df1&providers=fa15447f-b5d6-4201-89b3-be772eb6c099&providers=9e085371-05f8-457b-99d8-146fcaaa82a3&providers=04e9af0f-2614-486a-b706-7ded6295fd58&providers=47960f37-112a-4772-ba21-4231be26e63e&returningPatientQuestionSet=f684367e-1e1c-46a5-903d-7374201bc12f';
+const portal = 'https://6501.portal.athenahealth.com/';
+const steps = [
+  'Open the online scheduler. Pick your preferred provider. If you have no preference, or want the next open time, choose “Request/Urgent Telemedicine Appointment”.',
+  'Fill out the short form and choose or request the time you want.',
+  'You will get an email and text to finish registration and check-in from your phone or computer.',
+  'On the day of your visit, your provider sends a secure link by email and text. Use it to log in.',
+  'Once you are on, share anything you want your provider to know. They are there for you.',
+  'After the visit, please fill out the short feedback request. It helps us improve.',
+];
+const perks = ['Secure video or phone visits', 'No travel and no waiting room', 'Illnesses, follow-ups and new patient visits', 'Prescriptions managed from home'];
+---
+<BaseLayout title="Telemedicine | Living Water Clinic" description="See a Living Water Clinic provider by secure video or phone from home. Learn how to schedule a telemedicine visit in a few simple steps." solidHeader>
+  <PageHero crumbs={[['Home', '/'], ['Telemedicine']]} eyebrow="Telemedicine" title="Quality care <em>from the comfort of home.</em>" text="Talk to a family practitioner by secure video or phone. Friendly, patient-focused care that fits your day.">
+    <a href={schedule} target="_blank" rel="noopener noreferrer" class="btn btn-gold">Schedule online</a>
+    <a href={portal} target="_blank" rel="noopener noreferrer" class="btn btn-outline-light">Patient Portal</a>
+  </PageHero>
+
+  <section class="section bg-cream-50"><div class="container-x grid gap-12 lg:grid-cols-12">
+    <div class="lg:col-span-5">
+      <p class="eyebrow" data-reveal>Friendly and patient-focused</p>
+      <h2 class="h-section mt-5 text-navy-900" data-reveal style="--d:80ms">Care that comes <em>to you.</em></h2>
+      <p class="mt-6 text-lg leading-relaxed text-mist" data-reveal style="--d:120ms">Whether you are managing an illness, need a follow-up, or want a new patient visit, our providers can help through secure, real-time video or phone appointments.</p>
+      <ul class="mt-8 space-y-3">{perks.map((t, i) => <li class="flex items-center gap-3 text-navy-900" data-reveal style={`--d:${i * 50}ms`}><span class="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-navy-900 text-gold-400"><Icon name="check" size={14} /></span>{t}</li>)}</ul>
+    </div>
+    <div class="lg:col-span-7">
+      <p class="font-serif text-2xl text-navy-900" data-reveal>How to schedule a visit</p>
+      <ol class="mt-6 space-y-3">
+        {steps.map((t, i) => <li class="flex gap-4 rounded-xl border border-navy-900/10 bg-white p-5" data-reveal style={`--d:${i * 50}ms`}><span class="font-serif text-2xl text-gold-700">{i + 1}</span><span class="text-mist">{t}</span></li>)}
+      </ol>
+      <p class="mt-5 text-sm text-mist">You may be asked to allow audio and video on the device you will use for the visit.</p>
+      <div class="mt-6 flex flex-wrap gap-3"><a href={schedule} target="_blank" rel="noopener noreferrer" class="btn btn-navy">Schedule online</a></div>
+    </div>
+  </div></section>
+
+  <section class="on-dark bg-navy-950 section text-center"><div class="container-x">
+    <h2 class="h-section mx-auto max-w-3xl" data-reveal>Your health records, <em>in one place.</em></h2>
+    <p class="mx-auto mt-5 max-w-xl text-lg text-cream-200" data-reveal style="--d:80ms">In the Athena Patient Portal you can see messages, billing, health records, online scheduling and future appointments.</p>
+    <div class="mt-9" data-reveal style="--d:140ms"><a href={portal} target="_blank" rel="noopener noreferrer" class="btn btn-gold">Open the Patient Portal</a></div>
+    <p class="mt-8 text-sm text-cream-200/70">For emergencies, call 911.</p>
+  </div></section>
+</BaseLayout>
