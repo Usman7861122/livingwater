@@ -2,10 +2,11 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/ui/PageHero.astro';
 import { providers, catLabels, type Cat } from '../data/providers';
+import { bios } from '../data/providerBios';
 const cats = Object.keys(catLabels) as Cat[];
 const count = (c: Cat) => providers.filter((p) => p.cat === c).length;
 ---
-<BaseLayout title="Our Providers | Living Water Clinic" description="Meet the 37 doctors, physician assistants, nurse practitioners, dentists and specialists of Living Water Clinic in Tulare County, California." solidHeader>
+<BaseLayout title="Our Providers | Living Water Clinic" description="Meet the 38 doctors, physician assistants, nurse practitioners, dentists and specialists of Living Water Clinic in Tulare County, California." solidHeader>
   <PageHero crumbs={[['Home', '/'], ['Providers']]} eyebrow="Our providers" title="Meet the people <em>who care for you.</em>" text={`${providers.length} doctors, nurse practitioners, physician assistants, dentists and specialists, ready to care for your whole family.`}>
     <a href="/#contact" class="btn btn-gold">Request an appointment</a>
     <a href="/locations" class="btn btn-outline-light">Find a clinic</a>
@@ -27,6 +28,7 @@ const count = (c: Cat) => providers.filter((p) => p.cat === c).length;
             </div>
             <h2 class="mt-4 px-1 font-serif text-xl leading-snug text-navy-900">{p.name}<span class="block text-base text-mist">{p.creds}</span></h2>
             <p class="mt-2 px-1 text-sm font-semibold tracking-wide text-gold-700 uppercase">{p.role}</p>
+            {bios[p.slug] && <a href={`/providers/${p.slug}`} class="link-underline mt-3 ml-1 inline-block text-sm font-semibold text-navy-900">Read bio <span aria-hidden="true">→</span></a>}
           </li>
         ))}
       </ul>

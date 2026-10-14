@@ -40,7 +40,7 @@ export const es: Record<string, string> = {
 
   'doc.eyebrow': 'Nuestros proveedores',
   'doc.title': 'Conozca a nuestros <em>doctores</em>',
-  'doc.cta': 'Ver los 37 proveedores',
+  'doc.cta': 'Ver los 38 proveedores',
   'doc.profile': 'Ver perfil',
 
   'dental.eyebrow': 'Dental',

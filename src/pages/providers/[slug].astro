@@ -1,0 +1,50 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Icon from '../../components/ui/Icon.astro';
+import { providers } from '../../data/providers';
+import { bios } from '../../data/providerBios';
+
+export function getStaticPaths() {
+  return providers.filter((p) => bios[p.slug]).map((p) => ({ params: { slug: p.slug }, props: { p } }));
+}
+const { p } = Astro.props;
+const paras = bios[p.slug];
+const title = `${p.name}, ${p.creds}`;
+const ld = { '@context': 'https://schema.org', '@type': 'Physician', name: title, medicalSpecialty: p.role, image: `/images/doctors/${p.slug}.webp`, worksFor: { '@type': 'MedicalOrganization', name: 'Living Water Clinic' } };
+---
+<BaseLayout title={`${title} | Living Water Clinic`} description={paras[0].slice(0, 155)} solidHeader>
+  <script type="application/ld+json" set:html={JSON.stringify(ld)} slot="head" />
+  <section class="on-dark relative overflow-hidden bg-navy-950 pt-36 pb-16 lg:pt-44">
+    <div class="container-x">
+      <nav aria-label="Breadcrumb" class="text-sm text-cream-200/80" data-reveal>
+        <a href="/" class="link-underline">Home</a><span class="mx-2">/</span><a href="/providers" class="link-underline">Providers</a><span class="mx-2">/</span><span class="text-gold-400">{p.name}</span>
+      </nav>
+    </div>
+  </section>
+
+  <section class="section bg-cream-50 !pt-0">
+    <div class="container-x grid gap-12 lg:grid-cols-12">
+      <aside class="-mt-8 lg:col-span-4">
+        <div class="lg:sticky lg:top-32">
+          <div class="overflow-hidden rounded-2xl border border-navy-900/10 bg-cream-200 shadow-lg" data-reveal>
+            <img src={`/images/doctors/${p.slug}.webp`} alt={title} width="500" height="600" class="aspect-[4/5] w-full object-cover object-top" fetchpriority="high" />
+          </div>
+          <a href="/#contact" class="btn btn-gold mt-6 w-full">Request an appointment</a>
+          <a href="/providers" class="link-underline mt-5 inline-block text-sm font-semibold text-navy-900">← All providers</a>
+        </div>
+      </aside>
+
+      <div class="lg:col-span-8 lg:pt-6">
+        <p class="eyebrow" data-reveal>{p.role}</p>
+        <h1 class="h-section mt-4 text-navy-900" data-reveal style="--d:60ms">{p.name}<span class="block text-2xl text-mist md:text-3xl">{p.creds}</span></h1>
+        <div class="mt-8 space-y-5 text-lg leading-relaxed text-mist" data-reveal style="--d:120ms">
+          {paras.map((t) => <p>{t}</p>)}
+        </div>
+        <div class="mt-10 flex flex-wrap gap-3" data-reveal style="--d:180ms">
+          <a href="/locations" class="btn btn-navy">Find a clinic</a>
+          <a href="tel:+15597845483" class="btn btn-outline"><Icon name="phone" size={18} /> 559-784-5483</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
