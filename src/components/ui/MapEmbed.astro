@@ -1,0 +1,15 @@
+---
+// Google Maps placeholder: nothing is requested from Google until the visitor accepts cookies or clicks "Load map".
+interface Props { src: string; title: string; dir?: string; class?: string }
+const { src, title, dir, class: cls = '' } = Astro.props;
+---
+<div data-map-embed data-src={src} data-title={title} class:list={['relative flex items-center justify-center overflow-hidden bg-navy-900 text-center text-cream-50', cls]}>
+  <div class="max-w-sm p-6">
+    <p class="font-serif text-xl" data-es="Mapa de Google">Google Map</p>
+    <p class="mt-2 text-sm text-cream-200/85" data-es="Para proteger su privacidad, el mapa se carga solo cuando usted lo pide. Google puede recibir su dirección IP.">To protect your privacy, the map loads only when you ask. Google may receive your IP address.</p>
+    <div class="mt-5 flex flex-wrap items-center justify-center gap-3">
+      <button type="button" data-map-load class="btn btn-gold !min-h-11 !px-5 !text-sm"><span data-es="Cargar mapa">Load map</span></button>
+      {dir && <a href={dir} target="_blank" rel="noopener noreferrer" class="link-underline text-sm" data-es="Cómo llegar">Get directions</a>}
+    </div>
+  </div>
+</div>

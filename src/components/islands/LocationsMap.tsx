@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import { locations } from '@/data/site';
 import { useLang } from '@/lib/lang';
@@ -7,6 +7,15 @@ export default function LocationsMap() {
   const lang = useLang();
   const t = (en: string, es: string) => (lang === 'es' ? es : en);
   const [id, setId] = useState(locations[0].id);
+  const [consented, setConsented] = useState(false);
+  const [clicked, setClicked] = useState(false);
+  useEffect(() => {
+    const sync = () => setConsented(document.documentElement.dataset.consentMaps === '1');
+    sync();
+    window.addEventListener('lw:consent', sync);
+    return () => window.removeEventListener('lw:consent', sync);
+  }, []);
+  const showMap = consented || clicked;
   const loc = locations.find((l) => l.id === id)!;
   const full = `${loc.address}, ${loc.cityLine}`;
 
@@ -58,13 +67,23 @@ export default function LocationsMap() {
         </AnimatePresence>
 
         <div className="overflow-hidden rounded-2xl border border-white/15 lg:col-span-8">
-          <iframe
-            key={loc.id}
-            title={`${t('Map of', 'Mapa de')} ${loc.name}`}
-            src={`https://www.google.com/maps?q=${encodeURIComponent(full)}&z=15&output=embed`}
-            loading="lazy" referrerPolicy="no-referrer-when-downgrade"
-            className="h-[22rem] w-full border-0 md:h-[28rem]"
-          />
+          {showMap ? (
+            <iframe
+              key={loc.id}
+              title={`${t('Map of', 'Mapa de')} ${loc.name}`}
+              src={`https://www.google.com/maps?q=${encodeURIComponent(full)}&z=15&output=embed`}
+              loading="lazy" referrerPolicy="no-referrer-when-downgrade"
+              className="h-[22rem] w-full border-0 md:h-[28rem]"
+            />
+          ) : (
+            <div className="flex h-[22rem] w-full items-center justify-center bg-navy-900 p-6 text-center text-cream-50 md:h-[28rem]">
+              <div className="max-w-sm">
+                <p className="font-serif text-xl">{t('Google Map', 'Mapa de Google')}</p>
+                <p className="mt-2 text-sm text-cream-200/85">{t('To protect your privacy, the map loads only when you ask. Google may receive your IP address.', 'Para proteger su privacidad, el mapa se carga solo cuando usted lo pide. Google puede recibir su dirección IP.')}</p>
+                <button type="button" onClick={() => setClicked(true)} className="btn btn-gold mt-5 !min-h-11 !px-5 !text-sm">{t('Load map', 'Cargar mapa')}</button>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>

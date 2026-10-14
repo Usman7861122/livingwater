@@ -1,4 +1,5 @@
 ---
+import MapEmbed from '../ui/MapEmbed.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Icon from '../ui/Icon.astro';
 import { locations, type Location } from '../../data/site';
@@ -210,7 +211,7 @@ const mapSrc = location ? `https://www.google.com/maps?q=${encodeURIComponent(`L
               <a href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(location.address + ', ' + location.cityLine)}`} target="_blank" rel="noopener" class="btn btn-outline-light">Get directions</a>
             </div>
           </div>
-          <iframe title={`Map of ${location.name}`} src={mapSrc} loading="lazy" class="h-72 w-full border-0 lg:h-full" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <MapEmbed src={mapSrc} title={`Map of ${location.name}`} class="h-72 w-full lg:h-full" />
         </div>
       )}
       <ul class="mt-12 grid gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-3">
