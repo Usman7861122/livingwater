@@ -289,4 +289,7 @@ export const bios: Record<string, string[]> = {
     "Providingcare in English, Spanish (dental-focused), and conversational Cantonese.",
     "Outside of the clinic, Dr. Tam values building lasting relationships with her patients and remains passionate about making a positive impact on the community’s overall well-being. She finds great fulfillment in bridging cultural and language gaps to ensure a welcoming environment for every family she treats.",
   ],
+  'jairo-sepulveda': [
+    'Biography coming soon.',
+  ],
 };
