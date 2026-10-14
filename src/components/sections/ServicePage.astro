@@ -25,7 +25,8 @@ const ld = {
 const where = location ? ` in ${location.city}` : '';
 const h1 = `${fm.title}${where}`;
 const title = `${meta.title}`;
-const others = location ? locations.filter((x) => x.id !== location.id) : locations;
+const medical = locations.filter((x) => x.type === 'Medical');
+const others = location ? medical.filter((x) => x.id !== location.id) : medical;
 const sorted = [...others].sort((a, b) => a.city.localeCompare(b.city) || a.name.localeCompare(b.name));
 const phone = location!;
 const mapSrc = location ? `https://www.google.com/maps?q=${encodeURIComponent(`Living Water Clinic ${location.address}, ${location.cityLine}`)}&output=embed` : '';
@@ -196,7 +197,7 @@ const mapSrc = location ? `https://www.google.com/maps?q=${encodeURIComponent(`L
     <div class="container-x">
       <p class="eyebrow" data-reveal>Where we offer it</p>
       <h2 class="h-section mt-5 max-w-3xl" data-reveal style="--d:80ms">
-        {location ? <>Also available at <em>6 more clinics.</em></> : <>{svc.title} care at <em>7 clinics.</em></>}
+        {location ? <>Also available at <em>{others.length} more clinics.</em></> : <>{svc.title} care at <em>{medical.length} clinics.</em></>}
       </h2>
       {location && (
         <div class="mt-10 grid gap-6 overflow-hidden rounded-2xl border border-white/10 bg-white/5 lg:grid-cols-2" data-reveal>

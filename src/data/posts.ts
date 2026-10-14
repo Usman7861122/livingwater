@@ -19,7 +19,7 @@ export const posts: Post[] = [
       { h: 'Why language matters', p: ['When you understand your plan, you can follow it. Our bilingual providers and staff explain tests, medicines and goals in English or Spanish, and they take time to answer your questions.'] },
       { h: 'What care can include', ul: ['Blood sugar checks and A1C tests', 'Medicine reviews', 'Food and activity coaching', 'Foot, eye and kidney checks', 'Help with supplies and referrals when needed'] },
       { h: 'Visit us in Porterville', p: ['Our Porterville clinic is on West Henderson Avenue. Call ahead to book a visit. We accept Medi-Cal, Medicare and many private plans, and offer a sliding fee program.'] },
-    ], cta: ['See the Porterville clinic', '/contact/porterville-medical'],
+    ], cta: ['See the Porterville clinic', '/locations/porterville-medical'],
   },
   {
     slug: 'hand-cut-stitches-urgent-care-porterville', title: 'Cut on Your Hand? When You Need Stitches and Where to Go in Porterville', tag: 'Urgent Care', date: '2026-10-07', img: '/images/services/virtual-urgent-care/hero.jpg', alt: 'A nurse caring for a hand injury',
@@ -40,7 +40,7 @@ export const posts: Post[] = [
       { h: 'What happens at a checkup', ul: ['Height, weight and growth check', 'Vaccines, including school requirements', 'Vision, hearing and development check', 'Time to ask your questions about sleep, food and behavior'] },
       { h: 'Cost should not stop you', p: ['We accept Medi-Cal and many private plans. If you do not have insurance, ask about our Sliding Fee Discount Program.'] },
       { h: 'Visit us in Woodlake', p: ['Our Woodlake clinic is on North Palm Street. Call to book a visit before the school year starts.'] },
-    ], cta: ['See the Woodlake clinic', '/contact/woodlake'],
+    ], cta: ['See the Woodlake clinic', '/locations/woodlake'],
   },
   {
     slug: 'child-ear-pain-lindsay', title: 'Child With Severe Ear Pain? What to Do and Where to Go in Lindsay', tag: 'Pediatrics', date: '2026-07-31', img: '/images/services/pediatric-care/a.jpg', alt: 'A provider checking a child’s ear',
@@ -51,7 +51,7 @@ export const posts: Post[] = [
       { h: 'What you can do at home', ul: ['Ask your provider about pain medicine that is right for your child’s age and weight', 'Place a warm cloth on the ear', 'Keep your child resting and drinking fluids'] },
       { h: 'See a provider soon if', p: ['Pain lasts more than a day, there is a fever, fluid drains from the ear, or your child is a baby under 6 months with any fever. Go to the ER if your child is very sleepy, has a stiff neck or swelling behind the ear.'] },
       { p: ['Our Lindsay clinics are here to help. Call to ask about same-day availability.'] },
-    ], cta: ['See the Lindsay clinic', '/contact/lindsay-medical'],
+    ], cta: ['See the Lindsay clinic', '/locations/lindsay-medical'],
   },
 ];
 export const postBySlug = Object.fromEntries(posts.map((p) => [p.slug, p]));

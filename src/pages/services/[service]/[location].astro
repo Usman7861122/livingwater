@@ -3,7 +3,7 @@ import ServicePage from '../../../components/sections/ServicePage.astro';
 import { services } from '../../../data/servicePages';
 import { locations } from '../../../data/site';
 export function getStaticPaths() {
-  return services.flatMap((svc) => locations.map((l) => ({ params: { service: svc.slug, location: l.id }, props: { svc, location: l } })));
+  return services.flatMap((svc) => locations.filter((l) => l.type === 'Medical').map((l) => ({ params: { service: svc.slug, location: l.id }, props: { svc, location: l } })));
 }
 const { svc, location } = Astro.props;
 ---

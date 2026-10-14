@@ -156,6 +156,30 @@ const others: Svc[] = [
     faq: [['What are early signs of kidney disease?', 'Often there are none. That is why testing matters, especially with diabetes or high blood pressure.'], ['Can kidney disease be slowed?', 'Yes. Early care, healthy blood pressure and blood sugar and the right medicines can help.'], ['Do I need a referral?', 'Call our {city} clinic. We will tell you the best way to get started.'], ['Do you take my insurance?', ins]],
     related: ['diabetes', 'remote-patient-monitoring', 'family-medicine', 'annual-wellness-visit', 'weight-loss-management', 'optometry'],
   },
+  {
+    slug: 'obgyn', title: 'OB-GYN', short: 'OB-GYN and women’s health',
+    summary: 'Caring women’s health services, from yearly exams to pregnancy care, in a warm place where you feel heard.',
+    heroAlt: 'OB-GYN provider talking with a pregnant patient', labels: ['Women’s health exams', 'Pregnancy care', 'Support at every stage'],
+    alts: ['Provider talking with a woman about her health', 'Mother with her young child after a visit', 'Family smiling with their provider'],
+    intro: ['OB-GYN care in {city} supports women at every stage of life. Our team provides yearly exams, pregnancy care and help with common women’s health concerns, with respect and without rush.', 'At our {clinic} location, women’s health is part of your whole-health plan. Your provider works with your family medicine team, so your care stays connected and close to home.'],
+    help: [['Yearly women’s exams', 'Well-woman visits, breast and pelvic exams and screening such as Pap tests.'], ['Pregnancy and prenatal care', 'Checkups, tests and guidance for you and your baby during pregnancy.'], ['Family planning', 'Honest talks about birth control and planning your family.'], ['Common concerns', 'Help with irregular periods, pelvic pain, infections and menopause changes.']],
+    when: [['You think you may be pregnant', 'Early prenatal care helps you and your baby stay healthy.'], ['You are due for a yearly exam or screening', 'Regular visits catch problems early.'], ['Your periods change or you have pelvic pain', 'These symptoms are common and treatable.'], ['You have questions about birth control or menopause', 'Your provider can explain your options clearly.']],
+    steps: [['Step 1 · Your visit', 'At {clinic}, we listen to your health history and concerns, then do the exam or tests you need.'], ['Step 2 · Your plan', 'We explain the results in simple words and build a plan with you, including follow-up and referrals if needed.']],
+    faq: [['How often should I have a women’s health exam?', 'Many women need a yearly visit. Your provider will tell you how often you need tests such as a Pap test.'], ['Can I see you while I am pregnant?', 'Yes. Call our {city} team to ask about prenatal care and your first visit.'], ['Do you speak Spanish?', 'Yes. Our teams include bilingual providers and staff who speak English and Spanish.'], ['Do you accept Medi-Cal?', 'We accept Medi-Cal, Medicare and many private plans. Call us and we will check your coverage.']],
+    related: ['annual-wellness-visit', 'family-medicine', 'pediatric-care', 'diabetes', 'weight-loss-management', 'behavioral-health'],
+  },
+  {
+    slug: 'behavioral-health', title: 'Behavioral Health', short: 'behavioral health and counseling',
+    summary: 'Kind, private counseling and mental health support with licensed clinicians, so you do not have to carry hard things alone.',
+    heroAlt: 'Person talking with a counselor in a calm room', labels: ['Counseling and support', 'Care for stress and mood', 'Whole-person health'],
+    alts: ['Counselor listening to a client', 'Patient talking with a provider by video', 'Teen and parent sitting together'],
+    intro: ['Behavioral health in {city} means care for your mind and emotions, just like we care for your body. Our licensed clinicians listen with kindness and help you find steps that work for you.', 'At our {clinic} location, mental health is part of your whole-health plan. Your counselor works with your family medicine team, so your care stays connected.'],
+    help: [['Counseling', 'A safe place to talk about stress, grief, relationships and life changes.'], ['Anxiety and low mood', 'Support and a plan for worry, sadness and trouble sleeping.'], ['Care for teens and families', 'Help for young people and for the families who support them.'], ['Connection to more help', 'Referrals for medicine, substance use support and community services.']],
+    when: [['You feel stressed, sad or worried most days', 'You deserve support. Asking for help is a strong first step.'], ['Sleep, appetite or energy have changed', 'These can be signs that your mind needs care.'], ['A loss or big change is hard to handle', 'Counseling can help you move through it.'], ['Someone you love is struggling', 'We can help you and your family find the right support.']],
+    steps: [['Step 1 · A caring first visit', 'At {clinic}, we listen to what is going on, ask a few simple questions and talk about what you want to change.'], ['Step 2 · Your support plan', 'We build a plan with you, such as counseling visits, healthy habits and referrals if you need more help.']],
+    faq: [['Is what I say private?', 'Your visits are private and protected by law. There are limited safety exceptions, and your clinician will explain them.'], ['Do I need a referral?', 'Often you can start by calling your clinic. We will help you find the right first step.'], ['Can children and teens be seen?', 'Please call our {city} team to ask about care for young people.'], ['What if I am in crisis?', 'If you are in danger or thinking of hurting yourself, call or text 988 (Suicide and Crisis Lifeline) or call 911 right away.']],
+    related: ['family-medicine', 'annual-wellness-visit', 'virtual-urgent-care', 'pediatric-care', 'weight-loss-management', 'obgyn'],
+  },
 ].map((s) => ({ ...s, images: img(s.slug), help: s.help as P[], when: s.when as P[], faq: s.faq as P[], steps: s.steps as [P, P], labels: s.labels as [string, string, string], alts: s.alts as [string, string, string], intro: s.intro as [string, string] }));
 
 export const services: Svc[] = [family, ...others];
@@ -165,11 +189,11 @@ export const fillS = (t: string, c: { city: string; clinic: string }) => t.repla
 export const seoS = (s: Svc, l?: Location) =>
   l
     ? { title: `${s.title} in ${l.city}, CA | Living Water Clinic`, description: `${s.title} in ${l.city}, CA at Living Water Clinic (${l.name}), ${l.address}, ${l.cityLine}. ${s.summary} Call ${l.phone}.` }
-    : { title: `${s.title} in Tulare County, CA | Living Water Clinic`, description: `${s.title} at 7 Living Water Clinic locations in Lindsay, Woodlake, Porterville, Visalia and Selma, California. ${s.summary}` };
+    : { title: `${s.title} in Tulare County, CA | Living Water Clinic`, description: `${s.title} at 5 Living Water Clinic locations in Lindsay, Woodlake, Porterville, Visalia and Selma, California. ${s.summary}` };
 export const siblingOf = (l: Location) => (l.type === 'Dental' ? locations.find((x) => x.city === l.city && x.type === 'Medical') : undefined);
 
 export const categories = [
   { id: 'primary', eyebrow: 'Primary care', title: 'Everyday care', em: 'for the whole family.', text: 'Your first stop for checkups, sick visits and healthy habits, from babies to grandparents.', items: ['family-medicine', 'pediatric-care', 'annual-wellness-visit', 'virtual-urgent-care'] },
   { id: 'chronic', eyebrow: 'Chronic care', title: 'Steady support', em: 'for long-term health.', text: 'Clear plans and regular check-ins to help you manage ongoing conditions and feel your best.', items: ['diabetes', 'asthma', 'weight-loss-management', 'remote-patient-monitoring'] },
-  { id: 'specialties', eyebrow: 'Specialties', title: 'More than', em: 'primary care.', text: 'Specialty care under the same roof, so your team works together and you travel less.', items: ['chiropractic-care', 'optometry', 'foot-care', 'nephrology'] },
+  { id: 'specialties', eyebrow: 'Specialties', title: 'More than', em: 'primary care.', text: 'Specialty care under the same roof, so your team works together and you travel less.', items: ['chiropractic-care', 'optometry', 'foot-care', 'nephrology', 'obgyn', 'behavioral-health'] },
 ];

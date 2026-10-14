@@ -1,5 +1,5 @@
 export type L = { en: string; es: string };
-export type NavLink = { label: L; href: string; note?: L };
+export type NavLink = { label: L; href: string; note?: L; heading?: L };
 export type MegaColumn = { title: L; links: NavLink[] };
 export type NavItem = {
   key: string;
@@ -44,6 +44,9 @@ export const locations: Location[] = [
 
 const l = (en: string, es: string = en): L => ({ en, es });
 
+const medFirst = [...locations.filter(x => x.type === 'Medical'), ...locations.filter(x => x.type === 'Dental')];
+const mk = (x: (typeof locations)[number]) => ({ label: l(x.name), href: `/locations/${x.id}`, note: l(x.phone) });
+
 export const nav: NavItem[] = [
   {
     key: 'about', label: l('About', 'Nosotros'), href: '/about',
@@ -53,11 +56,11 @@ export const nav: NavItem[] = [
           { label: l('Our Office', 'Nuestra oficina'), href: '/about/our-office' },
           { label: l('Sobre Nosotros'), href: '/about/sobre-nosotros' },
           { label: l('Management', 'Administración'), href: '/about/management' },
-          { label: l('HPSA'), href: 'https://hpsa.us/federal-programs/' },
         ] },
-        { title: l('Join Our Team', 'Únase a nuestro equipo'), links: [
+        { title: l('Join & Learn', 'Únase e infórmese'), links: [
           { label: l('Careers', 'Empleos'), href: 'https://recruitingbypaycor.com/career/CareerHome.action?clientId=8a7883c6876de6fb01877b50739f08cf' },
           { label: l('OB/GYN Careers', 'Empleos OB/GYN'), href: '/about/ob-gyn-careers' },
+          { label: l('HPSA'), href: 'https://hpsa.us/federal-programs/' },
         ] },
       ],
       feature: { title: l('Faith-based. Family-focused.', 'Con fe. Enfocados en la familia.'), text: l('Meet the clinic behind the care.', 'Conozca la clínica detrás del cuidado.'), img: '/images/about.jpg', href: '/about', cta: l('Our story', 'Nuestra historia') },
@@ -73,9 +76,7 @@ export const nav: NavItem[] = [
           { label: l('Pediatric Care', 'Cuidado pediátrico'), href: '/services/pediatric-care' },
           { label: l('Annual Wellness Visit', 'Visita anual de bienestar'), href: '/services/annual-wellness-visit' },
           { label: l('Virtual Urgent Care', 'Atención urgente virtual'), href: '/services/virtual-urgent-care' },
-        ] },
-        { title: l('Chronic Care', 'Cuidado crónico'), links: [
-          { label: l('Diabetes'), href: '/services/diabetes' },
+          { label: l('Diabetes'), href: '/services/diabetes', heading: l('Chronic Care', 'Cuidado crónico') },
           { label: l('Asthma', 'Asma'), href: '/services/asthma' },
           { label: l('Weight Loss Management', 'Control de peso'), href: '/services/weight-loss-management' },
           { label: l('Remote Patient Monitoring', 'Monitoreo remoto'), href: '/services/remote-patient-monitoring' },
@@ -85,6 +86,9 @@ export const nav: NavItem[] = [
           { label: l('Optometry', 'Optometría'), href: '/services/optometry' },
           { label: l('Foot Care', 'Cuidado de los pies'), href: '/services/foot-care' },
           { label: l('Nephrology', 'Nefrología'), href: '/services/nephrology' },
+          { label: l('OB-GYN', 'Obstetricia y ginecología'), href: '/services/obgyn' },
+          { label: l('Behavioral Health', 'Salud conductual'), href: '/services/behavioral-health' },
+          { label: l('View all services', 'Ver todos los servicios'), href: '/services', heading: l('Explore', 'Explorar') },
         ] },
       ],
       feature: { title: l('More than primary care', 'Más que atención primaria'), text: l('A multi-specialty clinic for the whole family.', 'Una clínica multiespecialidad para toda la familia.'), img: '/images/services.jpg', href: '/services', cta: l('View all services', 'Ver todos los servicios') },
@@ -99,8 +103,8 @@ export const nav: NavItem[] = [
           { label: l('Our Dentists', 'Nuestros dentistas'), href: '/providers#dental' },
         ] },
         { title: l('Dental Locations', 'Clínicas dentales'), links: [
-          { label: l('Lindsay Dental'), href: '/contact/lindsay-dental' },
-          { label: l('Visalia Dental'), href: '/contact/visalia-dental' },
+          { label: l('Lindsay Dental'), href: '/locations/lindsay-dental' },
+          { label: l('Visalia Dental'), href: '/locations/visalia-dental' },
         ] },
       ],
       feature: { title: l('Complete dental care', 'Cuidado dental completo'), text: l('For children and adults.', 'Para niños y adultos.'), img: '/images/dental.jpg', href: '/dental', cta: l('Explore dental', 'Explorar dental') },
@@ -115,6 +119,8 @@ export const nav: NavItem[] = [
         { title: l('For Patients', 'Para pacientes'), links: [
           { label: l('Insurances', 'Seguros'), href: '/resources/insurances' },
           { label: l('Pricing', 'Precios'), href: 'https://www.phreesia.net/25/patient/Payment.aspx/Start?encrypted=nbQ3NEXtPyONdOyRAwR6PTqeRKZ1WssfUpMK1UIEkPXtiut3_zkPABG8HaHyCENRUNhRKs7Cx_xYXsOZAE6bgjl5ETsM7ywLwAujSQGNQP38eWJK7WaYfw5BlqhrzDQ6U1wg2csgEpYGVL2L2w-usRXhM0Ht4SZ9NSzCBbGGvK01' },
+        ] },
+        { title: l('Learn More', 'Más información'), links: [
           { label: l('FAQ', 'Preguntas frecuentes'), href: '/resources/faq' },
           { label: l('Testimonials', 'Testimonios'), href: '/resources/testimonials' },
         ] },
@@ -123,11 +129,11 @@ export const nav: NavItem[] = [
     },
   },
   {
-    key: 'contact', label: l('Locations', 'Ubicaciones'), href: '/contact',
+    key: 'contact', label: l('Locations', 'Ubicaciones'), href: '/locations',
     mega: {
       columns: [
-        { title: l('Medical', 'Médico'), links: locations.filter(x => x.type === 'Medical').map(x => ({ label: l(x.name), href: `/contact/${x.id}`, note: l(x.phone) })) },
-        { title: l('Dental', 'Dental'), links: locations.filter(x => x.type === 'Dental').map(x => ({ label: l(x.name), href: `/contact/${x.id}`, note: l(x.phone) })) },
+        { title: l('Medical', 'Médico'), links: medFirst.slice(0, 4).map(mk) },
+        { title: l('\u00a0', '\u00a0'), links: medFirst.slice(4).map((x, i) => (i === 1 ? { ...mk(x), heading: l('Dental', 'Dental') } : mk(x))) },
       ],
       feature: { title: l('Seven locations, one family', 'Siete clínicas, una familia'), text: l('Find the clinic closest to you.', 'Encuentre la clínica más cercana.'), img: '/images/hero.jpg', href: '/#locations', cta: l('See the map', 'Ver el mapa') },
     },
@@ -145,7 +151,7 @@ export const allPaths: { slug: string; title: string }[] = (() => {
     add(n.href, n.label.en);
     n.mega?.columns.forEach(c => c.links.forEach(k => add(k.href, k.label.en)));
   });
-  locations.forEach(x => add(`/contact/${x.id}`, x.name));
+  locations.forEach(x => add(`/locations/${x.id}`, x.name));
   return [...seen].map(([slug, title]) => ({ slug, title }));
 })();
 
@@ -161,12 +167,12 @@ export const services = [
 ];
 
 export const specialties = [
-  { n: '01', img: '/images/specialties/obgyn.jpg', title: l('OB-GYN', 'Obstetricia y ginecología'), text: l('Women’s health, pregnancy and gynecologic care.', 'Salud de la mujer, embarazo y cuidado ginecológico.') },
-  { n: '02', img: '/images/specialties/podiatry.jpg', title: l('Podiatry', 'Podología'), text: l('Foot and ankle care, from pain to diabetic foot checks.', 'Cuidado de pies y tobillos, del dolor a revisiones para diabetes.') },
-  { n: '03', img: '/images/specialties/chiro.jpg', title: l('Chiropractic', 'Quiropráctica'), text: l('Relief for back, neck and joint discomfort.', 'Alivio para dolor de espalda, cuello y articulaciones.') },
-  { n: '04', img: '/images/specialties/optometry.jpg', title: l('Optometry', 'Optometría'), text: l('Eye exams and vision care for the whole family.', 'Exámenes de la vista y cuidado visual para toda la familia.') },
-  { n: '05', img: '/images/specialties/nephrology.jpg', title: l('Nephrology', 'Nefrología'), text: l('Kidney health and long-term condition management.', 'Salud de los riñones y manejo de condiciones a largo plazo.') },
-  { n: '06', img: '/images/specialties/behavioral.jpg', title: l('Behavioral Health', 'Salud conductual'), text: l('Counseling and mental health support with licensed clinicians.', 'Consejería y apoyo de salud mental con clínicos con licencia.') },
+  { n: '01', href: '/services/obgyn', img: '/images/specialties/obgyn.jpg', title: l('OB-GYN', 'Obstetricia y ginecología'), text: l('Women’s health, pregnancy and gynecologic care.', 'Salud de la mujer, embarazo y cuidado ginecológico.') },
+  { n: '02', img: '/images/specialties/podiatry.jpg', title: l('Podiatry', 'Podología'), text: l('Foot and ankle care, from pain to diabetic foot checks.', 'Cuidado de pies y tobillos, del dolor a revisiones para diabetes.'), href: '/services/foot-care' },
+  { n: '03', img: '/images/specialties/chiro.jpg', title: l('Chiropractic', 'Quiropráctica'), text: l('Relief for back, neck and joint discomfort.', 'Alivio para dolor de espalda, cuello y articulaciones.'), href: '/services/chiropractic-care' },
+  { n: '04', img: '/images/specialties/optometry.jpg', title: l('Optometry', 'Optometría'), text: l('Eye exams and vision care for the whole family.', 'Exámenes de la vista y cuidado visual para toda la familia.'), href: '/services/optometry' },
+  { n: '05', img: '/images/specialties/nephrology.jpg', title: l('Nephrology', 'Nefrología'), text: l('Kidney health and long-term condition management.', 'Salud de los riñones y manejo de condiciones a largo plazo.'), href: '/services/nephrology' },
+  { n: '06', href: '/services/behavioral-health', img: '/images/specialties/behavioral.jpg', title: l('Behavioral Health', 'Salud conductual'), text: l('Counseling and mental health support with licensed clinicians.', 'Consejería y apoyo de salud mental con clínicos con licencia.') },
 ];
 
 export const doctors = [

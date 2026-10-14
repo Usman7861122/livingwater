@@ -68,5 +68,5 @@ export const seo = (l?: Location) =>
       }
     : {
         title: 'Family Medicine in Tulare County, CA',
-        description: 'Family medicine for every age at 7 Living Water Clinic locations in Lindsay, Woodlake, Porterville, Visalia and Selma, California.',
+        description: 'Family medicine for every age at 5 Living Water Clinic locations in Lindsay, Woodlake, Porterville, Visalia and Selma, California.',
       };

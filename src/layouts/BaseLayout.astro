@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import Header from '../components/islands/Header';
 import SideDots from '../components/islands/SideDots';
+import MobileCta from '../components/sections/MobileCta.astro';
 import BookingModal from '../components/islands/BookingModal';
 import Footer from '../components/sections/Footer.astro';
 import { site } from '../data/site';
@@ -42,6 +43,7 @@ const fullTitle = title && title.includes('|') ? title : title ? `${title} | ${s
     {dots && <SideDots client:idle />}
     <main id="main"><slot /></main>
     <Footer />
+    <MobileCta />
     <BookingModal client:idle />
 
     <div id="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent" hidden class="fixed bottom-3 left-3 right-3 z-[80] flex flex-wrap items-center gap-x-4 gap-y-2 rounded-xl border border-navy-900/10 bg-white px-4 py-3 text-navy-900 shadow-xl sm:right-auto sm:max-w-md">

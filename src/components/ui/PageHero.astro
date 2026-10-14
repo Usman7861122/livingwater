@@ -7,11 +7,23 @@ interface Props {
   image?: string;
   imageAlt?: string;
   lang?: string;
+  video?: string;
+  poster?: string;
 }
-const { crumbs, eyebrow, title, text, image, imageAlt = '', lang } = Astro.props;
+const { crumbs, eyebrow, title, text, image, imageAlt = '', lang, video, poster } = Astro.props;
 ---
-<section class="on-dark relative overflow-hidden bg-navy-950 pt-36 pb-20 lg:pt-44" lang={lang}>
-  <div class={`container-x grid items-center gap-12 ${image ? 'lg:grid-cols-12' : ''}`}>
+<section class={`on-dark relative isolate overflow-hidden bg-navy-950 pt-36 pb-20 lg:pt-44 ${video ? 'lg:min-h-[80svh] lg:flex lg:items-end' : ''}`} lang={lang}>
+  {video && (
+    <>
+      <video class="hero-video absolute inset-0 -z-20 h-full w-full object-cover" src={video} poster={poster} autoplay muted loop playsinline preload="metadata" aria-hidden="true" tabindex="-1"></video>
+      <div class="absolute inset-0 -z-10 bg-navy-950/55"></div>
+      <div class="absolute inset-x-0 bottom-0 -z-10 h-2/3 bg-gradient-to-t from-navy-950/90 to-transparent"></div>
+      <script is:inline>
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) document.querySelectorAll('.hero-video').forEach(function (v) { v.removeAttribute('autoplay'); v.pause(); });
+      </script>
+    </>
+  )}
+  <div class={`container-x w-full grid items-center gap-12 ${image ? 'lg:grid-cols-12' : ''}`}>
     <div class={image ? 'lg:col-span-7' : 'max-w-3xl'}>
       <nav aria-label="Breadcrumb" class="text-sm text-cream-200/80" data-reveal>
         {crumbs.map(([label, href], i) => (<>{i > 0 && <span class="mx-2">/</span>}{href ? <a href={href} class="link-underline">{label}</a> : <span class="text-gold-400">{label}</span>}</>))}

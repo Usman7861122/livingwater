@@ -8,7 +8,7 @@ const count = (c: Cat) => providers.filter((p) => p.cat === c).length;
 <BaseLayout title="Our Providers | Living Water Clinic" description="Meet the 37 doctors, physician assistants, nurse practitioners, dentists and specialists of Living Water Clinic in Tulare County, California." solidHeader>
   <PageHero crumbs={[['Home', '/'], ['Providers']]} eyebrow="Our providers" title="Meet the people <em>who care for you.</em>" text={`${providers.length} doctors, nurse practitioners, physician assistants, dentists and specialists, ready to care for your whole family.`}>
     <a href="/#contact" class="btn btn-gold">Request an appointment</a>
-    <a href="/contact" class="btn btn-outline-light">Find a clinic</a>
+    <a href="/locations" class="btn btn-outline-light">Find a clinic</a>
   </PageHero>
 
   <section class="section bg-cream-50">
@@ -39,7 +39,7 @@ const count = (c: Cat) => providers.filter((p) => p.cat === c).length;
       <p class="mx-auto mt-5 max-w-xl text-lg text-mist" data-reveal style="--d:80ms">Call your nearest clinic and our team will match you with the right provider.</p>
       <div class="mt-9 flex flex-wrap justify-center gap-3" data-reveal style="--d:140ms">
         <a href="/#contact" class="btn btn-navy">Request an appointment</a>
-        <a href="/contact" class="btn btn-outline">See our locations</a>
+        <a href="/locations" class="btn btn-outline">See our locations</a>
       </div>
     </div>
   </section>

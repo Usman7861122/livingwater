@@ -17,7 +17,7 @@ const Arrow = () => (
 const ext = (h: string) => (/^https?:/.test(h) ? { target: '_blank', rel: 'noopener noreferrer' } : {});
 
 const ico = (d: string) => (
-  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d={d} /></svg>
+  <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d={d} /></svg>
 );
 const topLinks = [
   { href: 'tel:559-784-5483', label: { en: '559-784-5483', es: '559-784-5483' }, icon: ico('M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z') },
@@ -76,15 +76,15 @@ export default function Header({ solid = false }: { solid?: boolean }) {
       >
         {/* Utility bar (desktop): phone, telemedicine, patient portal, providers */}
         <div
-          className={`hidden overflow-hidden bg-navy-950 text-cream-100 transition-[max-height,opacity] duration-500 ease-[var(--ease-lux)] lg:block ${scrolled || mobile ? 'max-h-0 opacity-0' : 'max-h-12 opacity-100'}`}
+          className={`hidden overflow-hidden bg-navy-950 text-cream-100 transition-[max-height,opacity] duration-500 ease-[var(--ease-lux)] lg:block ${scrolled || mobile ? 'max-h-0 opacity-0' : 'max-h-20 opacity-100'}`}
           aria-hidden={scrolled || mobile ? true : undefined}
         >
           <div className="container-x">
-            <ul className="flex items-center justify-end gap-1 py-1.5 text-[0.8rem] font-medium">
+            <ul className="flex items-center justify-end gap-2 py-2 text-[0.95rem] font-semibold">
               {topLinks.map((b) => (
                 <li key={b.href}>
                   <a href={b.href} {...ext(b.href)} tabIndex={scrolled || mobile ? -1 : undefined}
-                    className="inline-flex min-h-8 items-center gap-2 rounded-full px-3.5 transition-colors duration-300 hover:bg-white/10 hover:text-gold-300">
+                    className="inline-flex min-h-10 items-center gap-2.5 rounded-full px-4 transition-colors duration-300 hover:bg-white/10 hover:text-gold-300">
                     <span className="text-gold-400">{b.icon}</span>
                     {T(b.label)}
                   </a>
@@ -102,7 +102,7 @@ export default function Header({ solid = false }: { solid?: boolean }) {
             <a href="/" aria-label="Living Water Clinic – Clínica Agua Viva, home" className="shrink-0">
               <img
                 src="/images/logo.png" alt="" width={200} height={50}
-                className={`h-11 w-auto transition-[filter] duration-500 lg:h-12 ${light ? 'brightness-0 invert' : ''}`}
+                className={`h-12 w-auto transition-[filter] duration-500 lg:h-12 xl:h-14 ${light ? 'brightness-0 invert' : ''}`}
               />
             </a>
 
@@ -162,29 +162,30 @@ export default function Header({ solid = false }: { solid?: boolean }) {
         <AnimatePresence>
           {activeItem?.mega && (
             <motion.div
-              key="mega" layout
+              key="mega"
               initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-              className="absolute inset-x-0 top-full hidden border-t border-navy-900/10 bg-cream-50 shadow-[0_30px_60px_-20px_rgba(10,23,48,0.35)] lg:block"
-              onMouseEnter={() => clearTimeout(closeTimer.current)}
+              className="pointer-events-none absolute inset-x-0 top-full hidden lg:block"
             >
+              <div className="pointer-events-auto mx-auto w-fit max-w-[calc(100vw-3rem)] pt-2" onMouseEnter={() => clearTimeout(closeTimer.current)}>
               <AnimatePresence mode="wait" initial={false}>
                 <motion.div
                   key={activeItem.key}
                   initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}
                   transition={{ duration: 0.18 }}
-                  className="container-x grid grid-cols-12 gap-10 py-10"
+                  className="flex items-stretch gap-5 rounded-2xl border border-navy-900/10 bg-cream-50 p-4 shadow-[0_30px_60px_-20px_rgba(10,23,48,0.35)]"
                 >
-                  <div className={`col-span-8 grid gap-8 ${activeItem.mega.columns.length > 2 ? 'grid-cols-3' : 'grid-cols-2'}`}>
+                  <div className="grid gap-x-5 py-1 pl-2" style={{ gridAutoFlow: 'column', gridAutoColumns: 'minmax(230px, 1fr)' }}>
                     {activeItem.mega.columns.map((col, ci) => (
-                      <div key={ci}>
-                        <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-gold-700">{T(col.title)}</p>
-                        <ul className="space-y-1">
+                      <div key={ci} className={ci > 0 ? 'border-l border-navy-900/10 pl-5' : ''}>
+                        <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-gold-700">{T(col.title)}</p>
+                        <ul>
                           {col.links.map((lk, i) => (
-                            <motion.li key={lk.href} initial={{ opacity: 0, x: -8 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.04 * i + 0.05 * ci, duration: 0.3 }}>
-                              <a href={lk.href} {...ext(lk.href)} className="group flex min-h-11 items-center justify-between gap-3 rounded-lg px-3 text-navy-900 transition-colors duration-300 hover:bg-cream-200/70">
-                                <span className="font-serif text-lg transition-transform duration-300 group-hover:translate-x-1">{T(lk.label)}</span>
-                                {lk.note ? <span className="text-sm text-mist">{lk.note.en}</span> : (
+                            <motion.li key={lk.href} className={lk.heading ? 'mt-3 border-t border-navy-900/10 pt-3' : ''} initial={{ opacity: 0, x: -8 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.03 * i + 0.04 * ci, duration: 0.25 }}>
+                              {lk.heading && <p className="mb-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-gold-700">{T(lk.heading)}</p>}
+                              <a href={lk.href} {...ext(lk.href)} className="group flex min-h-9 items-center justify-between gap-3 rounded-md px-2 text-navy-900 transition-colors duration-300 hover:bg-cream-200/70">
+                                <span className="font-serif text-base transition-transform duration-300 group-hover:translate-x-1">{T(lk.label)}</span>
+                                {lk.note ? <span className="text-xs text-mist">{lk.note.en}</span> : (
                                   <span className="text-gold-500 opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100"><Arrow /></span>
                                 )}
                               </a>
@@ -194,17 +195,18 @@ export default function Header({ solid = false }: { solid?: boolean }) {
                       </div>
                     ))}
                   </div>
-                  <a href={activeItem.mega.feature.href} className="group relative col-span-4 block overflow-hidden rounded-2xl">
-                    <img src={activeItem.mega.feature.img} alt="" loading="lazy" width={600} height={400} className="h-64 w-full object-cover transition-transform duration-[1200ms] ease-[var(--ease-lux)] group-hover:scale-105" />
+                  <a href={activeItem.mega.feature.href} className="group relative block w-[250px] shrink-0 self-stretch overflow-hidden rounded-xl">
+                    <img src={activeItem.mega.feature.img} alt="" loading="lazy" width={600} height={400} className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1200ms] ease-[var(--ease-lux)] group-hover:scale-105" />
                     <div className="absolute inset-0 bg-gradient-to-t from-navy-950/90 via-navy-950/30 to-transparent" />
-                    <div className="absolute inset-x-0 bottom-0 p-6 text-white">
-                      <p className="font-serif text-2xl leading-tight">{T(activeItem.mega.feature.title)}</p>
-                      <p className="mt-1 text-sm text-white/80">{T(activeItem.mega.feature.text)}</p>
-                      <span className="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-gold-300">{T(activeItem.mega.feature.cta)} <Arrow /></span>
+                    <div className="relative flex h-full min-h-[190px] flex-col justify-end p-4 text-white">
+                      <p className="font-serif text-lg leading-tight">{T(activeItem.mega.feature.title)}</p>
+                      <p className="mt-1 text-xs text-white/80">{T(activeItem.mega.feature.text)}</p>
+                      <span className="mt-2 inline-flex items-center gap-2 text-sm font-semibold text-gold-300">{T(activeItem.mega.feature.cta)} <Arrow /></span>
                     </div>
                   </a>
                 </motion.div>
               </AnimatePresence>
+              </div>
             </motion.div>
           )}
         </AnimatePresence>

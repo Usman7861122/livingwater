@@ -19,7 +19,7 @@ const all = ['Digital X-rays', 'Routine and deep cleanings', 'Preventive dental 
 const why = ['Now accepting new dental patients', 'Over 20 years of trusted dental care', 'Walk-ins welcome when available', 'A warm, caring place', 'Bilingual staff who speak English and Spanish'];
 ---
 <BaseLayout title="Dental Care for Kids, Adults and Families | Living Water Clinic" description="Complete dental care for the whole family in Lindsay and Visalia, CA. Now accepting new patients. We accept Medi-Cal, Medicaid and most private insurance." solidHeader>
-  <PageHero crumbs={[['Home', '/'], ['Dental']]} eyebrow="Dental" title="Complete dental care <em>for the whole family.</em>" text="Now accepting new dental patients: kids, adults and families. Kind, gentle and trusted care in Lindsay and Visalia." image="/images/dental.jpg" imageAlt="Friendly dental care for the whole family">
+  <PageHero video="/video/dental-hero.mp4" poster="/video/dental-hero-poster.jpg" crumbs={[['Home', '/'], ['Dental']]} eyebrow="Dental" title="Complete dental care <em>for the whole family.</em>" text="Now accepting new dental patients: kids, adults and families. Kind, gentle and trusted care in Lindsay and Visalia.">
     <a href={`tel:${lindsay.tel}`} class="btn btn-gold"><Icon name="phone" size={18} /> {lindsay.phone}</a>
     <a href="/dental/services" class="btn btn-outline-light">Dental services</a>
     <p class="w-full text-sm text-cream-200/80">We accept Medi-Cal, Medicaid and most private insurance plans.</p>
@@ -120,7 +120,7 @@ const why = ['Now accepting new dental patients', 'Over 20 years of trusted dent
       <ul class="mt-10 grid gap-5 md:grid-cols-2">
         {dentalLocs.map((x, i) => (
           <li data-reveal style={`--d:${i * 70}ms`}>
-            <a href={`/contact/${x.id}`} class="group block h-full rounded-2xl border border-navy-900/10 bg-white p-8 transition hover:border-gold-500 hover:shadow-lg">
+            <a href={`/locations/${x.id}`} class="group block h-full rounded-2xl border border-navy-900/10 bg-white p-8 transition hover:border-gold-500 hover:shadow-lg">
               <p class="text-xs font-semibold tracking-widest text-gold-700 uppercase">{x.city}</p>
               <h3 class="mt-3 font-serif text-2xl text-navy-900">{x.name}</h3>
               <p class="mt-4 text-mist">{x.address}<br />{x.cityLine}</p>

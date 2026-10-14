@@ -17,7 +17,7 @@ const jsonld = { '@context': 'https://schema.org', '@type': 'BlogPosting', headl
       {b.ul && <ul class="mt-4 space-y-2 text-lg text-mist">{b.ul.map((t) => <li class="flex gap-3"><span class="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gold-500"></span>{t}</li>)}</ul>}
     </>))}
     <p class="mt-10 rounded-xl bg-navy-900 p-6 text-cream-100"><strong class="text-gold-300">Medical note:</strong> This article is for general information. It is not medical advice. In an emergency, call 911.</p>
-    <div class="mt-8 flex flex-wrap gap-3"><a href={post.cta[1]} class="btn btn-navy">{post.cta[0]}</a><a href="/contact" class="btn btn-outline">Find a clinic</a></div>
+    <div class="mt-8 flex flex-wrap gap-3"><a href={post.cta[1]} class="btn btn-navy">{post.cta[0]}</a><a href="/locations" class="btn btn-outline">Find a clinic</a></div>
   </div></article>
   <section class="section bg-cream-100"><div class="container-x">
     <h2 class="font-serif text-3xl text-navy-900">More from our blog</h2>

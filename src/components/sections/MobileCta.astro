@@ -1,0 +1,16 @@
+---
+import Icon from '../ui/Icon.astro';
+---
+<div id="mobile-cta" class="fixed inset-x-0 bottom-0 z-40 border-t border-gold-500/40 bg-navy-950/95 px-3 pt-3 backdrop-blur-md lg:hidden" style="padding-bottom: max(0.75rem, env(safe-area-inset-bottom))">
+  <div class="mx-auto flex max-w-md gap-3">
+    <a href="https://phreesia.me/LWCHWCReturning" target="_blank" rel="noopener noreferrer" class="btn btn-gold flex-1 !min-h-12 !px-3 !text-sm">
+      <span data-es="Reservar en línea">Book Online</span>
+    </a>
+    <a href="tel:+15597845483" class="btn btn-outline-light flex-1 !min-h-12 !px-3 !text-sm">
+      <Icon name="phone" size={16} /> 559-784-5483
+    </a>
+  </div>
+</div>
+<style is:global>
+  @media (max-width: 1023px) { body { padding-bottom: 4.75rem; } }
+</style>

@@ -52,7 +52,7 @@ export default function LocationsMap() {
                 href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(full)}`}
                 target="_blank" rel="noopener noreferrer" className="btn btn-outline-light"
               >{t('Get directions', 'Cómo llegar')}</a>
-              <a href={`/contact/${loc.id}`} className="link-underline self-start pt-2 text-sm text-cream-50/80">{t('Clinic page', 'Página de la clínica')} →</a>
+              <a href={`/locations/${loc.id}`} className="link-underline self-start pt-2 text-sm text-cream-50/80">{t('Clinic page', 'Página de la clínica')} →</a>
             </div>
           </motion.div>
         </AnimatePresence>
