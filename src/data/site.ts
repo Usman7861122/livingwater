@@ -33,13 +33,13 @@ export type Location = {
 
 // Map pins are approximate (city level). Directions links use the exact address.
 export const locations: Location[] = [
-  { id: 'lindsay-medical', name: 'Lindsay Medical', city: 'Lindsay', type: 'Medical', address: '833 North Sequoia Avenue', cityLine: 'Lindsay, CA 93247', phone: '(559) 562-1361', tel: '+15595621361', lat: 36.2122, lng: -119.0905 },
+  { id: 'lindsay-medical', name: 'Lindsay Clinic', city: 'Lindsay', type: 'Medical', address: '833 North Sequoia Avenue', cityLine: 'Lindsay, CA 93247', phone: '(559) 562-1361', tel: '+15595621361', lat: 36.2122, lng: -119.0905 },
   { id: 'lindsay-dental', name: 'Lindsay Dental', city: 'Lindsay', type: 'Dental', address: '233 South Mirage Avenue', cityLine: 'Lindsay, CA 93247', phone: '(559) 562-5969', tel: '+15595625969', lat: 36.1985, lng: -119.0832 },
   { id: 'woodlake', name: 'Woodlake', city: 'Woodlake', type: 'Medical', address: '101 North Palm Street', cityLine: 'Woodlake, CA 93286', phone: '(559) 564-1100', tel: '+15595641100', lat: 36.4143, lng: -119.0985 },
-  { id: 'porterville-medical', name: 'Porterville Medical', city: 'Porterville', type: 'Medical', address: '222 West Henderson Avenue', cityLine: 'Porterville, CA 93257', phone: '(559) 784-5483', tel: '+15597845483', lat: 36.0662, lng: -119.0195 },
+  { id: 'porterville-medical', name: 'Porterville Clinic', city: 'Porterville', type: 'Medical', address: '222 West Henderson Avenue', cityLine: 'Porterville, CA 93257', phone: '(559) 784-5483', tel: '+15597845483', lat: 36.0662, lng: -119.0195 },
   { id: 'visalia-dental', name: 'Visalia Dental', city: 'Visalia', type: 'Dental', address: '1640 South Court Street', cityLine: 'Visalia, CA 93277', phone: '(559) 627-6311', tel: '+15596276311', lat: 36.3185, lng: -119.2915 },
-  { id: 'visalia-medical', name: 'Visalia Medical', city: 'Visalia', type: 'Medical', address: '1410 S Mooney Blvd', cityLine: 'Visalia, CA 93277', phone: '(559) 635-1746', tel: '+15596351746', lat: 36.3235, lng: -119.3040 },
-  { id: 'selma-medical', name: 'Selma Medical', city: 'Selma', type: 'Medical', address: '3275 McCall Avenue', cityLine: 'Selma, CA 93662', phone: '(559) 896-3808', tel: '+15598963808', lat: 36.5700, lng: -119.6120 },
+  { id: 'visalia-medical', name: 'Visalia Clinic', city: 'Visalia', type: 'Medical', address: '1410 S Mooney Blvd', cityLine: 'Visalia, CA 93277', phone: '(559) 635-1746', tel: '+15596351746', lat: 36.3235, lng: -119.3040 },
+  { id: 'selma-medical', name: 'Selma Clinic', city: 'Selma', type: 'Medical', address: '3275 McCall Avenue', cityLine: 'Selma, CA 93662', phone: '(559) 896-3808', tel: '+15598963808', lat: 36.5700, lng: -119.6120 },
 ];
 
 const l = (en: string, es: string = en): L => ({ en, es });

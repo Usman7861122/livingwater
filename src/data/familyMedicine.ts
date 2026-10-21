@@ -46,13 +46,13 @@ export const related = [
 export const pathFor = (l?: Location) => `/services/family-medicine${l ? '/' + l.id : ''}`;
 
 const blurbs: Record<string, string> = {
-  'lindsay-medical': 'Our Lindsay Medical clinic welcomes families from Lindsay, Strathmore, Exeter and nearby towns.',
+  'lindsay-medical': 'Our Lindsay Clinic welcomes families from Lindsay, Strathmore, Exeter and nearby towns.',
   'woodlake': 'Our Woodlake clinic keeps quality family care close to home for Woodlake and the foothill communities.',
-  'porterville-medical': 'Our Porterville Medical clinic serves families across Porterville and the surrounding area.',
-  'visalia-medical': 'Our Visalia Medical clinic is a convenient choice for families across Visalia and central Tulare County.',
-  'selma-medical': 'Our Selma Medical clinic brings family medicine to Selma and neighboring Fresno County communities.',
-  'lindsay-dental': 'Lindsay Dental is our dental office. For family medicine visits in Lindsay, please see Lindsay Medical.',
-  'visalia-dental': 'Visalia Dental is our dental office. For family medicine visits in Visalia, please see Visalia Medical.',
+  'porterville-medical': 'Our Porterville Clinic serves families across Porterville and the surrounding area.',
+  'visalia-medical': 'Our Visalia Clinic is a convenient choice for families across Visalia and central Tulare County.',
+  'selma-medical': 'Our Selma Clinic brings family medicine to Selma and neighboring Fresno County communities.',
+  'lindsay-dental': 'Lindsay Dental is our dental office. For family medicine visits in Lindsay, please see Lindsay Clinic.',
+  'visalia-dental': 'Visalia Dental is our dental office. For family medicine visits in Visalia, please see Visalia Clinic.',
 };
 export const blurb = (l: Location) => blurbs[l.id];
 export const sibling = (l: Location) =>

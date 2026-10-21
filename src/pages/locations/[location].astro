@@ -4,7 +4,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Icon from '../../components/ui/Icon.astro';
 import ContactForm from '../../components/islands/ContactForm';
 import { locations, dentalServices, insurance } from '../../data/site';
-import { bySlug, svcPath, categories, siblingOf } from '../../data/servicePages';
+import { bySlug, svcPath, categories, siblingOf, offers } from '../../data/servicePages';
 import { locationContent } from '../../data/locationContent';
 
 export function getStaticPaths() {
@@ -127,11 +127,11 @@ const facts = [
         </div>
       ) : (
         <div class="mt-10 space-y-12">
-          {categories.map((c) => (
+          {categories.filter((c) => c.items.some((slug) => offers(bySlug[slug], location))).map((c) => (
             <div>
               <h3 class="font-serif text-2xl text-navy-900" data-reveal>{c.eyebrow}</h3>
               <ul class="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-                {c.items.map((slug, i) => {
+                {c.items.filter((slug) => offers(bySlug[slug], location)).map((slug, i) => {
                   const s = bySlug[slug];
                   return (
                     <li data-reveal style={`--d:${i * 50}ms`}>

@@ -189,7 +189,19 @@ export const fillS = (t: string, c: { city: string; clinic: string }) => t.repla
 export const seoS = (s: Svc, l?: Location) =>
   l
     ? { title: `${s.title} in ${l.city}, CA | Living Water Clinic`, description: `${s.title} in ${l.city}, CA at Living Water Clinic (${l.name}), ${l.address}, ${l.cityLine}. ${s.summary} Call ${l.phone}.` }
-    : { title: `${s.title} in Tulare County, CA | Living Water Clinic`, description: `${s.title} at 5 Living Water Clinic locations in Lindsay, Woodlake, Porterville, Visalia and Selma, California. ${s.summary}` };
+    : { title: `${s.title} in Tulare County, CA | Living Water Clinic`, description: `${s.title} at ${offeredAt(s).length === 1 ? 'the Living Water Clinic location' : offeredAt(s).length + ' Living Water Clinic locations'} in ${cityList(offeredAt(s))}, California. ${s.summary}` };
+// Specialty services that are NOT offered at every medical clinic. Any slug not listed here is offered at all medical clinics.
+export const onlyAt: Record<string, string[]> = {
+  'chiropractic-care': ['lindsay-medical', 'woodlake'],
+  optometry: ['lindsay-medical'],
+  obgyn: ['lindsay-medical'],
+  'behavioral-health': ['lindsay-medical', 'woodlake'],
+  'foot-care': ['lindsay-medical'],
+  nephrology: ['lindsay-medical'],
+};
+export const offers = (s: Svc, l: Location) => l.type === 'Medical' && (!onlyAt[s.slug] || onlyAt[s.slug].includes(l.id));
+export const offeredAt = (s: Svc) => locations.filter((l) => offers(s, l));
+const cityList = (ls: Location[]) => (ls.length <= 1 ? ls[0]?.city ?? '' : ls.slice(0, -1).map((l) => l.city).join(', ') + ' and ' + ls[ls.length - 1].city);
 export const siblingOf = (l: Location) => (l.type === 'Dental' ? locations.find((x) => x.city === l.city && x.type === 'Medical') : undefined);
 
 export const categories = [

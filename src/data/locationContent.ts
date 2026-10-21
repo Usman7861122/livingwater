@@ -58,24 +58,29 @@ const dentAbout = (city: string, addr: string): string[] => [
 ];
 const gal = (id: string, label: string, files: string[]) => files.map((f, i) => ({ src: `/images/locations/${id}/${f}`, alt: `${label} clinic, photo ${i + 1} of ${files.length}` }));
 
+const noSpecialty = (g: { title: string }) => !/^(Behavioral health|Chiropractic)/.test(g.title);
+const noBhi = (g: { title: string }) => !/^Behavioral Health Integration/.test(g.title);
+const lean = { ...medicalBase, groups: medicalBase.groups.filter(noSpecialty), programs: medicalBase.programs.filter(noBhi) };
+const aboutTwo = (city: string, extras: string) => `Our ${city} location is committed to making quality healthcare accessible and welcoming for every patient. Guided by our faith-based values and a commitment to affordable, culturally sensitive care, we offer a comprehensive range of services${extras}, helping our community receive integrative, total-person care close to home.`;
+
 export const locationContent: Record<string, LocContent> = {
   'lindsay-medical': {
     ...medicalBase,
-    about: medAbout('Lindsay', '833 North Sequoia Avenue'),
-    gallery: gal('lindsay-medical', 'Lindsay Medical', ['g1.jpg', 'g2.jpg', 'g3.jpg', 'g4.jpg', 'g5.jpg', 'g6.jpg']),
+    about: medAbout('Lindsay', '833 North Sequoia Avenue', aboutTwo('Lindsay', ', including optometry, OB-GYN, foot care, nephrology, behavioral health, dental care, and chiropractic treatment')),
+    gallery: gal('lindsay-medical', 'Lindsay Clinic', ['g1.jpg', 'g2.jpg', 'g3.jpg', 'g4.jpg', 'g5.jpg', 'g6.jpg']),
   },
   'porterville-medical': {
-    ...medicalBase,
-    about: medAbout('Porterville', '222 West Henderson Avenue'),
-    gallery: gal('porterville-medical', 'Porterville Medical', ['g1.jpg', 'g2.jpg', 'g3.jpg', 'g4.jpg']),
+    ...lean,
+    about: medAbout('Porterville', '222 West Henderson Avenue', aboutTwo('Porterville', ', including primary care, pediatrics, chronic care, and wellness visits')),
+    gallery: gal('porterville-medical', 'Porterville Clinic', ['g1.jpg', 'g2.jpg', 'g3.jpg', 'g4.jpg']),
   },
   woodlake: {
     ...medicalBase,
-    about: medAbout('Woodlake', '101 North Palm Street', 'Our Woodlake location is committed to making quality healthcare accessible and welcoming for every patient. In addition to medical services, the clinic provides access to optometry, dental care, and chiropractic services, helping patients receive comprehensive care close to home.'),
+    about: medAbout('Woodlake', '101 North Palm Street', aboutTwo('Woodlake', ', including behavioral health, dental care, and chiropractic treatment')),
     gallery: gal('woodlake', 'Woodlake', ['g1.jpg']),
   },
-  'selma-medical': { ...medicalBase, about: medAbout('Selma', '3275 McCall Avenue'), gallery: [] },
-  'visalia-medical': { ...medicalBase, about: medAbout('Visalia', '1410 South Mooney Boulevard'), gallery: [] },
+  'selma-medical': { ...lean, about: medAbout('Selma', '3275 McCall Avenue', aboutTwo('Selma', ', including primary care, pediatrics, chronic care, and wellness visits')), gallery: [] },
+  'visalia-medical': { ...lean, about: medAbout('Visalia', '1410 South Mooney Boulevard', aboutTwo('Visalia', ', including primary care, pediatrics, chronic care, and dental care')), gallery: [] },
   'lindsay-dental': {
     ...dentalBase,
     about: dentAbout('Lindsay', '233 South Mirage Avenue'),

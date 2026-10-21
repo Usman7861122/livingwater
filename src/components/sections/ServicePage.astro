@@ -3,7 +3,7 @@ import MapEmbed from '../ui/MapEmbed.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Icon from '../ui/Icon.astro';
 import { locations, type Location } from '../../data/site';
-import { services, bySlug, svcPath, fillS, seoS, siblingOf, type Svc } from '../../data/servicePages';
+import { services, bySlug, svcPath, fillS, seoS, siblingOf, offeredAt, type Svc } from '../../data/servicePages';
 
 interface Props { svc: Svc; location?: Location }
 const { svc, location } = Astro.props;
@@ -26,7 +26,7 @@ const ld = {
 const where = location ? ` in ${location.city}` : '';
 const h1 = `${fm.title}${where}`;
 const title = `${meta.title}`;
-const medical = locations.filter((x) => x.type === 'Medical');
+const medical = offeredAt(svc);
 const others = location ? medical.filter((x) => x.id !== location.id) : medical;
 const sorted = [...others].sort((a, b) => a.city.localeCompare(b.city) || a.name.localeCompare(b.name));
 const phone = location!;
@@ -198,7 +198,9 @@ const mapSrc = location ? `https://www.google.com/maps?q=${encodeURIComponent(`L
     <div class="container-x">
       <p class="eyebrow" data-reveal>Where we offer it</p>
       <h2 class="h-section mt-5 max-w-3xl" data-reveal style="--d:80ms">
-        {location ? <>Also available at <em>{others.length} more clinics.</em></> : <>{svc.title} care at <em>{medical.length} clinics.</em></>}
+        {location
+          ? (others.length === 0 ? <>Offered at <em>this clinic only.</em></> : <>Also available at <em>{others.length} more {others.length === 1 ? 'clinic' : 'clinics'}.</em></>)
+          : (medical.length === 1 ? <>{svc.title} care at <em>{medical[0].city}.</em></> : <>{svc.title} care at <em>{medical.length} clinics.</em></>)}
       </h2>
       {location && (
         <div class="mt-10 grid gap-6 overflow-hidden rounded-2xl border border-white/10 bg-white/5 lg:grid-cols-2" data-reveal>
