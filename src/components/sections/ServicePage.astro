@@ -52,7 +52,7 @@ const mapSrc = location ? `https://www.google.com/maps?q=${encodeURIComponent(`L
         </nav>
         <p class="eyebrow mt-8" data-reveal style="--d:60ms">{location ? location.name : 'Our services'}</p>
         <h1 class="h-display mt-5" data-reveal style="--d:120ms">{fm.title}{location && <><br /><em>in {location.city}</em></>}</h1>
-        <p class="mt-6 max-w-xl text-lg leading-relaxed text-cream-200" data-reveal style="--d:180ms">{location ? (sib ? `${location.name} is our dental office. For ${lower} visits in ${location.city}, please see ${sib.name}.` : `Our ${location.name} clinic offers ${lower} for families in ${location.city} and nearby communities. ${svc.summary}`) : fm.summary}</p>
+        <p class="mt-6 max-w-xl text-lg leading-relaxed text-cream-200" data-reveal style="--d:180ms">{location ? (<><span>Our {location.city} clinic offers {lower} for families and nearby communities.</span> <span>{svc.summary}</span></>) : fm.summary}</p>
         {sib && (
           <p class="mt-5 max-w-xl rounded-xl border border-gold-400/40 bg-white/5 p-4 text-cream-100" data-reveal style="--d:200ms">
             Looking for medical care? <a class="link-underline text-gold-300" href={pathFor(sib)}>See {svc.title} at {sib.name}</a>.
@@ -238,7 +238,7 @@ const mapSrc = location ? `https://www.google.com/maps?q=${encodeURIComponent(`L
   <section id="contact" class="section bg-cream-100 text-center">
     <div class="container-x">
       <h2 class="h-section mx-auto max-w-3xl text-navy-900" data-reveal>Get {lower}{where}, <em>starting today.</em></h2>
-      <p class="mx-auto mt-5 max-w-xl text-lg text-mist" data-reveal style="--d:80ms">{location ? "Call us or send a message." : "Pick your nearest clinic below, or send a message."} A team member will help you book your visit.</p>
+      <p class="mx-auto mt-5 max-w-xl text-lg text-mist" data-reveal style="--d:80ms"><span>{location ? "Call us or send a message." : "Pick your nearest clinic below, or send a message."}</span> <span>A team member will help you book your visit.</span></p>
       <div class="mt-9 flex flex-wrap justify-center gap-3" data-reveal style="--d:140ms">
         <a href="/#contact" class="btn btn-navy">Request an appointment</a>
         {location ? <a href={`tel:${phone.tel}`} class="btn btn-outline">Call {phone.phone}</a> : <a href="#locations" class="btn btn-outline">Find your clinic</a>}

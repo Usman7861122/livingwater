@@ -32,7 +32,7 @@ const fullTitle = title && title.includes('|') ? title : title ? `${title} | ${s
     </script>
   </head>
   <body class="min-h-screen">
-    <a href="#main" class="sr-only z-[70] rounded-full bg-gold-500 px-5 py-3 font-semibold text-navy-950 focus:not-sr-only focus:fixed focus:left-4 focus:top-4">Skip to content</a>
+    <a href="#main" class="sr-only z-[70] rounded-full bg-gold-500 px-5 py-3 font-semibold text-navy-950 focus:not-sr-only focus:fixed focus:left-4 focus:top-4" data-es="Saltar al contenido">Skip to content</a>
     <Header client:load solid={solidHeader} />
     {dots && <SideDots client:idle />}
     <main id="main"><slot /></main>
@@ -92,6 +92,7 @@ const fullTitle = title && title.includes('|') ? title : title ? `${title} | ${s
     </style>
     <script>
       import { es } from '../data/i18n';
+      import { translatePage } from '../lib/translate';
 
       // --- Language swap for static text (React islands handle their own) ---
       const apply = (lang: string) => {
@@ -101,6 +102,7 @@ const fullTitle = title && title.includes('|') ? title : title ? `${title} | ${s
           if (next) el.innerHTML = next;
         });
         document.documentElement.lang = lang;
+        translatePage(lang);
       };
       let saved = 'en';
       try { saved = localStorage.getItem('lw-lang') === 'es' ? 'es' : 'en'; } catch {}

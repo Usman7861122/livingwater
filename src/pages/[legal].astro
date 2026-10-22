@@ -10,6 +10,7 @@ const related = legal.filter((x) => x.slug !== doc.slug);
   <PageHero crumbs={[['Home', '/'], [doc.title]]} eyebrow="Legal" title={doc.title} text={`Last updated: ${legalContact.updated}`} />
   <section class="section bg-cream-50"><div class="container-x grid gap-12 lg:grid-cols-12">
     <article class="lg:col-span-8">
+      <p class="mb-6 hidden rounded-xl border border-gold-500/40 bg-gold-500/10 p-4 text-sm text-navy-900 [html[lang=es]_&]:block">Spanish translation for convenience. It is a draft and may be reviewed by a lawyer. If anything is unclear, the English version applies.</p>
       <p class="text-lg leading-relaxed text-mist">{doc.intro}</p>
       {doc.sections.map((s) => (<>
         <h2 class="mt-10 font-serif text-2xl text-navy-900">{s.h}</h2>

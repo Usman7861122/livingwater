@@ -98,7 +98,7 @@ export default function Header({ solid = false }: { solid?: boolean }) {
             light ? 'bg-transparent py-5' : 'bg-cream-50/95 py-3 shadow-[0_1px_0_rgba(15,35,71,0.08)] backdrop-blur-md'
           }`}
         >
-          <div className="container-x flex items-center justify-between gap-6">
+          <div className="container-x flex items-center justify-between gap-4">
             <a href="/" aria-label="Living Water Clinic – Clínica Agua Viva, home" className="shrink-0">
               <img
                 src="/images/logo.png" alt="" width={200} height={50}
@@ -117,7 +117,7 @@ export default function Header({ solid = false }: { solid?: boolean }) {
                         aria-haspopup={item.mega ? 'true' : undefined}
                         aria-expanded={item.mega ? isOpen : undefined}
                         onFocus={() => openMenu(item.mega ? item.key : null)}
-                        className={`group relative flex min-h-11 items-center gap-1.5 whitespace-nowrap px-2.5 text-[0.95rem] xl:px-3 font-medium transition-colors duration-300 ${
+                        className={`group relative flex min-h-11 items-center gap-1 whitespace-nowrap px-1.5 text-sm min-[1280px]:px-2 min-[1280px]:text-[0.95rem] min-[1500px]:gap-1.5 min-[1500px]:px-3 font-medium transition-colors duration-300 ${
                           light ? 'text-white' : 'text-navy-900'
                         } ${isOpen ? (light ? 'text-gold-300' : 'text-gold-700') : ''}`}
                       >
