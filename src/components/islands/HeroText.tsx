@@ -2,8 +2,8 @@ import { MotionConfig, motion } from 'motion/react';
 import { useLang } from '@/lib/lang';
 
 const copy = {
-  en: [['Compassionate', 'care'], ['for', 'body,', 'mind', '&', 'spirit.']],
-  es: [['Cuidado', 'compasivo'], ['para', 'cuerpo,', 'mente', 'y', 'espíritu.']],
+  en: [['Love', 'through'], ['Health', 'Care.']],
+  es: [['Amor', 'a', 'través'], ['de', 'la', 'atención', 'de', 'salud.']],
 };
 
 export default function HeroText() {

@@ -189,7 +189,7 @@ export const fillS = (t: string, c: { city: string; clinic: string }) => t.repla
 export const seoS = (s: Svc, l?: Location) =>
   l
     ? { title: `${s.title} in ${l.city}, CA | Living Water Clinic`, description: `${s.title} in ${l.city}, CA at Living Water Clinic (${l.name}), ${l.address}, ${l.cityLine}. ${s.summary} Call ${l.phone}.` }
-    : { title: `${s.title} in Tulare County, CA | Living Water Clinic`, description: `${s.title} at ${offeredAt(s).length === 1 ? 'the Living Water Clinic location' : offeredAt(s).length + ' Living Water Clinic locations'} in ${cityList(offeredAt(s))}, California. ${s.summary}` };
+    : { title: `${s.title} in Tulare and Fresno Counties, CA | Living Water Clinic`, description: `${s.title} at ${offeredAt(s).length === 1 ? 'the Living Water Clinic location' : offeredAt(s).length + ' Living Water Clinic locations'} in ${cityList(offeredAt(s))}, California. ${s.summary}` };
 // Specialty services that are NOT offered at every medical clinic. Any slug not listed here is offered at all medical clinics.
 export const onlyAt: Record<string, string[]> = {
   'chiropractic-care': ['lindsay-medical', 'woodlake'],

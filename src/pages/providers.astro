@@ -6,7 +6,7 @@ import { bios } from '../data/providerBios';
 const cats = Object.keys(catLabels) as Cat[];
 const count = (c: Cat) => providers.filter((p) => p.cat === c).length;
 ---
-<BaseLayout title="Our Providers | Living Water Clinic" description="Meet the 38 doctors, physician assistants, nurse practitioners, dentists and specialists of Living Water Clinic in Tulare County, California." solidHeader>
+<BaseLayout title="Our Providers | Living Water Clinic" description="Meet the 38 doctors, physician assistants, nurse practitioners, dentists and specialists of Living Water Clinic in Tulare and Fresno Counties, California." solidHeader>
   <PageHero crumbs={[['Home', '/'], ['Providers']]} eyebrow="Our providers" title="Meet the people <em>who care for you.</em>" text={`${providers.length} doctors, nurse practitioners, physician assistants, dentists and specialists, ready to care for your whole family.`}>
     <a href="/#contact" class="btn btn-gold">Request an appointment</a>
     <a href="/locations" class="btn btn-outline-light">Find a clinic</a>

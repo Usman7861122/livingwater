@@ -111,7 +111,7 @@ Object.assign(terms, pagesEs.terms ?? {});
 // ---- Page titles and shared labels ----
 Object.assign(phrases, {
   '{svc} in {city}, CA | Living Water Clinic': '{svc} en {city}, CA | Living Water Clinic',
-  '{svc} in Tulare County, CA | Living Water Clinic': '{svc} en el condado de Tulare, CA | Living Water Clinic',
+  '{svc} in Tulare and Fresno Counties, CA | Living Water Clinic': '{svc} en los condados de Tulare y Fresno, CA | Living Water Clinic',
   'Maps and outside content': 'Mapas y contenido externo',
 });
 
@@ -216,4 +216,10 @@ Object.assign(phrases, {
   'Living Water Clinic – Clínica Agua Viva, home': 'Living Water Clinic – Clínica Agua Viva, inicio',
   'Primary': 'Principal', 'Language': 'Idioma', 'Open menu': 'Abrir menú', 'Breadcrumb': 'Ruta de navegación',
   'Necessary': 'Necesarias', 'Analytics': 'Analítica', 'Marketing': 'Publicidad',
+});
+
+// ---- Region name used as {city} ----
+Object.assign(terms, {
+  'Tulare and Fresno County': 'los condados de Tulare y Fresno',
+  'Tulare and Fresno Counties': 'los condados de Tulare y Fresno',
 });

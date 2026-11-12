@@ -12,14 +12,14 @@ const pathFor = (l?: Location) => svcPath(svc, l);
 const fm = { ...svc, images: { hero: svc.images.hero } };
 const related = svc.related.map((r) => [bySlug[r].title, svcPath(bySlug[r])]);
 const lower = svc.short;
-const ctx = { city: location ? location.city : 'Tulare County', clinic: location ? (sib ? sib.name : location.name) : 'Living Water Clinic' };
+const ctx = { city: location ? location.city : 'Tulare and Fresno County', clinic: location ? (sib ? sib.name : location.name) : 'Living Water Clinic' };
 const f = (t: string) => fillS(t, ctx);
 const meta = seoS(svc, location);
 const canonical = new URL(pathFor(location), Astro.site ?? 'https://livingwaterclinic.com').href;
 const ld = {
   '@context': 'https://schema.org',
   '@graph': [
-    { '@type': 'MedicalClinic', name: location ? `Living Water Clinic – ${location.name}` : 'Living Water Clinic', availableService: { '@type': 'MedicalProcedure', name: svc.title }, url: canonical, ...(location ? { telephone: location.phone, address: { '@type': 'PostalAddress', streetAddress: location.address, addressLocality: location.city, addressRegion: 'CA', postalCode: location.cityLine.slice(-5), addressCountry: 'US' }, geo: { '@type': 'GeoCoordinates', latitude: location.lat, longitude: location.lng } } : { areaServed: 'Tulare County, CA' }) },
+    { '@type': 'MedicalClinic', name: location ? `Living Water Clinic – ${location.name}` : 'Living Water Clinic', availableService: { '@type': 'MedicalProcedure', name: svc.title }, url: canonical, ...(location ? { telephone: location.phone, address: { '@type': 'PostalAddress', streetAddress: location.address, addressLocality: location.city, addressRegion: 'CA', postalCode: location.cityLine.slice(-5), addressCountry: 'US' }, geo: { '@type': 'GeoCoordinates', latitude: location.lat, longitude: location.lng } } : { areaServed: 'Tulare and Fresno Counties, CA' }) },
     { '@type': 'FAQPage', mainEntity: fm.faq.map(([q, a]) => ({ '@type': 'Question', name: f(q), acceptedAnswer: { '@type': 'Answer', text: f(a) } })) },
   ],
 };

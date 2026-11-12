@@ -15,7 +15,7 @@ export const site = {
   name: 'Living Water Clinic',
   nameEs: 'Clínica Agua Viva',
   description:
-    'Faith-based family medicine, dental and specialty care across Tulare County, California. Compassionate healthcare for the body, mind and spirit.',
+    'Faith-based family medicine, dental and specialty care across Tulare and Fresno Counties, California. God’s Love Through Health Care.',
 };
 
 export type Location = {

@@ -5,7 +5,7 @@ export const es: Record<string, string> = {
   'hero.cta1': 'Reservar cita',
   'hero.cta2': 'Encontrar una clínica',
   'hero.scroll': 'Deslizar',
-  'hero.s1': '7 clínicas en el condado de Tulare',
+  'hero.s1': '7 clínicas en los condados de Tulare y Fresno',
   'hero.s2': 'Cuidado para cuerpo, mente y espíritu',
   'hero.s3': 'Proveedores médicos, dentales y especialistas',
 
@@ -20,7 +20,7 @@ export const es: Record<string, string> = {
   'about.cta': 'Nuestra historia',
 
   'services.eyebrow': 'Nuestros servicios',
-  'services.title': 'Cuidado de todos los días, <em>hecho con corazón.</em>',
+  'services.title': 'Cuidado de todos los días, <em>hecho con amor.</em>',
   'services.cta': 'Ver todos los servicios',
   'common.learn': 'Más información',
   'common.tap': 'Toque una tarjeta para voltearla.',
@@ -30,7 +30,7 @@ export const es: Record<string, string> = {
   'spec.text': 'Una sola clínica de confianza para su atención primaria y los especialistas que pueda necesitar, para que su cuidado esté conectado y cerca de casa.',
 
   'mission.eyebrow': 'Nuestra misión',
-  'mission.quote': '“Atención médica compasiva para el <em class="text-gold-700">cuerpo, la mente y el espíritu.</em>”',
+  'mission.quote': '“El amor de Dios a través de la <em class="text-gold-700">atención de salud.</em>”',
   'mission.text': 'Brindamos atención basada en evidencia y de alta calidad con un excelente servicio, tratando a los demás como nos gustaría ser tratados y fomentando el amor, la esperanza y la fe.',
   'mission.vision.label': 'Nuestra visión',
   'mission.vision': 'Ser un proveedor comunitario líder en servicio al cliente y atención de calidad.',
@@ -59,7 +59,7 @@ export const es: Record<string, string> = {
   'blog.cta': 'Leer el blog',
 
   'loc.eyebrow': 'Nuestras clínicas',
-  'loc.title': 'Siete clínicas en el <em>condado de Tulare.</em>',
+  'loc.title': 'Siete clínicas en los <em>condados de Tulare y Fresno.</em>',
   'loc.text': 'Elija una clínica para ver el mapa, la dirección y el teléfono.',
 
   'contact.eyebrow': 'Contáctenos',
@@ -68,9 +68,9 @@ export const es: Record<string, string> = {
   'contact.call': 'Llame a una clínica',
   'contact.callsub': 'Ver todos los teléfonos',
   'contact.visit': 'Visítenos',
-  'contact.visitsub': 'Siete clínicas en el condado de Tulare',
+  'contact.visitsub': 'Siete clínicas en los condados de Tulare y Fresno',
 
-  'footer.text': 'Medicina familiar, dental y especialidades con fe en todo el condado de Tulare.',
+  'footer.text': 'Medicina familiar, dental y especialidades con fe en todos los condados de Tulare y Fresno.',
   'footer.rights': 'Todos los derechos reservados.',
   'footer.emergency': 'En caso de emergencia, llame al 911.',
 };

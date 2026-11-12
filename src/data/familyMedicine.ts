@@ -67,6 +67,6 @@ export const seo = (l?: Location) =>
         description: `Family medicine in ${l.city}, CA at Living Water Clinic (${l.name}), ${l.address}, ${l.cityLine}. Checkups, vaccines, chronic care and more for the whole family. Call ${l.phone}.`,
       }
     : {
-        title: 'Family Medicine in Tulare County, CA',
+        title: 'Family Medicine in Tulare and Fresno Counties, CA',
         description: 'Family medicine for every age at 5 Living Water Clinic locations in Lindsay, Woodlake, Porterville, Visalia and Selma, California.',
       };

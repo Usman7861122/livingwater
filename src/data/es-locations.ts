@@ -4,7 +4,7 @@ export const locationsEs: Record<string, string> = {
   'What we offer': 'Lo que ofrecemos',
   'Care for the whole person,': 'Atención para la persona completa,',
   'all in one place.': 'todo en un solo lugar.',
-  'Multiple services across primary care, chronic care and specialties, available at our medical clinics in Tulare County.': 'Muchos servicios de atención primaria, atención crónica y especialidades, disponibles en nuestras clínicas médicas del condado de Tulare.',
+  'Multiple services across primary care, chronic care and specialties, available at our medical clinics in Tulare and Fresno Counties.': 'Muchos servicios de atención primaria, atención crónica y especialidades, disponibles en nuestras clínicas médicas dlos condados de Tulare y Fresno.',
   'Primary care': 'Atención primaria',
   'Everyday care': 'Atención de todos los días',
   'for the whole family.': 'para toda la familia.',
@@ -31,7 +31,7 @@ export const locationsEs: Record<string, string> = {
   'Our locations': 'Nuestras ubicaciones',
   'Seven clinics,': 'Siete clínicas,',
   'one family.': 'una sola familia.',
-  'Find the Living Water Clinic closest to you in Tulare County.': 'Encuentre la clínica Living Water más cercana a usted en el condado de Tulare.',
+  'Find the Living Water Clinic closest to you in Tulare and Fresno Counties.': 'Encuentre la clínica Living Water más cercana a usted en los condados de Tulare y Fresno.',
   'Medical clinics': 'Clínicas médicas',
   'Dental clinics': 'Clínicas dentales',
   'View location': 'Ver ubicación',
@@ -81,7 +81,7 @@ export const locationsEs: Record<string, string> = {
   'Send us a note and a team member at {clinic} will reach out. Prefer to talk? Call {phone}.': 'Envíenos una nota y un miembro del equipo de {clinic} se comunicará con usted. ¿Prefiere hablar? Llame al {phone}.',
   'Other locations': 'Otras ubicaciones',
   '{n} more clinics': '{n} clínicas más',
-  'across Tulare County.': 'en todo el condado de Tulare.',
+  'across Tulare and Fresno Counties.': 'en todos los condados de Tulare y Fresno.',
   'Email:': 'Correo electrónico:',
 
   // --- Insurance block on clinic pages ---

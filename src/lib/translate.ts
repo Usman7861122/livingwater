@@ -14,7 +14,7 @@ const cache = new Map<string, string | null>();
 
 const esc = (s: string) => s.replace(/[.*+?^$()|[\]\\]/g, '\\$&');
 
-const CITIES = 'Lindsay|Woodlake|Porterville|Visalia|Selma|Tulare County';
+const CITIES = 'Lindsay|Woodlake|Porterville|Visalia|Selma|Tulare and Fresno County|Tulare and Fresno Counties';
 const CLINICS = 'Lindsay Clinic|Lindsay Dental|Woodlake|Porterville Clinic|Visalia Clinic|Visalia Dental|Selma Clinic|Living Water Clinic|Living Water Clinic – Clínica Agua Viva';
 
 function prepare(d: Dict) {
