@@ -43,8 +43,6 @@ const facts = [
 
 <BaseLayout title={title} description={description} solidHeader>
   <Fragment slot="head">
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
     <script type="application/ld+json" set:html={JSON.stringify(ld)} />
   </Fragment>
 

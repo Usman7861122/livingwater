@@ -35,9 +35,6 @@ const mapSrc = location ? `https://www.google.com/maps?q=${encodeURIComponent(`L
 
 <BaseLayout title={title} description={meta.description} solidHeader>
   <Fragment slot="head">
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={meta.description} />
-    <meta property="og:image" content={new URL(fm.images.hero, canonical).href} />
     <script type="application/ld+json" set:html={JSON.stringify(ld)} />
   </Fragment>
   <!-- Hero -->
