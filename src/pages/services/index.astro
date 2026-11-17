@@ -5,9 +5,11 @@ import { bySlug, svcPath, categories } from '../../data/servicePages';
 import { locations } from '../../data/site';
 
 const sorted = [...locations.filter((x) => x.type === 'Medical')].sort((a, b) => a.city.localeCompare(b.city) || a.name.localeCompare(b.name));
+import { hubSchema } from '../../lib/schema';
 ---
 
 <BaseLayout title="Our Services | Living Water Clinic" description="Family medicine, pediatrics, chronic care and specialty services at 5 Living Water Clinic medical clinics across Tulare and Fresno Counties, California.">
+  <Fragment slot="head"><script type="application/ld+json" set:html={JSON.stringify(hubSchema({ name: 'Our Services', path: '/services/', description: "Family medicine, pediatrics, chronic care and specialty services at 5 Living Water Clinic medical clinics across Tulare and Fresno Counties, California." }))} /></Fragment>
   <section class="on-dark relative overflow-hidden bg-navy-950 pt-36 pb-20 lg:pt-44">
     <div class="container-x grid items-end gap-12 lg:grid-cols-12">
       <div class="lg:col-span-7">

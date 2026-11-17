@@ -3,6 +3,7 @@ import MapEmbed from '../../components/ui/MapEmbed.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Icon from '../../components/ui/Icon.astro';
 import { locations, dentalServices, insurance, SITE_URL } from '../../data/site';
+import { clinicId, orgId } from '../../lib/schema';
 import { bySlug, svcPath, categories, siblingOf, offers } from '../../data/servicePages';
 import { locationContent } from '../../data/locationContent';
 
@@ -28,6 +29,7 @@ const canonical = new URL(`/locations/${location.id}/`, SITE_URL).href;
 const ld = {
   '@context': 'https://schema.org',
   '@type': isDental ? 'Dentist' : 'MedicalClinic',
+  '@id': clinicId(location), parentOrganization: { '@id': orgId },
   name: `Living Water Clinic – ${location.name}`, url: canonical, telephone: location.phone,
   address: { '@type': 'PostalAddress', streetAddress: location.address, addressLocality: location.city, addressRegion: 'CA', postalCode: location.cityLine.slice(-5), addressCountry: 'US' },
   geo: { '@type': 'GeoCoordinates', latitude: location.lat, longitude: location.lng },

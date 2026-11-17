@@ -7,8 +7,10 @@ const cards = [
   ['FAQ', 'Quick answers to common questions.', '/resources/faq/'],
   ['Testimonials', 'Read what patients say about their care.', '/resources/testimonials/'],
 ];
+import { hubSchema } from '../../lib/schema';
 ---
 <BaseLayout title="Patient Resources | Living Water Clinic" description="Insurance, pricing, frequently asked questions and patient reviews for Living Water Clinic in Tulare and Fresno Counties, CA." solidHeader>
+  <Fragment slot="head"><script type="application/ld+json" set:html={JSON.stringify(hubSchema({ name: 'Patient Resources', path: '/resources/', description: "Insurance, pricing, frequently asked questions and patient reviews for Living Water Clinic in Tulare and Fresno Counties, CA." }))} /></Fragment>
   <PageHero crumbs={[['Home', '/'], ['Resources']]} eyebrow="Resources" title="Care within <em>your reach.</em>" text="Insurance, prices and answers to your questions, all in one place." />
   <section class="section bg-cream-50"><div class="container-x">
     <ul class="grid gap-5 md:grid-cols-2">

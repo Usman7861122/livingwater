@@ -12,9 +12,12 @@ import Insurance from '../components/sections/Insurance.astro';
 import Blog from '../components/sections/Blog.astro';
 import Locations from '../components/sections/Locations.astro';
 import Contact from '../components/sections/Contact.astro';
+import { homeSchema } from '../lib/schema';
+import { site } from '../data/site';
 ---
 
 <BaseLayout dots>
+  <Fragment slot="head"><script type="application/ld+json" set:html={JSON.stringify(homeSchema(site.description))} /></Fragment>
   <Hero />
   <About />
   <Services />

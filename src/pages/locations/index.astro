@@ -3,8 +3,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Icon from '../../components/ui/Icon.astro';
 import { locations } from '../../data/site';
 const groups = [['Medical clinics', locations.filter((x) => x.type === 'Medical')], ['Dental clinics', locations.filter((x) => x.type === 'Dental')]] as const;
+import { hubSchema } from '../../lib/schema';
 ---
 <BaseLayout title="Locations | Living Water Clinic" description="Seven Living Water Clinic locations in Lindsay, Woodlake, Porterville, Visalia and Selma, California. Find the clinic nearest you." solidHeader>
+  <Fragment slot="head"><script type="application/ld+json" set:html={JSON.stringify(hubSchema({ name: 'Locations', path: '/locations/', description: "Seven Living Water Clinic locations in Lindsay, Woodlake, Porterville, Visalia and Selma, California. Find the clinic nearest you." }))} /></Fragment>
   <section class="on-dark bg-navy-950 pt-36 pb-16 lg:pt-44">
     <div class="container-x">
       <nav aria-label="Breadcrumb" class="text-sm text-cream-200/80" data-reveal><a href="/" class="link-underline">Home</a> <span class="mx-2">/</span> <span class="text-gold-400">Locations</span></nav>

@@ -2,8 +2,10 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHero from '../../components/ui/PageHero.astro';
 import { posts, fmt } from '../../data/posts';
+import { hubSchema } from '../../lib/schema';
 ---
 <BaseLayout title="Health Blog | Living Water Clinic" description="Simple, trusted health tips from Living Water Clinic in Tulare and Fresno Counties, CA: diabetes, children's health, urgent care and more." solidHeader>
+  <Fragment slot="head"><script type="application/ld+json" set:html={JSON.stringify(hubSchema({ name: 'Health Blog', path: '/blog/', description: "Simple, trusted health tips from Living Water Clinic in Tulare and Fresno Counties, CA: diabetes, children's health, urgent care and more." }))} /></Fragment>
   <PageHero crumbs={[['Home', '/'], ['Blog']]} eyebrow="Blog" title="Health tips <em>you can use.</em>" text="Clear advice from our care team for you and your family." />
   <section class="section bg-cream-50"><div class="container-x">
     <ul class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
