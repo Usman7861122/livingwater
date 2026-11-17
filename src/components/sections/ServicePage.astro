@@ -59,7 +59,7 @@ const mapSrc = location ? `https://www.google.com/maps?q=${encodeURIComponent(`L
           </p>
         )}
         <div class="mt-9 flex flex-wrap gap-3" data-reveal style="--d:240ms">
-          <a href="#contact" class="btn btn-gold">Request an appointment</a>
+          <a href="https://phreesia.me/LWCOnlineScheduling" target="_blank" rel="noopener noreferrer" class="btn btn-gold">Request an appointment</a>
           {location ? <a href={`tel:${phone.tel}`} class="btn btn-outline-light"><Icon name="phone" size={18} /> {phone.phone}</a> : <a href="#locations" class="btn btn-outline-light">Find your clinic</a>}
         </div>
       </div>
@@ -83,7 +83,7 @@ const mapSrc = location ? `https://www.google.com/maps?q=${encodeURIComponent(`L
         {fm.intro.map((t, i) => <p class="text-lg leading-relaxed text-mist mt-0 mb-5" data-reveal style={`--d:${i * 80}ms`}>{f(t)}</p>)}
         {location && <p class="text-lg leading-relaxed text-mist" data-reveal>Visit our {location.city} clinic for {lower} at <strong class="text-navy-900">{location.address}, {location.cityLine}</strong>.</p>}
         <div class="mt-8 flex flex-wrap gap-3" data-reveal>
-          <a href="#contact" class="btn btn-navy">Request an appointment</a>
+          <a href="https://phreesia.me/LWCOnlineScheduling" target="_blank" rel="noopener noreferrer" class="btn btn-navy">Request an appointment</a>
           {location ? <a href={`tel:${phone.tel}`} class="btn btn-outline">Call {phone.phone}</a> : <a href="#locations" class="btn btn-outline">Find your clinic</a>}
         </div>
       </div>
@@ -240,7 +240,7 @@ const mapSrc = location ? `https://www.google.com/maps?q=${encodeURIComponent(`L
       <h2 class="h-section mx-auto max-w-3xl text-navy-900" data-reveal>Get {lower}{where}, <em>starting today.</em></h2>
       <p class="mx-auto mt-5 max-w-xl text-lg text-mist" data-reveal style="--d:80ms"><span>{location ? "Call us or send a message." : "Pick your nearest clinic below, or send a message."}</span> <span>A team member will help you book your visit.</span></p>
       <div class="mt-9 flex flex-wrap justify-center gap-3" data-reveal style="--d:140ms">
-        <a href="/#contact" class="btn btn-navy">Request an appointment</a>
+        <a href="https://phreesia.me/LWCOnlineScheduling" target="_blank" rel="noopener noreferrer" class="btn btn-navy">Request an appointment</a>
         {location ? <a href={`tel:${phone.tel}`} class="btn btn-outline">Call {phone.phone}</a> : <a href="#locations" class="btn btn-outline">Find your clinic</a>}
       </div>
     </div>

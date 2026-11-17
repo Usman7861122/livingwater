@@ -143,8 +143,8 @@
 
 /* Animated gold ring on every "Book a visit" / "Request an appointment" button */
 @property --book-ang { syntax: '<angle>'; inherits: false; initial-value: 0deg; }
-.btn[href="#contact"]:not(.btn-outline):not(.btn-outline-light),
-.btn[href="/#contact"]:not(.btn-outline):not(.btn-outline-light),
+.btn[href*="LWCOnlineScheduling"]:not(.btn-outline):not(.btn-outline-light),
+.btn[href*="LWCOnlineScheduling"]:not(.btn-outline):not(.btn-outline-light),
 .btn[data-book]:not(.btn-outline):not(.btn-outline-light) {
   --book-fill: var(--color-gold-500);
   --book-ring: conic-gradient(from var(--book-ang), var(--color-gold-700) 0%, var(--color-gold-300) 22%, #fff 38%, var(--color-gold-300) 54%, var(--color-gold-700) 75%, var(--color-gold-700) 100%);
@@ -152,8 +152,8 @@
   background: linear-gradient(var(--book-fill), var(--book-fill)) padding-box, var(--book-ring) border-box;
   animation: book-spin 3.2s linear infinite;
 }
-.btn.btn-navy[href="#contact"]:not(.btn-outline):not(.btn-outline-light), .btn.btn-navy[href="/#contact"]:not(.btn-outline):not(.btn-outline-light), .btn.btn-navy[data-book]:not(.btn-outline):not(.btn-outline-light) { --book-fill: var(--color-navy-900); }
+.btn.btn-navy[href*="LWCOnlineScheduling"]:not(.btn-outline):not(.btn-outline-light), .btn.btn-navy[href*="LWCOnlineScheduling"]:not(.btn-outline):not(.btn-outline-light), .btn.btn-navy[data-book]:not(.btn-outline):not(.btn-outline-light) { --book-fill: var(--color-navy-900); }
 @keyframes book-spin { to { --book-ang: 360deg; } }
 @media (prefers-reduced-motion: reduce) {
-  .btn[href="#contact"], .btn[href="/#contact"], .btn[data-book] { animation: none; }
+  .btn[href*="LWCOnlineScheduling"], .btn[href*="LWCOnlineScheduling"], .btn[data-book] { animation: none; }
 }

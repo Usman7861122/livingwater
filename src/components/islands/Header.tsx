@@ -22,7 +22,7 @@ const ico = (d: string) => (
 const topLinks = [
   { href: 'tel:559-784-5483', label: { en: '559-784-5483', es: '559-784-5483' }, icon: ico('M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z') },
   { href: '/telemedicine', label: { en: 'Telemedicine', es: 'Telemedicina' }, icon: ico('M15 10l5-3v10l-5-3M3 6h12a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1z') },
-  { href: 'https://6501.portal.athenahealth.com/', label: { en: 'Patient Portal', es: 'Portal del paciente' }, icon: ico('M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z') },
+  { href: 'https://patient.athenahealth.com/6501/', label: { en: 'Patient Portal', es: 'Portal del paciente' }, icon: ico('M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z') },
   { href: '/providers', label: { en: 'Providers', es: 'Proveedores' }, icon: ico('M6 3v6a4 4 0 0 0 8 0V3M10 13v2a5 5 0 0 0 10 0v-1.5M20 11a2 2 0 1 0 0 3') },
 ];
 
@@ -142,7 +142,7 @@ export default function Header({ solid = false }: { solid?: boolean }) {
                   >{l}</button>
                 ))}
               </div>
-              <a href="/#contact" className="btn btn-gold hidden !min-h-11 !px-5 !text-sm whitespace-nowrap xl:inline-flex">
+              <a href="https://phreesia.me/LWCOnlineScheduling" target="_blank" rel="noopener noreferrer" className="btn btn-gold hidden !min-h-11 !px-5 !text-sm whitespace-nowrap xl:inline-flex">
                 {lang === 'es' ? 'Reservar cita' : 'Book a visit'}
               </a>
               <button
@@ -256,7 +256,7 @@ export default function Header({ solid = false }: { solid?: boolean }) {
                 </ul>
               </div>
               <div className="container-x pb-10">
-                <a href="/#contact" onClick={() => setMobile(false)} className="btn btn-navy w-full">{lang === 'es' ? 'Reservar cita' : 'Book a visit'}</a>
+                <a href="https://phreesia.me/LWCOnlineScheduling" target="_blank" rel="noopener noreferrer" onClick={() => setMobile(false)} className="btn btn-navy w-full">{lang === 'es' ? 'Reservar cita' : 'Book a visit'}</a>
               </div>
             </motion.div>
           )}
