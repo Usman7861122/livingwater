@@ -184,7 +184,7 @@ const others: Svc[] = [
 
 export const services: Svc[] = [family, ...others];
 export const bySlug = Object.fromEntries(services.map((s) => [s.slug, s]));
-export const svcPath = (s: Svc, l?: Location) => `/services/${s.slug}${l ? '/' + l.id : ''}`;
+export const svcPath = (s: Svc, l?: Location) => `/services/${s.slug}/${l ? l.id + '/' : ''}`;
 export const fillS = (t: string, c: { city: string; clinic: string }) => t.replace(/\{city\}/g, c.city).replace(/\{clinic\}/g, c.clinic);
 export const seoS = (s: Svc, l?: Location) =>
   l

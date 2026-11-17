@@ -35,15 +35,15 @@ export const fm = {
 };
 
 export const related = [
-  ['Pediatric Care', '/services/pediatric-care'],
-  ['Diabetes Care', '/services/diabetes'],
-  ['Asthma', '/services/asthma'],
-  ['Annual Wellness Visit', '/services/annual-wellness-visit'],
-  ['Remote Patient Monitoring', '/services/remote-patient-monitoring'],
-  ['Virtual Urgent Care', '/services/virtual-urgent-care'],
+  ['Pediatric Care', '/services/pediatric-care/'],
+  ['Diabetes Care', '/services/diabetes/'],
+  ['Asthma', '/services/asthma/'],
+  ['Annual Wellness Visit', '/services/annual-wellness-visit/'],
+  ['Remote Patient Monitoring', '/services/remote-patient-monitoring/'],
+  ['Virtual Urgent Care', '/services/virtual-urgent-care/'],
 ];
 
-export const pathFor = (l?: Location) => `/services/family-medicine${l ? '/' + l.id : ''}`;
+export const pathFor = (l?: Location) => `/services/family-medicine/${l ? l.id + '/' : ''}`;
 
 const blurbs: Record<string, string> = {
   'lindsay-medical': 'Our Lindsay Clinic welcomes families from Lindsay, Strathmore, Exeter and nearby towns.',

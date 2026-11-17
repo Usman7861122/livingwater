@@ -6,7 +6,7 @@ const jsonld = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntit
 ---
 <BaseLayout title="Frequently Asked Questions | Living Water Clinic" description="Answers about our Sliding Fee Discount Program, insurance, self-pay, languages and locations at Living Water Clinic." solidHeader>
   <script type="application/ld+json" set:html={JSON.stringify(jsonld)} slot="head" />
-  <PageHero crumbs={[['Home', '/'], ['Resources', '/resources'], ['FAQ']]} eyebrow="FAQ" title="Your questions, <em>answered.</em>" text="Can’t find your answer? Call your nearest clinic. We are happy to help." />
+  <PageHero crumbs={[['Home', '/'], ['Resources', '/resources/'], ['FAQ']]} eyebrow="FAQ" title="Your questions, <em>answered.</em>" text="Can’t find your answer? Call your nearest clinic. We are happy to help." />
   <section class="section bg-cream-50"><div class="container-x max-w-4xl">
     <div class="divide-y divide-navy-900/10 border-y border-navy-900/10">
       {faqs.map(([q, a]) => (

@@ -39,7 +39,7 @@ const cols = ['services', 'resources', 'about'].map((k) => nav.find((n) => n.key
       <p data-i18n="footer.emergency">For emergencies, call 911.</p>
     </div>
     <ul class="flex flex-wrap gap-x-6 gap-y-2 pt-5 text-sm text-cream-50/65">
-      {legal.map((x) => <li><a href={`/${x.slug}`} class="link-underline">{x.title}</a></li>)}
+      {legal.map((x) => <li><a href={`/${x.slug}/`} class="link-underline">{x.title}</a></li>)}
       <li><button type="button" data-cookie-open class="link-underline">Cookie settings</button></li>
     </ul>
   </div>

@@ -119,7 +119,7 @@ const facts = [
             <aside class="rounded-2xl bg-navy-900 p-8 text-cream-50 lg:col-span-4" data-reveal>
               <p class="text-xs font-semibold tracking-widest text-gold-400 uppercase">Need medical care too?</p>
               <p class="mt-4 text-lg text-cream-200">Our medical clinic in {location.city} offers family medicine and specialty care.</p>
-              <a href={`/locations/${sib.id}`} class="btn btn-gold mt-6">See {sib.name}</a>
+              <a href={`/locations/${sib.id}/`} class="btn btn-gold mt-6">See {sib.name}</a>
             </aside>
           )}
         </div>
@@ -170,11 +170,11 @@ const facts = [
                   </div>
                 ))}
               </div>
-              <p class="mt-5 text-mist" data-reveal>Learn more about <a href="/ecm" class="link-underline text-navy-900">Enhanced Care Management</a>.</p>
+              <p class="mt-5 text-mist" data-reveal>Learn more about <a href="/ecm/" class="link-underline text-navy-900">Enhanced Care Management</a>.</p>
             </div>
           )}
           {dentalSib && (
-            <p class="text-lg text-mist" data-reveal>Looking for dental care? Visit <a href={`/locations/${dentalSib.id}`} class="link-underline text-navy-900">{dentalSib.name}</a> in {location.city}.</p>
+            <p class="text-lg text-mist" data-reveal>Looking for dental care? Visit <a href={`/locations/${dentalSib.id}/`} class="link-underline text-navy-900">{dentalSib.name}</a> in {location.city}.</p>
           )}
         </div>
       )}
@@ -198,7 +198,7 @@ const facts = [
             <ul class="mt-4 flex flex-wrap gap-2">{extra.insurance.dental.map((n) => <li class="rounded-full border border-navy-900/15 bg-white px-4 py-2 text-sm text-navy-900">{n}</li>)}</ul>
           </div>
         </div>
-        <p class="mt-8 max-w-2xl text-mist" data-reveal>Don’t see your plan? Call us at {location.phone} and we will check. We also welcome self-pay patients. <a href="/resources/insurances" class="link-underline text-navy-900">See all accepted insurance</a>.</p>
+        <p class="mt-8 max-w-2xl text-mist" data-reveal>Don’t see your plan? Call us at {location.phone} and we will check. We also welcome self-pay patients. <a href="/resources/insurances/" class="link-underline text-navy-900">See all accepted insurance</a>.</p>
       </div>
     </section>
   )}
@@ -304,7 +304,7 @@ const facts = [
       <ul class="mt-10 grid gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-3">
         {others.map((x) => (
           <li class="bg-navy-950">
-            <a href={`/locations/${x.id}`} class="group flex h-full items-center justify-between gap-4 p-7 transition hover:bg-navy-900">
+            <a href={`/locations/${x.id}/`} class="group flex h-full items-center justify-between gap-4 p-7 transition hover:bg-navy-900">
               <div>
                 <p class="text-xs tracking-widest text-gold-400 uppercase">{x.city} · {x.type}</p>
                 <p class="mt-2 font-serif text-xl">{x.name}</p>

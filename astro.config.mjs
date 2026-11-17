@@ -10,6 +10,7 @@ const postDates = Object.fromEntries(posts.map((p) => [p.slug, p.date]));
 const ids = ['lindsay-medical', 'lindsay-dental', 'woodlake', 'porterville-medical', 'visalia-dental', 'visalia-medical', 'selma-medical'];
 
 export default defineConfig({
+  trailingSlash: 'always',
   site: 'https://www.livingwaterclinic.com',
   integrations: [
     react(),

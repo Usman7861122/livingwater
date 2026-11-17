@@ -46,7 +46,7 @@ const mapSrc = location ? `https://www.google.com/maps?q=${encodeURIComponent(`L
       <div class="lg:col-span-6">
         <nav aria-label="Breadcrumb" class="text-sm text-cream-200/80" data-reveal>
           <a href="/" class="link-underline">Home</a> <span class="mx-2">/</span>
-          <a href="/services" class="link-underline">Services</a> <span class="mx-2">/</span>
+          <a href="/services/" class="link-underline">Services</a> <span class="mx-2">/</span>
           {location ? (<><a href={pathFor()} class="link-underline">{fm.title}</a> <span class="mx-2">/</span> <span class="text-gold-400">{location.city}</span></>) : (<span class="text-gold-400">{fm.title}</span>)}
         </nav>
         <p class="eyebrow mt-8" data-reveal style="--d:60ms">{location ? location.name : 'Our services'}</p>

@@ -17,7 +17,7 @@ const ld = { '@context': 'https://schema.org', '@type': 'Physician', name: title
   <section class="on-dark relative overflow-hidden bg-navy-950 pt-36 pb-16 lg:pt-44">
     <div class="container-x">
       <nav aria-label="Breadcrumb" class="text-sm text-cream-200/80" data-reveal>
-        <a href="/" class="link-underline">Home</a><span class="mx-2">/</span><a href="/providers" class="link-underline">Providers</a><span class="mx-2">/</span><span class="text-gold-400">{p.name}</span>
+        <a href="/" class="link-underline">Home</a><span class="mx-2">/</span><a href="/providers/" class="link-underline">Providers</a><span class="mx-2">/</span><span class="text-gold-400">{p.name}</span>
       </nav>
     </div>
   </section>
@@ -30,7 +30,7 @@ const ld = { '@context': 'https://schema.org', '@type': 'Physician', name: title
             <img src={`/images/doctors/${p.slug}.webp`} alt={title} width="500" height="600" class="aspect-[4/5] w-full object-cover object-top" fetchpriority="high" />
           </div>
           <a href="https://phreesia.me/LWCOnlineScheduling" target="_blank" rel="noopener noreferrer" class="btn btn-gold mt-6 w-full">Request an appointment</a>
-          <a href="/providers" class="link-underline mt-5 inline-block text-sm font-semibold text-navy-900">← All providers</a>
+          <a href="/providers/" class="link-underline mt-5 inline-block text-sm font-semibold text-navy-900">← All providers</a>
         </div>
       </aside>
 
@@ -41,7 +41,7 @@ const ld = { '@context': 'https://schema.org', '@type': 'Physician', name: title
           {paras.map((t) => <p>{t}</p>)}
         </div>
         <div class="mt-10 flex flex-wrap gap-3" data-reveal style="--d:180ms">
-          <a href="/locations" class="btn btn-navy">Find a clinic</a>
+          <a href="/locations/" class="btn btn-navy">Find a clinic</a>
           <a href="tel:+15597845483" class="btn btn-outline"><Icon name="phone" size={18} /> 559-784-5483</a>
         </div>
       </div>

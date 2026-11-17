@@ -47,91 +47,91 @@ export const locations: Location[] = [
 const l = (en: string, es: string = en): L => ({ en, es });
 
 const medFirst = [...locations.filter(x => x.type === 'Medical'), ...locations.filter(x => x.type === 'Dental')];
-const mk = (x: (typeof locations)[number]) => ({ label: l(x.name), href: `/locations/${x.id}`, note: l(x.phone) });
+const mk = (x: (typeof locations)[number]) => ({ label: l(x.name), href: `/locations/${x.id}/`, note: l(x.phone) });
 
 export const nav: NavItem[] = [
   {
-    key: 'about', label: l('About', 'Nosotros'), href: '/about',
+    key: 'about', label: l('About', 'Nosotros'), href: '/about/',
     mega: {
       columns: [
         { title: l('Our Clinic', 'Nuestra clínica'), links: [
-          { label: l('Our Office', 'Nuestra oficina'), href: '/about/our-office' },
-          { label: l('Sobre Nosotros'), href: '/about/sobre-nosotros' },
-          { label: l('Management', 'Administración'), href: '/about/management' },
+          { label: l('Our Office', 'Nuestra oficina'), href: '/about/our-office/' },
+          { label: l('Sobre Nosotros'), href: '/about/sobre-nosotros/' },
+          { label: l('Management', 'Administración'), href: '/about/management/' },
         ] },
         { title: l('Join & Learn', 'Únase e infórmese'), links: [
           { label: l('Careers', 'Empleos'), href: 'https://recruitingbypaycor.com/career/CareerHome.action?clientId=8a7883c6876de6fb01877b50739f08cf' },
-          { label: l('OB/GYN Careers', 'Empleos OB/GYN'), href: '/about/ob-gyn-careers' },
+          { label: l('OB/GYN Careers', 'Empleos OB/GYN'), href: '/about/ob-gyn-careers/' },
           { label: l('HPSA'), href: 'https://hpsa.us/federal-programs/' },
         ] },
       ],
-      feature: { title: l('Faith-based. Family-focused.', 'Con fe. Enfocados en la familia.'), text: l('Meet the clinic behind the care.', 'Conozca la clínica detrás del cuidado.'), img: '/images/about.jpg', href: '/about', cta: l('Our story', 'Nuestra historia') },
+      feature: { title: l('Faith-based. Family-focused.', 'Con fe. Enfocados en la familia.'), text: l('Meet the clinic behind the care.', 'Conozca la clínica detrás del cuidado.'), img: '/images/about.jpg', href: '/about/', cta: l('Our story', 'Nuestra historia') },
     },
   },
-  { key: 'providers', label: l('Providers', 'Proveedores'), href: '/providers' },
+  { key: 'providers', label: l('Providers', 'Proveedores'), href: '/providers/' },
   {
-    key: 'services', label: l('Services', 'Servicios'), href: '/services',
+    key: 'services', label: l('Services', 'Servicios'), href: '/services/',
     mega: {
       columns: [
         { title: l('Primary Care', 'Atención primaria'), links: [
-          { label: l('Family Medicine', 'Medicina familiar'), href: '/services/family-medicine' },
-          { label: l('Pediatric Care', 'Cuidado pediátrico'), href: '/services/pediatric-care' },
-          { label: l('Annual Wellness Visit', 'Visita anual de bienestar'), href: '/services/annual-wellness-visit' },
-          { label: l('Virtual Urgent Care', 'Atención urgente virtual'), href: '/services/virtual-urgent-care' },
-          { label: l('Diabetes'), href: '/services/diabetes', heading: l('Chronic Care', 'Cuidado crónico') },
-          { label: l('Asthma', 'Asma'), href: '/services/asthma' },
-          { label: l('Weight Loss Management', 'Control de peso'), href: '/services/weight-loss-management' },
-          { label: l('Remote Patient Monitoring', 'Monitoreo remoto'), href: '/services/remote-patient-monitoring' },
+          { label: l('Family Medicine', 'Medicina familiar'), href: '/services/family-medicine/' },
+          { label: l('Pediatric Care', 'Cuidado pediátrico'), href: '/services/pediatric-care/' },
+          { label: l('Annual Wellness Visit', 'Visita anual de bienestar'), href: '/services/annual-wellness-visit/' },
+          { label: l('Virtual Urgent Care', 'Atención urgente virtual'), href: '/services/virtual-urgent-care/' },
+          { label: l('Diabetes'), href: '/services/diabetes/', heading: l('Chronic Care', 'Cuidado crónico') },
+          { label: l('Asthma', 'Asma'), href: '/services/asthma/' },
+          { label: l('Weight Loss Management', 'Control de peso'), href: '/services/weight-loss-management/' },
+          { label: l('Remote Patient Monitoring', 'Monitoreo remoto'), href: '/services/remote-patient-monitoring/' },
         ] },
         { title: l('Specialties', 'Especialidades'), links: [
-          { label: l('Chiropractic Care', 'Quiropráctica'), href: '/services/chiropractic-care' },
-          { label: l('Optometry', 'Optometría'), href: '/services/optometry' },
-          { label: l('Foot Care', 'Cuidado de los pies'), href: '/services/foot-care' },
-          { label: l('Nephrology', 'Nefrología'), href: '/services/nephrology' },
-          { label: l('OB-GYN', 'Obstetricia y ginecología'), href: '/services/obgyn' },
-          { label: l('Behavioral Health', 'Salud conductual'), href: '/services/behavioral-health' },
-          { label: l('View all services', 'Ver todos los servicios'), href: '/services', heading: l('Explore', 'Explorar') },
+          { label: l('Chiropractic Care', 'Quiropráctica'), href: '/services/chiropractic-care/' },
+          { label: l('Optometry', 'Optometría'), href: '/services/optometry/' },
+          { label: l('Foot Care', 'Cuidado de los pies'), href: '/services/foot-care/' },
+          { label: l('Nephrology', 'Nefrología'), href: '/services/nephrology/' },
+          { label: l('OB-GYN', 'Obstetricia y ginecología'), href: '/services/obgyn/' },
+          { label: l('Behavioral Health', 'Salud conductual'), href: '/services/behavioral-health/' },
+          { label: l('View all services', 'Ver todos los servicios'), href: '/services/', heading: l('Explore', 'Explorar') },
         ] },
       ],
-      feature: { title: l('More than primary care', 'Más que atención primaria'), text: l('A multi-specialty clinic for the whole family.', 'Una clínica multiespecialidad para toda la familia.'), img: '/images/services.jpg', href: '/services', cta: l('View all services', 'Ver todos los servicios') },
+      feature: { title: l('More than primary care', 'Más que atención primaria'), text: l('A multi-specialty clinic for the whole family.', 'Una clínica multiespecialidad para toda la familia.'), img: '/images/services.jpg', href: '/services/', cta: l('View all services', 'Ver todos los servicios') },
     },
   },
   {
-    key: 'dental', label: l('Dental', 'Dental'), href: '/dental',
+    key: 'dental', label: l('Dental', 'Dental'), href: '/dental/',
     mega: {
       columns: [
         { title: l('Dental Care', 'Cuidado dental'), links: [
-          { label: l('Dental Services', 'Servicios dentales'), href: '/dental/services' },
-          { label: l('Our Dentists', 'Nuestros dentistas'), href: '/providers#dental' },
+          { label: l('Dental Services', 'Servicios dentales'), href: '/dental/services/' },
+          { label: l('Our Dentists', 'Nuestros dentistas'), href: '/providers/#dental' },
         ] },
         { title: l('Dental Locations', 'Clínicas dentales'), links: [
-          { label: l('Lindsay Dental'), href: '/locations/lindsay-dental' },
-          { label: l('Visalia Dental'), href: '/locations/visalia-dental' },
+          { label: l('Lindsay Dental'), href: '/locations/lindsay-dental/' },
+          { label: l('Visalia Dental'), href: '/locations/visalia-dental/' },
         ] },
       ],
-      feature: { title: l('Complete dental care', 'Cuidado dental completo'), text: l('For children and adults.', 'Para niños y adultos.'), img: '/images/dental.jpg', href: '/dental', cta: l('Explore dental', 'Explorar dental') },
+      feature: { title: l('Complete dental care', 'Cuidado dental completo'), text: l('For children and adults.', 'Para niños y adultos.'), img: '/images/dental.jpg', href: '/dental/', cta: l('Explore dental', 'Explorar dental') },
     },
   },
-  { key: 'ecm', label: l('ECM'), href: '/ecm' },
-  { key: 'blog', label: l('Blog'), href: '/blog' },
+  { key: 'ecm', label: l('ECM'), href: '/ecm/' },
+  { key: 'blog', label: l('Blog'), href: '/blog/' },
   {
-    key: 'resources', label: l('Resources', 'Recursos'), href: '/resources',
+    key: 'resources', label: l('Resources', 'Recursos'), href: '/resources/',
     mega: {
       columns: [
         { title: l('For Patients', 'Para pacientes'), links: [
-          { label: l('Insurances', 'Seguros'), href: '/resources/insurances' },
+          { label: l('Insurances', 'Seguros'), href: '/resources/insurances/' },
           { label: l('Pricing', 'Precios'), href: 'https://www.phreesia.net/25/patient/Payment.aspx/Start?encrypted=nbQ3NEXtPyONdOyRAwR6PTqeRKZ1WssfUpMK1UIEkPXtiut3_zkPABG8HaHyCENRUNhRKs7Cx_xYXsOZAE6bgjl5ETsM7ywLwAujSQGNQP38eWJK7WaYfw5BlqhrzDQ6U1wg2csgEpYGVL2L2w-usRXhM0Ht4SZ9NSzCBbGGvK01' },
         ] },
         { title: l('Learn More', 'Más información'), links: [
-          { label: l('FAQ', 'Preguntas frecuentes'), href: '/resources/faq' },
-          { label: l('Testimonials', 'Testimonios'), href: '/resources/testimonials' },
+          { label: l('FAQ', 'Preguntas frecuentes'), href: '/resources/faq/' },
+          { label: l('Testimonials', 'Testimonios'), href: '/resources/testimonials/' },
         ] },
       ],
-      feature: { title: l('Care within reach', 'Cuidado a su alcance'), text: l('Insurance, pricing and answers in one place.', 'Seguros, precios y respuestas en un solo lugar.'), img: '/images/doctor.jpg', href: '/resources/insurances', cta: l('Check your plan', 'Revise su plan') },
+      feature: { title: l('Care within reach', 'Cuidado a su alcance'), text: l('Insurance, pricing and answers in one place.', 'Seguros, precios y respuestas en un solo lugar.'), img: '/images/doctor.jpg', href: '/resources/insurances/', cta: l('Check your plan', 'Revise su plan') },
     },
   },
   {
-    key: 'contact', label: l('Locations', 'Ubicaciones'), href: '/locations',
+    key: 'contact', label: l('Locations', 'Ubicaciones'), href: '/locations/',
     mega: {
       columns: [
         { title: l('Medical', 'Médico'), links: medFirst.slice(0, 4).map(mk) },
@@ -146,7 +146,7 @@ export const allPaths: { slug: string; title: string }[] = (() => {
   const seen = new Map<string, string>();
   const add = (href: string, title: string) => {
     if (/^https?:/.test(href)) return;
-    const slug = href.replace(/^\//, '').split('#')[0];
+    const slug = href.replace(/^\//, '').split('#')[0].replace(/\/+$/, '');
     if (slug && !slug.startsWith('#') && !seen.has(slug)) seen.set(slug, title);
   };
   nav.forEach(n => {
@@ -158,23 +158,23 @@ export const allPaths: { slug: string; title: string }[] = (() => {
 })();
 
 export const services = [
-  { icon: 'stethoscope', title: l('Family Medicine', 'Medicina familiar'), text: l('Lifelong care for every age, from checkups to complex needs.', 'Cuidado para toda la vida, desde chequeos hasta necesidades complejas.'), href: '/services/family-medicine', img: '/images/services/family.jpg' },
-  { icon: 'smile', title: l('Pediatric Care', 'Cuidado pediátrico'), text: l('Gentle wellness visits and treatment for babies, kids and teens.', 'Visitas de bienestar y tratamiento para bebés, niños y adolescentes.'), href: '/services/pediatric-care', img: '/images/services/pediatric.jpg' },
-  { icon: 'droplet', title: l('Diabetes', 'Diabetes'), text: l('Bilingual education, monitoring and support to stay in control.', 'Educación bilingüe, monitoreo y apoyo para mantener el control.'), href: '/services/diabetes', img: '/images/services/diabetes.jpg' },
-  { icon: 'wind', title: l('Asthma', 'Asma'), text: l('Clear action plans so you and your family can breathe easier.', 'Planes claros para que usted y su familia respiren mejor.'), href: '/services/asthma', img: '/images/services/asthma.jpg' },
-  { icon: 'calendar', title: l('Annual Wellness Visit', 'Visita anual de bienestar'), text: l('A yearly check-in focused on prevention and your long-term health.', 'Una visita anual enfocada en la prevención y su salud a largo plazo.'), href: '/services/annual-wellness-visit', img: '/images/services/wellness.jpg' },
-  { icon: 'scale', title: l('Weight Loss Management', 'Control de peso'), text: l('Supportive, medically guided plans that fit your life.', 'Planes de apoyo, guiados por médicos, que se adaptan a su vida.'), href: '/services/weight-loss-management', img: '/images/services/weight.jpg' },
-  { icon: 'video', title: l('Virtual Urgent Care', 'Atención urgente virtual'), text: l('See a provider from home when you need care fast.', 'Consulte a un proveedor desde casa cuando necesite atención rápida.'), href: '/services/virtual-urgent-care', img: '/images/services/virtual.jpg' },
-  { icon: 'activity', title: l('Remote Patient Monitoring', 'Monitoreo remoto'), text: l('Track your health between visits with help from your care team.', 'Siga su salud entre visitas con ayuda de su equipo de atención.'), href: '/services/remote-patient-monitoring', img: '/images/services/remote.jpg' },
+  { icon: 'stethoscope', title: l('Family Medicine', 'Medicina familiar'), text: l('Lifelong care for every age, from checkups to complex needs.', 'Cuidado para toda la vida, desde chequeos hasta necesidades complejas.'), href: '/services/family-medicine/', img: '/images/services/family.jpg' },
+  { icon: 'smile', title: l('Pediatric Care', 'Cuidado pediátrico'), text: l('Gentle wellness visits and treatment for babies, kids and teens.', 'Visitas de bienestar y tratamiento para bebés, niños y adolescentes.'), href: '/services/pediatric-care/', img: '/images/services/pediatric.jpg' },
+  { icon: 'droplet', title: l('Diabetes', 'Diabetes'), text: l('Bilingual education, monitoring and support to stay in control.', 'Educación bilingüe, monitoreo y apoyo para mantener el control.'), href: '/services/diabetes/', img: '/images/services/diabetes.jpg' },
+  { icon: 'wind', title: l('Asthma', 'Asma'), text: l('Clear action plans so you and your family can breathe easier.', 'Planes claros para que usted y su familia respiren mejor.'), href: '/services/asthma/', img: '/images/services/asthma.jpg' },
+  { icon: 'calendar', title: l('Annual Wellness Visit', 'Visita anual de bienestar'), text: l('A yearly check-in focused on prevention and your long-term health.', 'Una visita anual enfocada en la prevención y su salud a largo plazo.'), href: '/services/annual-wellness-visit/', img: '/images/services/wellness.jpg' },
+  { icon: 'scale', title: l('Weight Loss Management', 'Control de peso'), text: l('Supportive, medically guided plans that fit your life.', 'Planes de apoyo, guiados por médicos, que se adaptan a su vida.'), href: '/services/weight-loss-management/', img: '/images/services/weight.jpg' },
+  { icon: 'video', title: l('Virtual Urgent Care', 'Atención urgente virtual'), text: l('See a provider from home when you need care fast.', 'Consulte a un proveedor desde casa cuando necesite atención rápida.'), href: '/services/virtual-urgent-care/', img: '/images/services/virtual.jpg' },
+  { icon: 'activity', title: l('Remote Patient Monitoring', 'Monitoreo remoto'), text: l('Track your health between visits with help from your care team.', 'Siga su salud entre visitas con ayuda de su equipo de atención.'), href: '/services/remote-patient-monitoring/', img: '/images/services/remote.jpg' },
 ];
 
 export const specialties = [
-  { n: '01', href: '/services/obgyn', img: '/images/specialties/obgyn.jpg', title: l('OB-GYN', 'Obstetricia y ginecología'), text: l('Women’s health, pregnancy and gynecologic care.', 'Salud de la mujer, embarazo y cuidado ginecológico.') },
-  { n: '02', img: '/images/specialties/podiatry.jpg', title: l('Podiatry', 'Podología'), text: l('Foot and ankle care, from pain to diabetic foot checks.', 'Cuidado de pies y tobillos, del dolor a revisiones para diabetes.'), href: '/services/foot-care' },
-  { n: '03', img: '/images/specialties/chiro.jpg', title: l('Chiropractic', 'Quiropráctica'), text: l('Relief for back, neck and joint discomfort.', 'Alivio para dolor de espalda, cuello y articulaciones.'), href: '/services/chiropractic-care' },
-  { n: '04', img: '/images/specialties/optometry.jpg', title: l('Optometry', 'Optometría'), text: l('Eye exams and vision care for the whole family.', 'Exámenes de la vista y cuidado visual para toda la familia.'), href: '/services/optometry' },
-  { n: '05', img: '/images/specialties/nephrology.jpg', title: l('Nephrology', 'Nefrología'), text: l('Kidney health and long-term condition management.', 'Salud de los riñones y manejo de condiciones a largo plazo.'), href: '/services/nephrology' },
-  { n: '06', href: '/services/behavioral-health', img: '/images/specialties/behavioral.jpg', title: l('Behavioral Health', 'Salud conductual'), text: l('Counseling and mental health support with licensed clinicians.', 'Consejería y apoyo de salud mental con clínicos con licencia.') },
+  { n: '01', href: '/services/obgyn/', img: '/images/specialties/obgyn.jpg', title: l('OB-GYN', 'Obstetricia y ginecología'), text: l('Women’s health, pregnancy and gynecologic care.', 'Salud de la mujer, embarazo y cuidado ginecológico.') },
+  { n: '02', img: '/images/specialties/podiatry.jpg', title: l('Podiatry', 'Podología'), text: l('Foot and ankle care, from pain to diabetic foot checks.', 'Cuidado de pies y tobillos, del dolor a revisiones para diabetes.'), href: '/services/foot-care/' },
+  { n: '03', img: '/images/specialties/chiro.jpg', title: l('Chiropractic', 'Quiropráctica'), text: l('Relief for back, neck and joint discomfort.', 'Alivio para dolor de espalda, cuello y articulaciones.'), href: '/services/chiropractic-care/' },
+  { n: '04', img: '/images/specialties/optometry.jpg', title: l('Optometry', 'Optometría'), text: l('Eye exams and vision care for the whole family.', 'Exámenes de la vista y cuidado visual para toda la familia.'), href: '/services/optometry/' },
+  { n: '05', img: '/images/specialties/nephrology.jpg', title: l('Nephrology', 'Nefrología'), text: l('Kidney health and long-term condition management.', 'Salud de los riñones y manejo de condiciones a largo plazo.'), href: '/services/nephrology/' },
+  { n: '06', href: '/services/behavioral-health/', img: '/images/specialties/behavioral.jpg', title: l('Behavioral Health', 'Salud conductual'), text: l('Counseling and mental health support with licensed clinicians.', 'Consejería y apoyo de salud mental con clínicos con licencia.') },
 ];
 
 export const doctors = [
@@ -198,11 +198,11 @@ export const dentalServices = [
 ];
 
 export const blog = [
-  { title: 'Don’t Let Diabetes Sneak Up on You — Learn to Recognize the Early Signs', tag: l('Diabetes'), img: '/images/doctor.jpg', excerpt: l('Know the early warning signs and when to schedule a screening.', 'Conozca las señales tempranas y cuándo programar una prueba.'), href: '/blog/early-signs-of-diabetes' },
-  { title: 'Bilingual Diabetes Management Doctor in Porterville', tag: l('Diabetes'), img: '/images/about.jpg', excerpt: l('Comprehensive, compassionate care near you, in English and Spanish.', 'Cuidado integral y compasivo cerca de usted, en inglés y español.'), href: '/blog/bilingual-diabetes-doctor-porterville' },
-  { title: 'Cut on Hand Needs Stitches? Walk-In Urgent Care in Porterville', tag: l('Urgent Care', 'Atención urgente'), img: '/images/services.jpg', excerpt: l('What to do and when to be seen right away.', 'Qué hacer y cuándo recibir atención de inmediato.'), href: '/blog/hand-cut-stitches-urgent-care-porterville' },
-  { title: 'Affordable Pediatric Wellness Checkup in Woodlake', tag: l('Pediatrics', 'Pediatría'), img: '/images/hero.jpg', excerpt: l('Healthy smiles and growth for every child.', 'Sonrisas sanas y crecimiento para cada niño.'), href: '/blog/pediatric-wellness-checkup-woodlake' },
-  { title: 'Child Severe Ear Pain? Open Today in Lindsay, CA', tag: l('Pediatrics', 'Pediatría'), img: '/images/mission.jpg', excerpt: l('Fast relief for your little one.', 'Alivio rápido para su pequeño.'), href: '/blog/child-ear-pain-lindsay' },
+  { title: 'Don’t Let Diabetes Sneak Up on You — Learn to Recognize the Early Signs', tag: l('Diabetes'), img: '/images/doctor.jpg', excerpt: l('Know the early warning signs and when to schedule a screening.', 'Conozca las señales tempranas y cuándo programar una prueba.'), href: '/blog/early-signs-of-diabetes/' },
+  { title: 'Bilingual Diabetes Management Doctor in Porterville', tag: l('Diabetes'), img: '/images/about.jpg', excerpt: l('Comprehensive, compassionate care near you, in English and Spanish.', 'Cuidado integral y compasivo cerca de usted, en inglés y español.'), href: '/blog/bilingual-diabetes-doctor-porterville/' },
+  { title: 'Cut on Hand Needs Stitches? Walk-In Urgent Care in Porterville', tag: l('Urgent Care', 'Atención urgente'), img: '/images/services.jpg', excerpt: l('What to do and when to be seen right away.', 'Qué hacer y cuándo recibir atención de inmediato.'), href: '/blog/hand-cut-stitches-urgent-care-porterville/' },
+  { title: 'Affordable Pediatric Wellness Checkup in Woodlake', tag: l('Pediatrics', 'Pediatría'), img: '/images/hero.jpg', excerpt: l('Healthy smiles and growth for every child.', 'Sonrisas sanas y crecimiento para cada niño.'), href: '/blog/pediatric-wellness-checkup-woodlake/' },
+  { title: 'Child Severe Ear Pain? Open Today in Lindsay, CA', tag: l('Pediatrics', 'Pediatría'), img: '/images/mission.jpg', excerpt: l('Fast relief for your little one.', 'Alivio rápido para su pequeño.'), href: '/blog/child-ear-pain-lindsay/' },
 ];
 
 export const sections = [

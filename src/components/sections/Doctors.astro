@@ -10,13 +10,13 @@ import Icon from '../ui/Icon.astro';
         <p class="eyebrow" data-reveal data-i18n="doc.eyebrow">Our Providers</p>
         <h2 class="h-section mt-5 text-navy-900" data-reveal style="--d:80ms" data-i18n="doc.title">Meet our <em>doctors</em></h2>
       </div>
-      <a href="/providers" class="btn btn-outline self-start md:self-auto" data-reveal><span data-i18n="doc.cta">View all 38 providers</span><Icon name="arrow" size={18} /></a>
+      <a href="/providers/" class="btn btn-outline self-start md:self-auto" data-reveal><span data-i18n="doc.cta">View all 38 providers</span><Icon name="arrow" size={18} /></a>
     </div>
 
     <ul class="mt-14 grid grid-cols-2 gap-x-5 gap-y-10 lg:grid-cols-4">
       {doctors.map((d, i) => (
         <li data-reveal style={`--d:${(i % 4) * 90}ms`}>
-          <a href="/providers" class="group block">
+          <a href="/providers/" class="group block">
             <div class="relative aspect-[4/5] overflow-hidden rounded-2xl bg-gradient-to-b from-cream-200 to-cream-100 ring-1 ring-navy-900/10">
               <img src={`/images/doctors/${d.slug}.webp`} alt={`${d.name}, ${d.creds}`} width="500" height="600" loading="lazy" class="h-full w-full object-cover object-top transition-transform duration-[1200ms] ease-[var(--ease-lux)] group-hover:scale-105" />
               <div class="absolute inset-0 bg-gradient-to-t from-navy-950/70 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>

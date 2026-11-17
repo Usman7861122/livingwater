@@ -68,7 +68,7 @@ const sorted = [...locations.filter((x) => x.type === 'Medical')].sort((a, b) =>
       <ul class="mt-10 grid gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-4">
         {sorted.map((x) => (
           <li class="bg-navy-950">
-            <a href={`/locations/${x.id}`} class="group flex h-full items-center justify-between gap-4 p-6 transition hover:bg-navy-900">
+            <a href={`/locations/${x.id}/`} class="group flex h-full items-center justify-between gap-4 p-6 transition hover:bg-navy-900">
               <div>
                 <p class="text-xs tracking-widest text-gold-400 uppercase">{x.city} · {x.type}</p>
                 <p class="mt-2 font-serif text-xl">{x.name}</p>
