@@ -2,7 +2,7 @@
 import MapEmbed from '../ui/MapEmbed.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Icon from '../ui/Icon.astro';
-import { locations, type Location } from '../../data/site';
+import { locations, SITE_URL, type Location } from '../../data/site';
 import { services, bySlug, svcPath, fillS, seoS, siblingOf, offeredAt, type Svc } from '../../data/servicePages';
 
 interface Props { svc: Svc; location?: Location }
@@ -15,7 +15,7 @@ const lower = svc.short;
 const ctx = { city: location ? location.city : 'Tulare and Fresno County', clinic: location ? (sib ? sib.name : location.name) : 'Living Water Clinic' };
 const f = (t: string) => fillS(t, ctx);
 const meta = seoS(svc, location);
-const canonical = new URL(pathFor(location).replace(/\/?$/, '/'), 'https://livingwaterclinic.com').href;
+const canonical = new URL(pathFor(location).replace(/\/?$/, '/'), SITE_URL).href;
 const ld = {
   '@context': 'https://schema.org',
   '@graph': [

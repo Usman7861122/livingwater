@@ -11,6 +11,8 @@ export type NavItem = {
   };
 };
 
+export const SITE_URL = 'https://www.livingwaterclinic.com';
+
 export const site = {
   name: 'Living Water Clinic',
   nameEs: 'Clínica Agua Viva',

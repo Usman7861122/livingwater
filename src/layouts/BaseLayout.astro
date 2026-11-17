@@ -4,7 +4,7 @@ import Header from '../components/islands/Header';
 import SideDots from '../components/islands/SideDots';
 import MobileCta from '../components/sections/MobileCta.astro';
 import Footer from '../components/sections/Footer.astro';
-import { site } from '../data/site';
+import { site, SITE_URL } from '../data/site';
 
 interface Props {
   title?: string;
@@ -14,7 +14,7 @@ interface Props {
 }
 const { title, description = site.description, solidHeader = false, dots = false } = Astro.props;
 const fullTitle = title && title.includes('|') ? title : title ? `${title} | ${site.name}` : `${site.name} · ${site.nameEs}`;
-const SITE = 'https://livingwaterclinic.com';
+const SITE = SITE_URL;
 const path = Astro.url.pathname.endsWith('/') ? Astro.url.pathname : Astro.url.pathname + '/';
 const canonical = new URL(path, SITE).href;
 const ogImage = new URL('/images/hero.jpg', SITE).href;
