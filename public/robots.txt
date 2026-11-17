@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://livingwaterclinic.com/sitemap.xml
+Sitemap: https://www.livingwaterclinic.com/sitemap-index.xml
