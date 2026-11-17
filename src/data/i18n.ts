@@ -31,9 +31,10 @@ export const es: Record<string, string> = {
 
   'mission.eyebrow': 'Nuestra misión',
   'mission.quote': '“El amor de Dios a través de la <em class="text-gold-700">atención de salud.</em>”',
-  'mission.text': 'Brindamos atención basada en evidencia y de alta calidad con un excelente servicio, tratando a los demás como nos gustaría ser tratados y fomentando el amor, la esperanza y la fe.',
+  'mission.text': 'Jesús dijo: “Así que en TODO, hagan con los demás lo que quieren que hagan con ustedes”. Es nuestra mayor pasión defender este principio sin condiciones con cada paciente, miembro del equipo, amigo y familiar. Esta regla es el fundamento de nuestra misión de garantizar la más alta calidad de medicina integral basada en evidencia, brindar un servicio al cliente excepcional y promover un ambiente donde nuestros pacientes y miembros del equipo experimenten amor, esperanza y fe.',
+  'mission.text2': 'Como organización paraeclesial, estamos llamados a servir a nuestra comunidad con atención basada en la fe, extendiendo el amor de Dios mediante una atención médica compasiva para el cuerpo, la mente y el espíritu.',
   'mission.vision.label': 'Nuestra visión',
-  'mission.vision': 'Ser un proveedor comunitario líder en servicio al cliente y atención de calidad.',
+  'mission.vision': 'Living Water Health and Wellness Clinic será un proveedor líder para la comunidad en servicio al cliente y calidad de la atención médica. Se integrará en la red más amplia de instituciones que desempeñan un papel fundamental en el acceso a una atención médica AMOROSA y en la salud y el bienestar de nuestras comunidades.',
 
   'care.eyebrow': 'Nuestra promesa',
   'care.title': 'Cuidado que renueva <em class="text-gold-300">a la persona completa.</em>',
