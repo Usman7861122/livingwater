@@ -1,4 +1,5 @@
 ---
+import { fitDesc } from '../../lib/seo';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Icon from '../../components/ui/Icon.astro';
 import { providers } from '../../data/providers';
@@ -11,8 +12,9 @@ const { p } = Astro.props;
 const paras = bios[p.slug];
 const title = `${p.name}, ${p.creds}`;
 const ld = { '@context': 'https://schema.org', '@type': 'Physician', name: title, medicalSpecialty: p.role, image: `/images/doctors/${p.slug}.webp`, worksFor: { '@type': 'MedicalOrganization', name: 'Living Water Clinic' } };
+const desc = paras[0].length >= 120 ? paras[0] : fitDesc([`${title}, ${p.role} at Living Water Clinic in Tulare and Fresno Counties.`, ['Meet our care team, then book a visit online or call your nearest clinic.', 'Book a visit online or call your nearest clinic.', 'Book online or call us.'], ['Care in English and Spanish.']]);
 ---
-<BaseLayout title={`${title} | Living Water Clinic`} description={paras[0].slice(0, 155)} solidHeader>
+<BaseLayout title={title} description={desc} solidHeader>
   <script type="application/ld+json" set:html={JSON.stringify(ld)} slot="head" />
   <section class="on-dark relative overflow-hidden bg-navy-950 pt-36 pb-16 lg:pt-44">
     <div class="container-x">

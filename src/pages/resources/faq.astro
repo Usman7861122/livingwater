@@ -4,7 +4,7 @@ import PageHero from '../../components/ui/PageHero.astro';
 import { faqs } from '../../data/resources';
 const jsonld = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) };
 ---
-<BaseLayout title="Frequently Asked Questions | Living Water Clinic" description="Answers about our Sliding Fee Discount Program, insurance, self-pay, languages and locations at Living Water Clinic." solidHeader>
+<BaseLayout title="Frequently Asked Questions | Living Water Clinic" description="Answers about our Sliding Fee Discount Program, insurance, self-pay, languages and locations at Living Water Clinic in Tulare and Fresno Counties." solidHeader>
   <script type="application/ld+json" set:html={JSON.stringify(jsonld)} slot="head" />
   <PageHero crumbs={[['Home', '/'], ['Resources', '/resources/'], ['FAQ']]} eyebrow="FAQ" title="Your questions, <em>answered.</em>" text="Can’t find your answer? Call your nearest clinic. We are happy to help." />
   <section class="section bg-cream-50"><div class="container-x max-w-4xl">

@@ -1,5 +1,6 @@
 import { locations, type Location } from './site';
 import { fm } from './familyMedicine';
+import { fitDesc, sentence1 as firstSentence } from '../lib/seo';
 
 export type P = [string, string];
 export type Svc = {
@@ -186,10 +187,31 @@ export const services: Svc[] = [family, ...others];
 export const bySlug = Object.fromEntries(services.map((s) => [s.slug, s]));
 export const svcPath = (s: Svc, l?: Location) => `/services/${s.slug}/${l ? l.id + '/' : ''}`;
 export const fillS = (t: string, c: { city: string; clinic: string }) => t.replace(/\{city\}/g, c.city).replace(/\{clinic\}/g, c.clinic);
-export const seoS = (s: Svc, l?: Location) =>
-  l
-    ? { title: `${s.title} in ${l.city}, CA | Living Water Clinic`, description: `${s.title} in ${l.city}, CA at Living Water Clinic (${l.name}), ${l.address}, ${l.cityLine}. ${s.summary} Call ${l.phone}.` }
-    : { title: `${s.title} in Tulare and Fresno Counties, CA | Living Water Clinic`, description: `${s.title} at ${offeredAt(s).length === 1 ? 'the Living Water Clinic location' : offeredAt(s).length + ' Living Water Clinic locations'} in ${cityList(offeredAt(s))}, California. ${s.summary}` };
+export const seoS = (s: Svc, l?: Location) => {
+  const n = offeredAt(s).length;
+  const first = firstSentence(s.summary);
+  return l
+    ? {
+        title: `${s.title} in ${l.city}, CA`,
+        description: fitDesc([
+          `${s.title} in ${l.city}, CA at Living Water Clinic.`,
+          [s.summary, first],
+          [`Call ${l.phone} or book online.`, `Call ${l.phone}.`],
+          [`Visit us at ${l.address}.`, 'Visit us today.'],
+          ['Care in English and Spanish.'],
+        ]),
+      }
+    : {
+        title: `${s.title} in Tulare and Fresno Counties`,
+        description: fitDesc([
+          `${s.title} at ${n === 1 ? 'the Living Water Clinic location' : n + ' Living Water Clinic locations'} in ${cityList(offeredAt(s))}, California.`,
+          [s.summary, first],
+          ['Book online or call a clinic near you.', 'Book online or call us.'],
+          ['Care in English and Spanish.'],
+          ['We welcome new patients.'],
+        ]),
+      };
+};
 // Specialty services that are NOT offered at every medical clinic. Any slug not listed here is offered at all medical clinics.
 export const onlyAt: Record<string, string[]> = {
   'chiropractic-care': ['lindsay-medical', 'woodlake'],

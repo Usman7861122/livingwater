@@ -12,7 +12,7 @@ const ask = (what: string): Sec => ({ h: 'Contact us', p: [`${what} Contact ${c.
 
 export const legal: Legal[] = [
   {
-    slug: 'privacy-policy', title: 'Privacy Policy', short: 'How we collect and use website information.', desc: 'How Living Water Clinic collects, uses and protects information from visitors to this website.',
+    slug: 'privacy-policy', title: 'Privacy Policy', short: 'How we collect and use website information.', desc: 'How Living Water Clinic collects, uses and protects information from visitors to this website, and the privacy choices and California rights you have.',
     intro: 'We care about your privacy. This policy explains what information we collect on this website, how we use it, and the choices you have. It covers our website only. Your medical records are protected under our Notice of Privacy Practices.',
     sections: [
       { h: 'Information we collect', p: ['Information you give us, such as your name, phone number, email address and message when you contact us or request an appointment.', 'Information collected automatically, such as your IP address, browser type, device, pages visited and the time of your visit. This is limited to normal website server records. We do not currently use analytics or advertising trackers on this website.'], ul: [] },
@@ -43,7 +43,7 @@ export const legal: Legal[] = [
     ],
   },
   {
-    slug: 'cookie-policy', title: 'Cookie Policy', short: 'What cookies we use and how to control them.', desc: 'How Living Water Clinic uses cookies and similar tools, and how you can change your choices.',
+    slug: 'cookie-policy', title: 'Cookie Policy', short: 'What cookies we use and how to control them.', desc: 'How Living Water Clinic uses cookies and similar tools on this website, which ones we use, and how you can change your cookie choices at any time.',
     intro: 'Cookies are small text files that a website stores on your device. This page explains the cookies and similar tools we use and how you can control them.',
     sections: [
       { h: 'Cookies we use', ul: ['Strictly necessary: needed to run the site and to remember your cookie choice. These are always on.', 'Preferences: remember choices such as your language (English or Spanish).', 'Third-party content: Google Maps loads only after you accept cookies or click “Load map”. When it loads, Google may set its own cookies or collect your IP address. Our fonts are hosted on our own server, so no font request goes to Google.', 'We do not use analytics, advertising or social media tracking cookies or pixels on this website.'] },
@@ -65,7 +65,7 @@ export const legal: Legal[] = [
     ],
   },
   {
-    slug: 'terms-of-use', title: 'Terms of Use', short: 'Rules for using this website.', desc: 'Terms and conditions for using the Living Water Clinic website.',
+    slug: 'terms-of-use', title: 'Terms of Use', short: 'Rules for using this website.', desc: 'Terms and conditions for using the Living Water Clinic website, including acceptable use, site content, links to other sites and California law.',
     intro: 'By using this website, you agree to these terms. If you do not agree, please do not use the site.',
     sections: [
       { h: 'General information only', p: ['This site gives general information. It does not give medical advice, diagnosis or treatment, and it does not create a patient-provider relationship. See our Medical Disclaimer.'] },
@@ -91,7 +91,7 @@ export const legal: Legal[] = [
     ],
   },
   {
-    slug: 'medical-disclaimer', title: 'Medical Disclaimer', short: 'Website content is not medical advice.', desc: 'Information on the Living Water Clinic website is general and is not medical advice. In an emergency, call 911.',
+    slug: 'medical-disclaimer', title: 'Medical Disclaimer', short: 'Website content is not medical advice.', desc: 'Information on the Living Water Clinic website is general and is not medical advice. Always ask your provider about your care. In an emergency, call 911.',
     intro: 'The information on this website is for general education only. It does not replace advice from your own doctor or care team.',
     sections: [
       { h: 'Not medical advice', p: ['Do not use this site to diagnose or treat a health problem. Always ask a qualified provider about your health and before you start or stop any treatment.'] },

@@ -223,3 +223,20 @@ Object.assign(terms, {
   'Tulare and Fresno County': 'los condados de Tulare y Fresno',
   'Tulare and Fresno Counties': 'los condados de Tulare y Fresno',
 });
+
+// ---- Page titles: the layout now shortens the " | Living Water Clinic" suffix, so titles are translated by part ----
+Object.assign(phrases, {
+  '{svc} in Tulare and Fresno Counties': '{svc} en los condados de Tulare y Fresno',
+  'Early Signs of Diabetes You Should Not Ignore': 'Primeras señales de diabetes que no debe ignorar',
+  'Bilingual Diabetes Care in Porterville': 'Atención bilingüe de la diabetes en Porterville',
+  'Hand Cut? When You Need Stitches in Porterville': '¿Se cortó la mano? Cuándo necesita puntos en Porterville',
+  'Pediatric Wellness Checkups in Woodlake': 'Chequeos pediátricos de bienestar en Woodlake',
+  'Child Ear Pain: What to Do and Where to Go': 'Dolor de oído en niños: qué hacer y adónde ir',
+});
+for (const [k, v] of Object.entries({ ...phrases })) {
+  const suffix = ' | Living Water Clinic';
+  if (k.endsWith(suffix) && v.endsWith(suffix)) {
+    const bk = k.slice(0, -suffix.length);
+    if (!phrases[bk]) phrases[bk] = v.slice(0, -suffix.length);
+  }
+}

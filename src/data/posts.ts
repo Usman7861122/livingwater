@@ -56,3 +56,12 @@ export const posts: Post[] = [
 ];
 export const postBySlug = Object.fromEntries(posts.map((p) => [p.slug, p]));
 export const fmt = (d: string) => new Date(d + 'T12:00:00').toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+
+// Short page titles for search results (the on-page headline stays the long one).
+export const seoTitle: Record<string, string> = {
+  'early-signs-of-diabetes': 'Early Signs of Diabetes You Should Not Ignore',
+  'bilingual-diabetes-doctor-porterville': 'Bilingual Diabetes Care in Porterville',
+  'hand-cut-stitches-urgent-care-porterville': 'Hand Cut? When You Need Stitches in Porterville',
+  'pediatric-wellness-checkup-woodlake': 'Pediatric Wellness Checkups in Woodlake',
+  'child-ear-pain-lindsay': 'Child Ear Pain: What to Do and Where to Go',
+};

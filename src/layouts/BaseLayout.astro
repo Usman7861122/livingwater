@@ -5,6 +5,7 @@ import SideDots from '../components/islands/SideDots';
 import MobileCta from '../components/sections/MobileCta.astro';
 import Footer from '../components/sections/Footer.astro';
 import { site, SITE_URL } from '../data/site';
+import { fitTitle, clampDesc } from '../lib/seo';
 
 interface Props {
   title?: string;
@@ -13,7 +14,8 @@ interface Props {
   dots?: boolean;
 }
 const { title, description = site.description, solidHeader = false, dots = false } = Astro.props;
-const fullTitle = title && title.includes('|') ? title : title ? `${title} | ${site.name}` : `${site.name} · ${site.nameEs}`;
+const fullTitle = title ? fitTitle(title) : `${site.name} · ${site.nameEs}`;
+const metaDescription = clampDesc(description);
 const SITE = SITE_URL;
 const path = Astro.url.pathname.endsWith('/') ? Astro.url.pathname : Astro.url.pathname + '/';
 const canonical = new URL(path, SITE).href;
@@ -25,14 +27,14 @@ const ogImage = new URL('/images/hero.jpg', SITE).href;
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content={description} />
+    <meta name="description" content={metaDescription} />
     <meta name="theme-color" content="#0f2347" />
     <link rel="icon" href="/images/logo.png" />
     <link rel="canonical" href={canonical} />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={site.name} />
     <meta property="og:title" content={fullTitle} />
-    <meta property="og:description" content={description} />
+    <meta property="og:description" content={metaDescription} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImage} />
     <meta name="twitter:card" content="summary_large_image" />

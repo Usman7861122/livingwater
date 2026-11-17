@@ -1,13 +1,14 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHero from '../../components/ui/PageHero.astro';
-import { posts, fmt } from '../../data/posts';
+import { posts, fmt, seoTitle } from '../../data/posts';
+import { fitDesc } from '../../lib/seo';
 export function getStaticPaths() { return posts.map((p) => ({ params: { slug: p.slug }, props: { post: p } })); }
 const { post } = Astro.props;
 const others = posts.filter((p) => p.slug !== post.slug).slice(0, 3);
 const jsonld = { '@context': 'https://schema.org', '@type': 'BlogPosting', headline: post.title, datePublished: post.date, description: post.excerpt, image: post.img, publisher: { '@type': 'Organization', name: 'Living Water Clinic' } };
 ---
-<BaseLayout title={`${post.title} | Living Water Clinic`} description={post.excerpt} solidHeader>
+<BaseLayout title={seoTitle[post.slug] ?? post.title} description={fitDesc([post.excerpt, ['Simple health tips from the Living Water Clinic team in Tulare and Fresno Counties.', 'Simple health tips from the Living Water Clinic team.']])} solidHeader>
   <script type="application/ld+json" set:html={JSON.stringify(jsonld)} slot="head" />
   <PageHero crumbs={[['Home', '/'], ['Blog', '/blog/'], [post.tag]]} eyebrow={`${post.tag} · ${fmt(post.date)}`} title={post.title} image={post.img} imageAlt={post.alt} />
   <article class="section bg-cream-50"><div class="container-x max-w-3xl">

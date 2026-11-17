@@ -116,8 +116,9 @@ function toEs() {
     }
   });
   if (!document.documentElement.dataset.enTitle) document.documentElement.dataset.enTitle = document.title;
-  const tt = lookup(document.documentElement.dataset.enTitle!);
-  if (tt) document.title = tt;
+  const en = document.documentElement.dataset.enTitle!;
+  const tt = lookup(en) ?? en.split(' | ').map((seg) => lookup(seg) ?? seg).join(' | ');
+  if (tt && tt !== en) document.title = tt;
 }
 
 function toEn() {
