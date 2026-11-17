@@ -5,5 +5,5 @@ export const faqs: [string, string][] = [
   ['Can I be seen without insurance?', 'Yes. We also welcome self-pay (cash-pay) patients. Charges depend on the type of visit and the time spent with your provider.'],
   ['Do you speak Spanish?', 'Yes. We have bilingual providers and staff who speak English and Spanish.'],
   ['Which clinic is closest to me?', 'We have seven clinics in Tulare and Fresno Counties: Lindsay (medical and dental), Woodlake, Porterville, Visalia (medical and dental) and Selma. See our Locations page for addresses and phone numbers.'],
-  ['How do I book a visit?', 'Call your nearest clinic or send us a message through the contact form. Our team will help you pick a time.'],
+  ['How do I book a visit?', 'Call your nearest clinic or book online. Our team will help you pick a time.'],
 ];

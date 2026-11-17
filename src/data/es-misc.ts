@@ -31,7 +31,7 @@ export const miscEs: Record<string, string> = {
   'Which clinic is closest to me?': '¿Cuál clínica me queda más cerca?',
   'We have seven clinics in Tulare and Fresno Counties: Lindsay (medical and dental), Woodlake, Porterville, Visalia (medical and dental) and Selma. See our Locations page for addresses and phone numbers.': 'Tenemos siete clínicas en los condados de Tulare y Fresno: Lindsay (médica y dental), Woodlake, Porterville, Visalia (médica y dental) y Selma. Vea nuestra página de Ubicaciones para direcciones y teléfonos.',
   'How do I book a visit?': '¿Cómo programo una visita?',
-  'Call your nearest clinic or send us a message through the contact form. Our team will help you pick a time.': 'Llame a su clínica más cercana o envíenos un mensaje por el formulario de contacto. Nuestro equipo le ayudará a elegir una hora.',
+  'Call your nearest clinic or book online. Our team will help you pick a time.': 'Llame a su clínica más cercana o reserve en línea. Nuestro equipo le ayudará a elegir una hora.',
   'Frequently Asked Questions | Living Water Clinic': 'Preguntas frecuentes | Living Water Clinic',
 
   // --- Insurances ---

@@ -2,7 +2,6 @@
 import MapEmbed from '../../components/ui/MapEmbed.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Icon from '../../components/ui/Icon.astro';
-import ContactForm from '../../components/islands/ContactForm';
 import { locations, dentalServices, insurance } from '../../data/site';
 import { bySlug, svcPath, categories, siblingOf, offers } from '../../data/servicePages';
 import { locationContent } from '../../data/locationContent';
@@ -292,10 +291,10 @@ const facts = [
     <div class="container-x grid gap-14 lg:grid-cols-12">
       <div class="lg:col-span-5">
         <p class="eyebrow" data-reveal>Get in touch</p>
-        <h2 class="h-section mt-5 text-navy-900" data-reveal style="--d:80ms">Message our <em>{location.city} team.</em></h2>
-        <p class="mt-6 text-lg leading-relaxed text-mist" data-reveal style="--d:160ms">Send us a note and a team member at {location.name} will reach out. Prefer to talk? Call {location.phone}.</p>
+        <h2 class="h-section mt-5 text-navy-900" data-reveal style="--d:80ms">Book with our <em>{location.city} team.</em></h2>
+        <p class="mt-6 text-lg leading-relaxed text-mist" data-reveal style="--d:160ms">Book online in a few minutes. Prefer to talk? Call {location.phone}.</p>
       </div>
-      <div class="lg:col-span-7" data-reveal style="--d:120ms"><ContactForm client:visible /></div>
+      <div class="flex flex-wrap items-center gap-3 lg:col-span-7 lg:justify-end" data-reveal style="--d:120ms"><a href="https://phreesia.me/LWCOnlineScheduling" target="_blank" rel="noopener noreferrer" class="btn btn-navy">Book online</a><a href={`tel:${location.phone.replace(/[^\d+]/g, '')}`} class="btn btn-outline">Call {location.phone}</a></div>
     </div>
   </section>
 

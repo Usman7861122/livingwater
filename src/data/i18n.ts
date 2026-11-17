@@ -64,7 +64,7 @@ export const es: Record<string, string> = {
 
   'contact.eyebrow': 'Contáctenos',
   'contact.title': 'Nos encantaría <em>saber de usted</em>',
-  'contact.text': 'Envíenos un mensaje y un miembro del equipo se comunicará con usted. ¿Prefiere hablar? Llame a la clínica más cercana.',
+  'contact.text': 'Reserve en línea en pocos minutos. ¿Prefiere hablar? Llame a la clínica más cercana.',
   'contact.call': 'Llame a una clínica',
   'contact.callsub': 'Ver todos los teléfonos',
   'contact.visit': 'Visítenos',

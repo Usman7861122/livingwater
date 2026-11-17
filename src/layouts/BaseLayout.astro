@@ -3,7 +3,6 @@ import '../styles/global.css';
 import Header from '../components/islands/Header';
 import SideDots from '../components/islands/SideDots';
 import MobileCta from '../components/sections/MobileCta.astro';
-import BookingModal from '../components/islands/BookingModal';
 import Footer from '../components/sections/Footer.astro';
 import { site } from '../data/site';
 
@@ -38,7 +37,6 @@ const fullTitle = title && title.includes('|') ? title : title ? `${title} | ${s
     <main id="main"><slot /></main>
     <Footer />
     <MobileCta />
-    <BookingModal client:idle />
 
     <div id="cookie-banner" role="dialog" aria-modal="false" aria-labelledby="ck-title" hidden class="fixed bottom-3 left-3 right-3 z-[80] max-h-[calc(100svh-1.5rem)] overflow-y-auto rounded-2xl border border-gold-500/30 bg-navy-950 p-5 text-cream-50 shadow-2xl sm:right-auto sm:w-[26rem]">
       <div class="flex items-center gap-3">

@@ -59,7 +59,7 @@ export const dentalEcmEs: Record<string, string> = {
   'clinic near you.': 'dental cerca de usted.',
   'Your smile starts': 'Su sonrisa empieza',
   'here.': 'aquí.',
-  'Now accepting new dental patients. Call us or send a message to book your visit.': 'Aceptamos nuevos pacientes dentales. Llámenos o envíenos un mensaje para programar su visita.',
+  'Now accepting new dental patients. Call us or book online for your visit.': 'Aceptamos nuevos pacientes dentales. Llámenos o reserve en línea para su visita.',
   'Dental Care for Kids, Adults and Families | Living Water Clinic': 'Atención dental para niños, adultos y familias | Living Water Clinic',
 
   // --- Dental services ---

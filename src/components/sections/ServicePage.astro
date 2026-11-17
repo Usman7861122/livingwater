@@ -238,7 +238,7 @@ const mapSrc = location ? `https://www.google.com/maps?q=${encodeURIComponent(`L
   <section id="contact" class="section bg-cream-100 text-center">
     <div class="container-x">
       <h2 class="h-section mx-auto max-w-3xl text-navy-900" data-reveal>Get {lower}{where}, <em>starting today.</em></h2>
-      <p class="mx-auto mt-5 max-w-xl text-lg text-mist" data-reveal style="--d:80ms"><span>{location ? "Call us or send a message." : "Pick your nearest clinic below, or send a message."}</span> <span>A team member will help you book your visit.</span></p>
+      <p class="mx-auto mt-5 max-w-xl text-lg text-mist" data-reveal style="--d:80ms"><span>{location ? "Call us or book online." : "Pick your nearest clinic below, or book online."}</span> <span>A team member will help you book your visit.</span></p>
       <div class="mt-9 flex flex-wrap justify-center gap-3" data-reveal style="--d:140ms">
         <a href="https://phreesia.me/LWCOnlineScheduling" target="_blank" rel="noopener noreferrer" class="btn btn-navy">Request an appointment</a>
         {location ? <a href={`tel:${phone.tel}`} class="btn btn-outline">Call {phone.phone}</a> : <a href="#locations" class="btn btn-outline">Find your clinic</a>}

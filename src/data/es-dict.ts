@@ -99,8 +99,8 @@ Object.assign(phrases, {
   'Get {short} in {city},': 'Reciba {short} en {city},',
   'Get {short},': 'Reciba {short},',
   'starting today.': 'a partir de hoy.',
-  'Call us or send a message.': 'Llámenos o envíenos un mensaje.',
-  'Pick your nearest clinic below, or send a message.': 'Elija abajo la clínica más cercana o envíenos un mensaje.',
+  'Call us or book online.': 'Llámenos o reserve en línea.',
+  'Pick your nearest clinic below, or book online.': 'Elija abajo la clínica más cercana o reserve en línea.',
   'A team member will help you book your visit.': 'Un miembro del equipo le ayudará a programar su visita.',
 });
 
