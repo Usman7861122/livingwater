@@ -15,7 +15,7 @@ const lower = svc.short;
 const ctx = { city: location ? location.city : 'Tulare and Fresno County', clinic: location ? (sib ? sib.name : location.name) : 'Living Water Clinic' };
 const f = (t: string) => fillS(t, ctx);
 const meta = seoS(svc, location);
-const canonical = new URL(pathFor(location), Astro.site ?? 'https://livingwaterclinic.com').href;
+const canonical = new URL(pathFor(location).replace(/\/?$/, '/'), 'https://livingwaterclinic.com').href;
 const ld = {
   '@context': 'https://schema.org',
   '@graph': [
@@ -35,7 +35,6 @@ const mapSrc = location ? `https://www.google.com/maps?q=${encodeURIComponent(`L
 
 <BaseLayout title={title} description={meta.description} solidHeader>
   <Fragment slot="head">
-    <link rel="canonical" href={canonical} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={meta.description} />
     <meta property="og:image" content={new URL(fm.images.hero, canonical).href} />

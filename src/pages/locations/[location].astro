@@ -24,7 +24,7 @@ const title = `${careLabel} in ${location.city}, CA | Living Water Clinic`;
 const description = isDental
   ? `${location.name} at ${full}. Checkups, cleanings, fillings and family dental care in ${location.city}, CA. Call ${location.phone}.`
   : `${location.name} at ${full}. Family medicine, pediatrics, chronic care and specialty services in ${location.city}, CA. Call ${location.phone}.`;
-const canonical = new URL(`/locations/${location.id}`, Astro.site ?? 'https://livingwaterclinic.com').href;
+const canonical = new URL(`/locations/${location.id}/`, 'https://livingwaterclinic.com').href;
 const ld = {
   '@context': 'https://schema.org',
   '@type': isDental ? 'Dentist' : 'MedicalClinic',
@@ -43,7 +43,6 @@ const facts = [
 
 <BaseLayout title={title} description={description} solidHeader>
   <Fragment slot="head">
-    <link rel="canonical" href={canonical} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <script type="application/ld+json" set:html={JSON.stringify(ld)} />

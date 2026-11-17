@@ -6,6 +6,7 @@ import tailwindcss from '@tailwindcss/vite';
 const ids = ['lindsay-medical', 'lindsay-dental', 'woodlake', 'porterville-medical', 'visalia-dental', 'visalia-medical', 'selma-medical'];
 
 export default defineConfig({
+  site: 'https://livingwaterclinic.com',
   integrations: [react()],
   redirects: {
     '/contact': '/locations',

@@ -14,6 +14,10 @@ interface Props {
 }
 const { title, description = site.description, solidHeader = false, dots = false } = Astro.props;
 const fullTitle = title && title.includes('|') ? title : title ? `${title} | ${site.name}` : `${site.name} · ${site.nameEs}`;
+const SITE = 'https://livingwaterclinic.com';
+const path = Astro.url.pathname.endsWith('/') ? Astro.url.pathname : Astro.url.pathname + '/';
+const canonical = new URL(path, SITE).href;
+const ogImage = new URL('/images/hero.jpg', SITE).href;
 ---
 
 <!doctype html>
@@ -24,6 +28,14 @@ const fullTitle = title && title.includes('|') ? title : title ? `${title} | ${s
     <meta name="description" content={description} />
     <meta name="theme-color" content="#0f2347" />
     <link rel="icon" href="/images/logo.png" />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
     <title>{fullTitle}</title>
     <slot name="head" />
     <script is:inline>
