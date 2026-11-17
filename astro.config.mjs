@@ -11,6 +11,8 @@ const ids = ['lindsay-medical', 'lindsay-dental', 'woodlake', 'porterville-medic
 
 export default defineConfig({
   trailingSlash: 'always',
+  // Inline the (small) stylesheet so it does not block the first paint.
+  build: { inlineStylesheets: 'always' },
   site: 'https://www.livingwaterclinic.com',
   integrations: [
     react(),

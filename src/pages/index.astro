@@ -17,7 +17,9 @@ import { site } from '../data/site';
 ---
 
 <BaseLayout dots>
-  <Fragment slot="head"><script type="application/ld+json" set:html={JSON.stringify(homeSchema(site.description))} /></Fragment>
+  <Fragment slot="head">
+    <link rel="preload" as="image" type="image/avif" href="/images/hero/hero-1440.avif" imagesrcset="/images/hero/hero-640.avif 640w, /images/hero/hero-1024.avif 1024w, /images/hero/hero-1440.avif 1440w, /images/hero/hero-1920.avif 1920w" imagesizes="100vw" fetchpriority="high" />
+   <script type="application/ld+json" set:html={JSON.stringify(homeSchema(site.description))} /></Fragment>
   <Hero />
   <About />
   <Services />

@@ -5,7 +5,11 @@ import Icon from '../ui/Icon.astro';
 
 <section id="home" class="relative isolate flex min-h-[100svh] items-end overflow-hidden bg-navy-950 pb-16 pt-32 md:pb-20">
   <!-- Background: swap this <img> for <video autoplay muted loop playsinline poster="/images/hero.jpg"> later -->
-  <img src="/images/hero.jpg" alt="" width="2400" height="1600" fetchpriority="high" class="absolute inset-0 -z-20 h-full w-full object-cover" />
+  <picture>
+    <source type="image/avif" srcset="/images/hero/hero-640.avif 640w, /images/hero/hero-1024.avif 1024w, /images/hero/hero-1440.avif 1440w, /images/hero/hero-1920.avif 1920w" sizes="100vw" />
+    <source type="image/webp" srcset="/images/hero/hero-640.webp 640w, /images/hero/hero-1024.webp 1024w, /images/hero/hero-1440.webp 1440w, /images/hero/hero-1920.webp 1920w" sizes="100vw" />
+    <img src="/images/hero/hero-1440.jpg" srcset="/images/hero/hero-640.jpg 640w, /images/hero/hero-1024.jpg 1024w, /images/hero/hero-1440.jpg 1440w, /images/hero/hero-1920.jpg 1920w" sizes="100vw" alt="" width="1440" height="960" fetchpriority="high" decoding="async" class="absolute inset-0 -z-20 h-full w-full object-cover" />
+  </picture>
   <div class="absolute inset-0 -z-10 bg-navy-950/30"></div>
   <div class="absolute inset-x-0 bottom-0 -z-10 h-[75%] bg-gradient-to-t from-navy-950/90 via-navy-950/45 to-transparent"></div>
 
