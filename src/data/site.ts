@@ -76,23 +76,23 @@ export const nav: NavItem[] = [
       columns: [
         { title: l('Primary Care', 'Atención primaria'), links: [
           { label: l('Family Medicine', 'Medicina familiar'), href: '/services/family-medicine/' },
-          { label: l('Pediatric Care', 'Cuidado pediátrico'), href: '/services/pediatric-care/' },
+          { label: l('Pediatric Care', 'Atención pediátrica'), href: '/services/pediatric-care/' },
           { label: l('Annual Wellness Visit', 'Visita anual de bienestar'), href: '/services/annual-wellness-visit/' },
-          { label: l('Virtual Urgent Care', 'Atención urgente virtual'), href: '/services/virtual-urgent-care/' },
+          { label: l('Virtual Urgent Care', 'Atención de urgencias virtual'), href: '/services/virtual-urgent-care/' },
           { label: l('Diabetes'), href: '/services/diabetes/', heading: l('Chronic Care', 'Cuidado crónico') },
           { label: l('Asthma', 'Asma'), href: '/services/asthma/' },
           { label: l('Weight Loss Management', 'Control de peso'), href: '/services/weight-loss-management/' },
-          { label: l('Remote Patient Monitoring', 'Monitoreo remoto'), href: '/services/remote-patient-monitoring/' },
+          { label: l('Remote Patient Monitoring', 'Monitoreo remoto de pacientes'), href: '/services/remote-patient-monitoring/' },
         ] },
         { title: l('Specialties', 'Especialidades'), links: [
-          { label: l('Chiropractic Care', 'Quiropráctica'), href: '/services/chiropractic-care/' },
+          { label: l('Chiropractic Care', 'Atención quiropráctica'), href: '/services/chiropractic-care/' },
           { label: l('Optometry', 'Optometría'), href: '/services/optometry/' },
           { label: l('Podiatry', 'Podología'), href: '/services/foot-care/' },
           { label: l('Nephrology', 'Nefrología'), href: '/services/nephrology/' },
           { label: l('OB/GYN', 'Obstetricia y ginecología'), href: '/services/obgyn/' },
           { label: l('Behavioral Health', 'Salud conductual'), href: '/services/behavioral-health/' },
           { label: l('Internal Medicine', 'Medicina interna'), href: '/services/internal-medicine/' },
-          { label: l('Chronic Care Management', 'Manejo de cuidado crónico'), href: '/services/chronic-care-management/' },
+          { label: l('Chronic Care Management', 'Manejo de atención crónica (CCM)'), href: '/services/chronic-care-management/' },
           { label: l('Workers’ Compensation', 'Compensación laboral'), href: '/services/workers-compensation/' },
           { label: l('Behavioral Health Integration', 'Integración de salud conductual'), href: '/services/behavioral-health-integration/' },
           { label: l('Mobile Clinic', 'Clínica móvil'), href: '/services/mobile-clinic/' },
@@ -165,19 +165,19 @@ export const allPaths: { slug: string; title: string }[] = (() => {
 
 export const services = [
   { icon: 'stethoscope', title: l('Family Medicine', 'Medicina familiar'), text: l('Lifelong care for every age, from checkups to complex needs.', 'Cuidado para toda la vida, desde chequeos hasta necesidades complejas.'), href: '/services/family-medicine/', img: '/images/services/family.jpg' },
-  { icon: 'smile', title: l('Pediatric Care', 'Cuidado pediátrico'), text: l('Gentle wellness visits and treatment for babies, kids and teens.', 'Visitas de bienestar y tratamiento para bebés, niños y adolescentes.'), href: '/services/pediatric-care/', img: '/images/services/pediatric.jpg' },
+  { icon: 'smile', title: l('Pediatric Care', 'Atención pediátrica'), text: l('Gentle wellness visits and treatment for babies, kids and teens.', 'Visitas de bienestar y tratamiento para bebés, niños y adolescentes.'), href: '/services/pediatric-care/', img: '/images/services/pediatric.jpg' },
   { icon: 'droplet', title: l('Diabetes', 'Diabetes'), text: l('Bilingual education, monitoring and support to stay in control.', 'Educación bilingüe, monitoreo y apoyo para mantener el control.'), href: '/services/diabetes/', img: '/images/services/diabetes.jpg' },
   { icon: 'wind', title: l('Asthma', 'Asma'), text: l('Clear action plans so you and your family can breathe easier.', 'Planes claros para que usted y su familia respiren mejor.'), href: '/services/asthma/', img: '/images/services/asthma.jpg' },
   { icon: 'calendar', title: l('Annual Wellness Visit', 'Visita anual de bienestar'), text: l('A yearly check-in focused on prevention and your long-term health.', 'Una visita anual enfocada en la prevención y su salud a largo plazo.'), href: '/services/annual-wellness-visit/', img: '/images/services/wellness.jpg' },
   { icon: 'scale', title: l('Weight Loss Management', 'Control de peso'), text: l('Supportive, medically guided plans that fit your life.', 'Planes de apoyo, guiados por médicos, que se adaptan a su vida.'), href: '/services/weight-loss-management/', img: '/images/services/weight.jpg' },
-  { icon: 'video', title: l('Virtual Urgent Care', 'Atención urgente virtual'), text: l('See a provider from home when you need care fast.', 'Consulte a un proveedor desde casa cuando necesite atención rápida.'), href: '/services/virtual-urgent-care/', img: '/images/services/virtual.jpg' },
-  { icon: 'activity', title: l('Remote Patient Monitoring', 'Monitoreo remoto'), text: l('Track your health between visits with help from your care team.', 'Siga su salud entre visitas con ayuda de su equipo de atención.'), href: '/services/remote-patient-monitoring/', img: '/images/services/remote.jpg' },
+  { icon: 'video', title: l('Virtual Urgent Care', 'Atención de urgencias virtual'), text: l('See a provider from home when you need care fast.', 'Consulte a un proveedor desde casa cuando necesite atención rápida.'), href: '/services/virtual-urgent-care/', img: '/images/services/virtual.jpg' },
+  { icon: 'activity', title: l('Remote Patient Monitoring', 'Monitoreo remoto de pacientes'), text: l('Track your health between visits with help from your care team.', 'Siga su salud entre visitas con ayuda de su equipo de atención.'), href: '/services/remote-patient-monitoring/', img: '/images/services/remote.jpg' },
 ];
 
 export const specialties = [
   { n: '01', href: '/services/obgyn/', img: '/images/specialties/obgyn.jpg', title: l('OB/GYN', 'Obstetricia y ginecología'), text: l('Women’s health, pregnancy and gynecologic care.', 'Salud de la mujer, embarazo y cuidado ginecológico.') },
   { n: '02', img: '/images/specialties/podiatry.jpg', title: l('Podiatry', 'Podología'), text: l('Foot and ankle care, from pain to diabetic foot checks.', 'Cuidado de pies y tobillos, del dolor a revisiones para diabetes.'), href: '/services/foot-care/' },
-  { n: '03', img: '/images/specialties/chiro.jpg', title: l('Chiropractic', 'Quiropráctica'), text: l('Relief for back, neck and joint discomfort.', 'Alivio para dolor de espalda, cuello y articulaciones.'), href: '/services/chiropractic-care/' },
+  { n: '03', img: '/images/specialties/chiro.jpg', title: l('Chiropractic', 'Atención quiropráctica'), text: l('Relief for back, neck and joint discomfort.', 'Alivio para dolor de espalda, cuello y articulaciones.'), href: '/services/chiropractic-care/' },
   { n: '04', img: '/images/specialties/optometry.jpg', title: l('Optometry', 'Optometría'), text: l('Eye exams and vision care for the whole family.', 'Exámenes de la vista y cuidado visual para toda la familia.'), href: '/services/optometry/' },
   { n: '05', img: '/images/specialties/nephrology.jpg', title: l('Nephrology', 'Nefrología'), text: l('Kidney health and long-term condition management.', 'Salud de los riñones y manejo de condiciones a largo plazo.'), href: '/services/nephrology/' },
   { n: '06', href: '/services/behavioral-health/', img: '/images/specialties/behavioral.jpg', title: l('Behavioral Health', 'Salud conductual'), text: l('Counseling and mental health support with licensed clinicians.', 'Consejería y apoyo de salud mental con clínicos con licencia.') },

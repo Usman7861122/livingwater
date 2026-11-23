@@ -1,12 +1,12 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHero from '../../components/ui/PageHero.astro';
-const servicios = ['Manejo de la diabetes', 'Compensación laboral', 'Asma', 'Pérdida de peso', 'Salud del corazón', 'Pediatría', 'Ginecología', 'Medicina preventiva', 'Cirugías menores', 'Medicina deportiva', 'Salud mental y conductual', 'Optometría', 'Servicios dentales', 'Dermatología'];
+const servicios = ['Control de la diabetes', 'Compensación laboral', 'Asma', 'Pérdida de peso', 'Salud del corazón', 'Pediatría', 'Ginecología', 'Medicina preventiva', 'Cirugías menores', 'Medicina deportiva', 'Salud mental y conductual', 'Optometría', 'Servicios dentales', 'Dermatología'];
 ---
 <BaseLayout title="Sobre Nosotros | Clínica Agua Viva" description="Clínica Agua Viva es una práctica de medicina familiar en los condados de Tulare y Fresno, California. Atención compasiva en español e inglés." solidHeader>
-  <PageHero lang="es" crumbs={[['Inicio', '/'], ['Nosotros', '/about/'], ['Sobre Nosotros']]} eyebrow="Nosotros" title="Atención con <em>corazón.</em>" text="Living Water Community Health and Wellness Clinic, también conocida como Clínica Agua Viva, es una práctica confiable de medicina familiar." image="/images/mission.jpg" imageAlt="Familia con su médico en Clínica Agua Viva">
-    <a href="https://phreesia.me/LWCOnlineScheduling" target="_blank" rel="noopener noreferrer" class="btn btn-gold">Reservar cita</a>
-    <a href="/locations/" class="btn btn-outline-light">Nuestras ubicaciones</a>
+  <PageHero lang="es" crumbs={[['Inicio', '/'], ['Nosotros', '/about/'], ['Sobre Nosotros']]} eyebrow="Nosotros" title="Atención con <em>corazón.</em>" text="Living Water Community Health and Wellness Clinic, también conocida como Clínica Agua Viva, es una clínica de medicina familiar de confianza." image="/images/mission.jpg" imageAlt="Familia con su médico en Clínica Agua Viva">
+    <a href="https://phreesia.me/LWCOnlineScheduling" target="_blank" rel="noopener noreferrer" class="btn btn-gold">Agendar una cita</a>
+    <a href="/locations/" class="btn btn-outline-light">Nuestras clínicas</a>
   </PageHero>
   <div lang="es">
     <section class="section bg-cream-50">
@@ -26,7 +26,7 @@ const servicios = ['Manejo de la diabetes', 'Compensación laboral', 'Asma', 'P�
     <section class="section bg-cream-100">
       <div class="container-x">
         <p class="eyebrow" data-reveal>Nuestros servicios</p>
-        <h2 class="h-section mt-5 max-w-3xl text-navy-900" data-reveal style="--d:80ms">Medicina familiar y atención de urgencias <em>para vivir una vida larga y sana.</em></h2>
+        <h2 class="h-section mt-5 max-w-3xl text-navy-900" data-reveal style="--d:80ms">Medicina familiar y atención de urgencias <em>para vivir una vida larga y saludable.</em></h2>
         <ul class="mt-10 flex flex-wrap gap-3" data-reveal style="--d:100ms">
           {servicios.map((s) => <li class="rounded-full border border-navy-900/15 bg-white px-5 py-2.5 text-navy-900">{s}</li>)}
         </ul>
@@ -37,8 +37,8 @@ const servicios = ['Manejo de la diabetes', 'Compensación laboral', 'Asma', 'P�
       <div class="container-x grid gap-5 md:grid-cols-3">
         {[
           ['Nuestra creencia', '“Así que en todo, hagan a los demás lo que ustedes quisieran que les hicieran a ustedes.” Creamos un ambiente de apoyo y amor para cada paciente.'],
-          ['Atención culturalmente sensible', 'Nuestros profesionales hablan con fluidez inglés, español, hindi, urdu, punjabi, francés y wolof básico.'],
-          ['Atención a su alcance', 'Aceptamos pagos en efectivo y la mayoría de los planes de seguro, incluido Medicare. Nadie será negado por falta de capacidad de pago, y hay una tarifa con descuento según el tamaño de la familia y los ingresos.'],
+          ['Atención con respeto a la diversidad cultural', 'Nuestros profesionales hablan con fluidez inglés, español, hindi, urdu, punjabi, francés y wolof básico.'],
+          ['Atención a su alcance', 'Aceptamos pagos en efectivo y la mayoría de los planes de seguro, incluido Medicare. No se le negarán los servicios a ningún paciente por no poder pagar, y hay una tarifa con descuento según el tamaño de la familia y los ingresos.'],
         ].map(([h, t], i) => (
           <div class="rounded-2xl border border-navy-900/10 bg-white p-8" data-reveal style={`--d:${i * 80}ms`}>
             <h3 class="font-serif text-2xl text-navy-900">{h}</h3>
@@ -51,10 +51,10 @@ const servicios = ['Manejo de la diabetes', 'Compensación laboral', 'Asma', 'P�
     <section class="section bg-cream-100 text-center">
       <div class="container-x">
         <h2 class="h-section mx-auto max-w-3xl text-navy-900" data-reveal>Programe su cita <em>hoy mismo.</em></h2>
-        <p class="mx-auto mt-5 max-w-xl text-lg text-mist" data-reveal style="--d:80ms">Use nuestra programación en línea o llame a la oficina más cercana.</p>
+        <p class="mx-auto mt-5 max-w-xl text-lg text-mist" data-reveal style="--d:80ms">Programe su cita en línea o llame a la oficina más cercana.</p>
         <div class="mt-9 flex flex-wrap justify-center gap-3" data-reveal style="--d:140ms">
-          <a href="https://phreesia.me/LWCOnlineScheduling" target="_blank" rel="noopener noreferrer" class="btn btn-navy">Reservar cita</a>
-          <a href="/locations/" class="btn btn-outline">Ver ubicaciones</a>
+          <a href="https://phreesia.me/LWCOnlineScheduling" target="_blank" rel="noopener noreferrer" class="btn btn-navy">Agendar una cita</a>
+          <a href="/locations/" class="btn btn-outline">Ver clínicas</a>
         </div>
       </div>
     </section>

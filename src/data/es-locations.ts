@@ -28,7 +28,7 @@ export const locationsEs: Record<string, string> = {
   'Our Services | Living Water Clinic': 'Nuestros servicios | Living Water Clinic',
 
   // --- Locations index ---
-  'Our locations': 'Nuestras ubicaciones',
+  'Our locations': 'Nuestras clínicas',
   'Seven clinics,': 'Siete clínicas,',
   'one family.': 'una sola familia.',
   'Find the Living Water Clinic closest to you in Tulare and Fresno Counties.': 'Encuentre la clínica Living Water más cercana a usted en los condados de Tulare y Fresno.',

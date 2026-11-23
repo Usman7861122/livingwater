@@ -2,7 +2,7 @@
 export const es: Record<string, string> = {
   'hero.eyebrow': 'Living Water Clinic · Clínica Agua Viva',
   'hero.sub': 'Medicina familiar, atención dental y especialidades con fe para cada miembro de su familia, en inglés y español.',
-  'hero.cta1': 'Reservar cita',
+  'hero.cta1': 'Hacer una cita',
   'hero.cta2': 'Encontrar una clínica',
   'hero.scroll': 'Deslizar',
   'hero.s1': '7 clínicas en los condados de Tulare y Fresno',

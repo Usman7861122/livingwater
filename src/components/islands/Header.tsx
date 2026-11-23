@@ -143,7 +143,7 @@ export default function Header({ solid = false }: { solid?: boolean }) {
                 ))}
               </div>
               <a href="https://phreesia.me/LWCOnlineScheduling" target="_blank" rel="noopener noreferrer" className="btn btn-gold hidden !min-h-11 !px-5 !text-sm whitespace-nowrap xl:inline-flex">
-                {lang === 'es' ? 'Reservar cita' : 'Book a visit'}
+                {lang === 'es' ? 'Hacer una cita' : 'Book a visit'}
               </a>
               <button
                 type="button" aria-label={mobile ? 'Close menu' : 'Open menu'} aria-expanded={mobile}
@@ -256,7 +256,7 @@ export default function Header({ solid = false }: { solid?: boolean }) {
                 </ul>
               </div>
               <div className="container-x pb-10">
-                <a href="https://phreesia.me/LWCOnlineScheduling" target="_blank" rel="noopener noreferrer" onClick={() => setMobile(false)} className="btn btn-navy w-full">{lang === 'es' ? 'Reservar cita' : 'Book a visit'}</a>
+                <a href="https://phreesia.me/LWCOnlineScheduling" target="_blank" rel="noopener noreferrer" onClick={() => setMobile(false)} className="btn btn-navy w-full">{lang === 'es' ? 'Hacer una cita' : 'Book a visit'}</a>
               </div>
             </motion.div>
           )}

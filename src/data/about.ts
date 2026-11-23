@@ -4,7 +4,7 @@ export const management: { name: string; role: string; photo?: string }[] = [
   { name: 'Gideon Cabahug', role: 'Co-Founder and President', photo: 'gideon-cabahug' },
   { name: 'Hector Madrigal Sr.', role: 'Director of Communications', photo: 'hector-madrigal-sr' },
   { name: 'Raymond Macareno', role: 'Director of Business Development', photo: 'raymond-macareno' },
-  { name: 'Albert Leyva', role: 'Director of Practice Management', photo: 'albert-leyva' },
+  { name: 'Albert Leyva', role: 'Director of Practice Operations', photo: 'albert-leyva' },
   { name: 'Brandy Leyva', role: 'Director of Practice Management', photo: 'brandy-leyva' },
   { name: 'Lupe Vasquez', role: 'Regional Clinic Manager', photo: 'lupe-vasquez' },
   { name: 'Beatriz Quiroz', role: 'Clinic and Quality Manager', photo: 'beatriz-quiroz' },
@@ -13,9 +13,9 @@ export const management: { name: string; role: string; photo?: string }[] = [
   { name: 'Marilyn Perez', role: 'Clinical Director', photo: 'marilyn-perez' },
   { name: 'David Barrett', role: 'Head of Accounting and Finance', photo: 'david-barrett' },
   { name: 'Mireya Guzman', role: 'Project and HR Manager', photo: 'mireya-guzman' },
-  { name: 'Wendy Ferreria', role: 'ECM Manager' },
+  { name: 'Wendy Ferreira', role: 'ECM Manager' },
   { name: 'Maria Alvarez', role: 'Dental Manager' },
-  { name: 'Dr. Sanchez', role: 'Dental Director' },
+  { name: 'Dr. Alma Sanchez', role: 'Dental Director' },
 ];
 export const external = {
   careers: 'https://recruitingbypaycor.com/career/CareerHome.action?clientId=8a7883c6876de6fb01877b50739f08cf',
