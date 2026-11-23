@@ -1,5 +1,14 @@
 // Biographies for provider profile pages. Add an entry here and the profile page + "Read bio" link appear automatically.
 export const bios: Record<string, string[]> = {
+  'aeysha-walden': [
+    "Aeysha Walden is a Certified Nurse-Midwife and Women’s Health Nurse Practitioner with more than 13 years of nursing experience and experience with over 2,500 deliveries. She provides compassionate women’s healthcare, including care during pregnancy, childbirth, and the postpartum period.",
+  ],
+  'judith-bayardo-guzman': [
+    "Dr. Judith Bayardo-Guzman is a general dentist serving the community at Living Water Clinic.",
+    "She earned her Doctor of Dental Medicine (DMD) degree from Temple University’s Maurice H. Kornberg School of Dentistry and has over four years of professional experience in dentistry.",
+    "Dr. Bayardo-Guzman focuses on comprehensive dental care, preventive dentistry, and patient education. Her approach emphasizes gentle, compassionate care while helping patients understand the importance of good oral hygiene and maintaining long-term dental health.",
+    "She believes in working collaboratively with patients to address their individual dental needs and promote healthy smiles. As part of Living Water Clinic, Dr. Bayardo-Guzman is committed to providing accessible, patient-centered dental care while treating every patient with kindness, dignity, and respect.",
+  ],
   'tahmores-matin': [
     'Dr. Tahmores Matin is a family medicine physician with advanced training in the integration of physical and behavioral health. He earned his bachelor’s degree in Biochemistry, with a minor in European History, from the University of California, Riverside. His medical education included study at Universidad Autónoma de Guadalajara in Mexico, followed by completion of his medical degree at New York Medical College.',
     'Dr. Matin completed his family medicine residency at Adventist Health in California and subsequently pursued specialized psychiatry fellowship training at the University of California, Irvine. This multidisciplinary foundation enables him to deliver thoughtful, evidence-based care that recognizes the close relationship between physical health, mental health, and overall well-being.',
@@ -256,12 +265,12 @@ export const bios: Record<string, string[]> = {
     "Outside of the clinic, he is a devoted husband and father of two. He enjoys a wide variety of personal interests, including cooking, music, and photography, though he finds his greatest joy in reading and playing with his children.",
   ],
   'robyn-kim': [
-    "Robyn Kim, MSN, FNP-BC, is a board-certified Family Nurse Practitioner serving patients at Living Water Clinic – Clínica Agua Viva in both Porterville and Lindsay. Bringing a global perspective to local healthcare, Ms. Kim provides comprehensive primary care with a specialized focus on health education and preventative medicine.",
-    "Ms. Kim earned both her Bachelor of Science in Nursing and her Master of Science in Nursing – Family Nurse Practitioner from Emory University, one of the nation’s top-ranked nursing programs. Prior to joining the Living Water team, she completed rigorous clinical training in primary care, urgent care, and gynecology. This diverse background allows her to manage a wide array of health needs, from routine wellness exams to the treatment of acute and chronic illnesses.",
-    "Ms. Kim’s philosophy of care is deeply rooted in patient empowerment. She believes that the most effective healthcare occurs when patients fully understand their own bodies and health conditions.",
-    "By focusing on prevention and clear health education, she aims to provide her patients with the tools and confidence they need to manage their well-being and advocate for their families.",
-    "Her commitment to medicine extends far beyond the clinic walls. Through extensive mission work in Yemen, Mexico, and Peru, Ms. Kim developed a profound heart for serving underserved populations. She is particularly passionate about removing the language, cultural, and financial barriers that often prevent individuals from receiving the high-quality care they deserve.",
-    "Her practice is guided by her strong faith, which inspires her to treat every patient with the utmost compassion, kindness, and respect. She views her role as a servant-leader in the community, dedicated to fostering a more equitable and healthy future for the residents of the Central Valley.",
+    "Robyn Kim is a Family Nurse Practitioner serving the community at Living Water Clinic.",
+    "She earned her Bachelor of Science in Nursing and Master of Science in Nursing – Family Nurse Practitioner from Emory University. During her training, she gained extensive clinical experience in primary care, urgent care, and gynecology.",
+    "Robyn focuses on patient-centered care, providing health education, disease prevention, and comprehensive wellness services, from routine wellness examinations to the treatment of acute and chronic illnesses. She emphasizes compassionate care, health advocacy, and empowering patients to take a proactive role in achieving their optimal health and well-being.",
+    "I have always been passionate about helping others, which led me to pursue a career in healthcare. My journey into the medical field helped me recognize the needs of many people in underserved communities, especially those facing language, cultural, and financial barriers.",
+    "Faith is an essential part of my life and my approach to healthcare. Through my experiences in mission work across Yemen, Mexico, and Peru, I have seen how faith can transform lives through the love of Jesus Christ. Christ gives us an example of what that faith looks like – unconditional love, compassion, and kindness.",
+    "I am greatly humbled by His love and motivated to serve and care for my patients with this important daily reminder.",
   ],
   'ronald-ybarra': [
     "Dr. Ronald Ybarra is a highly experienced chiropractor who has been a vital part of the Living Water Clinic team since November 2021. A native of Central California, Dr. Ybarra’s career is defined by over three decades of clinical excellence and a deep-seated commitment to providing holistic health solutions to the communities of the Central Valley.",

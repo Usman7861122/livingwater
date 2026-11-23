@@ -76,9 +76,9 @@ export const physicianSchema = (p: { slug: string; name: string; creds: string; 
   const spec = p.role.toLowerCase().includes('nephrology') ? ['Nephrologic'] : specialtyByCat[p.cat];
   return {
     '@context': 'https://schema.org',
-    '@type': p.cat === 'dental' ? 'Dentist' : /M\.D\.|D\.O\./.test(p.creds) ? 'Physician' : 'Person',
+    '@type': p.cat === 'dental' ? 'Dentist' : /\bMD\b|\bDO\b/.test(p.creds) ? 'Physician' : 'Person',
     '@id': `${url}#physician`,
-    name: `${p.name}, ${p.creds}`,
+    name: p.creds ? `${p.name}, ${p.creds}` : p.name,
     url,
     image: abs(`/images/doctors/${p.slug}.webp`),
     jobTitle: p.role,

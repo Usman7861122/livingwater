@@ -119,7 +119,7 @@ export const nav: NavItem[] = [
     mega: {
       columns: [
         { title: l('For Patients', 'Para pacientes'), links: [
-          { label: l('Insurances', 'Seguros'), href: '/resources/insurances/' },
+          { label: l('Insurance', 'Seguros médicos'), href: '/resources/insurances/' },
           { label: l('Pricing', 'Precios'), href: 'https://www.phreesia.net/25/patient/Payment.aspx/Start?encrypted=nbQ3NEXtPyONdOyRAwR6PTqeRKZ1WssfUpMK1UIEkPXtiut3_zkPABG8HaHyCENRUNhRKs7Cx_xYXsOZAE6bgjl5ETsM7ywLwAujSQGNQP38eWJK7WaYfw5BlqhrzDQ6U1wg2csgEpYGVL2L2w-usRXhM0Ht4SZ9NSzCBbGGvK01' },
         ] },
         { title: l('Learn More', 'Más información'), links: [
@@ -178,14 +178,14 @@ export const specialties = [
 ];
 
 export const doctors = [
-  { slug: 'abbas-hasnain', name: 'Hasnain Abbas', creds: 'M.D.', role: l('Family Medicine', 'Medicina familiar') },
-  { slug: 'alma-corvera', name: 'Alma Corvera', creds: 'P.A.-C', role: l('Family Medicine', 'Medicina familiar') },
-  { slug: 'alma-sanchez', name: 'Alma Sanchez', creds: 'D.D.S.', role: l('Dental & Specialty', 'Dental y especialidad') },
-  { slug: 'ana-rosa-celaya', name: 'Ana Rosa Celaya', creds: 'P.A.-C', role: l('Family Medicine', 'Medicina familiar') },
-  { slug: 'andy-phan', name: 'Andy Phan', creds: 'M.D.', role: l('Pediatrician', 'Pediatra') },
-  { slug: 'angelina-neria', name: 'Angelina Neria', creds: 'M.D., R.D., M.P.H.', role: l('Family Medicine', 'Medicina familiar') },
-  { slug: 'arthur-molina', name: 'Arthur Molina', creds: 'M.D.', role: l('Family Medicine', 'Medicina familiar') },
-  { slug: 'brianna-edwards', name: 'Brianna Edwards', creds: 'F.N.P.-C, M.S.N., R.N.', role: l('Family Medicine', 'Medicina familiar') },
+  { slug: 'abbas-hasnain', name: 'Abbas Hasnain', creds: 'MD', role: l('Internal Medicine', 'Medicina interna') },
+  { slug: 'alma-corvera', name: 'Alma Corvera', creds: 'PA-C', role: l('Family Medicine', 'Medicina familiar') },
+  { slug: 'alma-sanchez', name: 'Alma Sanchez', creds: 'DDS', role: l('Dental', 'Dental') },
+  { slug: 'ana-rosa-celaya', name: 'Ana Rosa Celaya', creds: 'PA-C', role: l('Family Medicine', 'Medicina familiar') },
+  { slug: 'andy-phan', name: 'Andy Phan', creds: 'MD', role: l('Pediatrician', 'Pediatra') },
+  { slug: 'angelina-neria', name: 'Angelina Neria', creds: 'MD, RD, MPH', role: l('Family Medicine', 'Medicina familiar') },
+  { slug: 'arthur-molina', name: 'Arthur Molina', creds: 'MD', role: l('Family Medicine', 'Medicina familiar') },
+  { slug: 'brianna-edwards', name: 'Brianna Edwards', creds: 'FNP-C, MSN, RN', role: l('Family Medicine', 'Medicina familiar') },
 ];
 
 export const dentalServices = [

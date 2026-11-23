@@ -7,8 +7,8 @@ const cats = Object.keys(catLabels) as Cat[];
 const count = (c: Cat) => providers.filter((p) => p.cat === c).length;
 import { hubSchema } from '../lib/schema';
 ---
-<BaseLayout title="Our Providers | Living Water Clinic" description="Meet the 38 doctors, physician assistants, nurse practitioners, dentists and specialists of Living Water Clinic in Tulare and Fresno Counties, California." solidHeader>
-  <Fragment slot="head"><script type="application/ld+json" set:html={JSON.stringify(hubSchema({ name: 'Our Providers', path: '/providers/', description: "Meet the 38 doctors, physician assistants, nurse practitioners, dentists and specialists of Living Water Clinic in Tulare and Fresno Counties, California." }))} /></Fragment>
+<BaseLayout title="Our Providers | Living Water Clinic" description="Meet the 41 doctors, physician assistants, nurse practitioners, dentists and specialists of Living Water Clinic in Tulare and Fresno Counties, California." solidHeader>
+  <Fragment slot="head"><script type="application/ld+json" set:html={JSON.stringify(hubSchema({ name: 'Our Providers', path: '/providers/', description: "Meet the 41 doctors, physician assistants, nurse practitioners, dentists and specialists of Living Water Clinic in Tulare and Fresno Counties, California." }))} /></Fragment>
   <PageHero crumbs={[['Home', '/'], ['Providers']]} eyebrow="Our providers" title="Meet the people <em>who care for you.</em>" text={`${providers.length} doctors, nurse practitioners, physician assistants, dentists and specialists, ready to care for your whole family.`}>
     <a href="https://phreesia.me/LWCOnlineScheduling" target="_blank" rel="noopener noreferrer" class="btn btn-gold">Request an appointment</a>
     <a href="/locations/" class="btn btn-outline-light">Find a clinic</a>
@@ -26,9 +26,9 @@ import { hubSchema } from '../lib/schema';
         {providers.map((p, i) => (
           <li data-cat={p.cat} class="rounded-2xl border border-navy-900/10 bg-white p-3 pb-5 shadow-sm transition hover:border-gold-500 hover:shadow-md" data-reveal style={`--d:${(i % 4) * 60}ms`}>
             <div class="overflow-hidden rounded-xl bg-cream-200">
-              <img src={`/images/doctors/${p.slug}.webp`} alt={`${p.name}, ${p.creds}`} loading="lazy" width="500" height="600" class="aspect-[4/5] w-full object-cover object-top transition duration-700 hover:scale-105" />
+              <img src={`/images/doctors/${p.slug}.webp`} alt={p.creds ? `${p.name}, ${p.creds}` : p.name} loading="lazy" width="500" height="600" class="aspect-[4/5] w-full object-cover object-top transition duration-700 hover:scale-105" />
             </div>
-            <h2 class="mt-4 px-1 font-serif text-xl leading-snug text-navy-900">{p.name}<span class="block text-base text-mist">{p.creds}</span></h2>
+            <h2 class="mt-4 px-1 font-serif text-xl leading-snug text-navy-900">{p.name}{p.creds && <span class="block text-base text-mist">{p.creds}</span>}</h2>
             <p class="mt-2 px-1 text-sm font-semibold tracking-wide text-gold-700 uppercase">{p.role}</p>
             {bios[p.slug] && <a href={`/providers/${p.slug}/`} class="link-underline mt-3 ml-1 inline-block text-sm font-semibold text-navy-900">Read bio <span aria-hidden="true">→</span></a>}
           </li>

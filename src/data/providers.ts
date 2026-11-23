@@ -1,15 +1,19 @@
-export type Cat = 'family' | 'pediatrics' | 'dental' | 'obgyn' | 'specialty';
-export const catLabels: Record<Cat, string> = { family: 'Family Medicine', pediatrics: 'Pediatrics', dental: 'Dental', obgyn: 'OB/GYN', specialty: 'Specialty' };
+export type Cat = 'family' | 'internal' | 'pediatrics' | 'dental' | 'obgyn' | 'specialty';
+export const catLabels: Record<Cat, string> = { family: 'Family Medicine', internal: 'Internal Medicine', pediatrics: 'Pediatrics', dental: 'Dental', obgyn: 'OB/GYN', specialty: 'Specialty' };
 type P = { slug: string; name: string; creds: string; role: string; cat: Cat };
-const f = (slug: string, name: string, creds: string, role = 'Family Medicine', cat: Cat = 'family'): P => ({ slug, name, creds, role, cat });
+// Credentials are shown without periods (MD, PA-C, FNP-C), as the client asked.
+const clean = (c: string) => c.replace('O.B./G.Y.N.', 'OB/GYN').replace(/\./g, '');
+const f = (slug: string, name: string, creds: string, role = 'Family Medicine', cat: Cat = 'family'): P => ({ slug, name, creds: clean(creds), role, cat });
 export const providers: P[] = [
-  f('abbas-hasnain', 'Abbas Hasnain', 'M.D.'),
+  f('abbas-hasnain', 'Abbas Hasnain', 'M.D.', 'Internal Medicine', 'internal'),
+  f('aeysha-walden', 'Aeysha Walden', 'MSN, CNM, WHNP-BC', 'Certified Nurse-Midwife & Women’s Health Nurse Practitioner', 'obgyn'),
   f('alma-corvera', 'Alma Corvera', 'P.A.-C'),
-  f('alma-sanchez', 'Alma Sanchez', 'D.D.S.', 'Dental & Specialty Provider', 'dental'),
+  f('alma-sanchez', 'Alma Sanchez', 'D.D.S.', 'Dental', 'dental'),
   f('ana-rosa-celaya', 'Ana Rosa Celaya', 'P.A.-C'),
   f('andy-phan', 'Andy Phan', 'M.D.', 'Pediatrician', 'pediatrics'),
   f('angelina-neria', 'Angelina Neria', 'M.D., R.D., M.P.H.'),
   f('arthur-molina', 'Arthur Molina', 'M.D.'),
+  f('benardo-ochoa', 'Benardo Ochoa', '', 'Dentist', 'dental'),
   f('brianna-edwards', 'Brianna Edwards', 'F.N.P.-C., M.S.N., R.N.'),
   f('christina-arias', 'Christina Arias', 'L.C.S.W.', 'Licensed Clinical Social Worker', 'specialty'),
   f('ciara-lopez', 'Ciara Lopez', 'D.C.', 'Chiropractor', 'specialty'),
@@ -21,6 +25,7 @@ export const providers: P[] = [
   f('joel-asunto', 'Joel Asunto', 'M.D.'),
   f('jose-corvera', 'Jose Corvera', 'P.A.-C'),
   f('jose-salas', 'Jose Salas', 'M.D., O.B./G.Y.N.', 'OB/GYN', 'obgyn'),
+  f('judith-bayardo-guzman', 'Judith Bayardo-Guzman', 'DMD', 'Dentist', 'dental'),
   f('kathan-shah', 'Kathan Shah', 'D.P.M.', 'Podiatrist', 'specialty'),
   f('leslee-heuer', 'Leslee Heuer', 'F.N.P.-C.'),
   f('mahmoud-omari', 'Mahmoud Omari', 'M.D.', 'Pediatrician', 'pediatrics'),
@@ -33,7 +38,7 @@ export const providers: P[] = [
   f('michele-millan-patterson', 'Michele Millan-Patterson', 'A.G.N.P.-C.'),
   f('noel-guido', 'Noel Guido', 'P.A.-C', 'Primary Care & Family Medicine'),
   f('oscar-campos', 'Oscar Campos', 'D.C.', 'Chiropractor', 'specialty'),
-  f('osvaldo-gutierrez', 'Osvaldo Gutierrez', 'M.D.'),
+  f('osvaldo-gutierrez', 'Osvaldo Gutierrez', 'M.D.', 'Internal Medicine', 'internal'),
   f('ranjeet-bajwa', 'Ranjeet Bajwa', 'O.D., F.A.A.O.', 'Optometrist', 'specialty'),
   f('robyn-kim', 'Robyn Kim', 'F.N.P.-C.'),
   f('ronald-ybarra', 'Ronald Ybarra', 'D.C.', 'Chiropractor', 'specialty'),

@@ -1,5 +1,14 @@
 // Spanish provider bios (part 3).
 export const biosEs3: Record<string, string[]> = {
+  'aeysha-walden': [
+    "Aeysha Walden es enfermera partera certificada y enfermera practicante de salud de la mujer, con más de 13 años de experiencia en enfermería y experiencia en más de 2,500 partos. Ofrece atención compasiva de salud de la mujer, incluida la atención durante el embarazo, el parto y el posparto.",
+  ],
+  'judith-bayardo-guzman': [
+    "La Dra. Judith Bayardo-Guzman es dentista general y atiende a la comunidad en Living Water Clinic.",
+    "Obtuvo su título de Doctora en Medicina Dental (DMD) en la Escuela de Odontología Maurice H. Kornberg de la Universidad de Temple y tiene más de cuatro años de experiencia profesional en odontología.",
+    "La Dra. Bayardo-Guzman se enfoca en la atención dental integral, la odontología preventiva y la educación del paciente. Su enfoque pone énfasis en una atención suave y compasiva, y ayuda a los pacientes a entender la importancia de una buena higiene bucal y de mantener su salud dental a largo plazo.",
+    "Cree en trabajar junto con los pacientes para atender sus necesidades dentales individuales y promover sonrisas saludables. Como parte de Living Water Clinic, la Dra. Bayardo-Guzman se compromete a ofrecer atención dental accesible y centrada en el paciente, tratando a cada persona con amabilidad, dignidad y respeto.",
+  ],
   'martha-guzman': [
     'Martha (Martie) Guzman, DNP, FNP-C, es una Doctora en Práctica de Enfermería muy destacada y Enfermera Practicante Familiar certificada por la junta en Living Water Clinic – Clínica Agua Viva. Con más de 30 años de experiencia en el campo de la salud, la Dra. Guzman aporta una gran sabiduría clínica y excelencia académica a los pacientes que atiende en todo el Valle Central.',
     'La amplia formación educativa de la Dra. Guzman refleja su compromiso con los más altos estándares de la práctica de enfermería. Obtuvo su Maestría en Ciencias de Enfermería en Fresno Pacific University, donde fue reconocida por sus logros académicos como miembro de la Sociedad de Honor Internacional de Enfermería Sigma Theta Tau.',
@@ -49,12 +58,12 @@ export const biosEs3: Record<string, string[]> = {
     'Fuera de la clínica, es un esposo y padre de dos hijos dedicado. Disfruta de una gran variedad de intereses personales, como la cocina, la música y la fotografía, aunque su mayor alegría es leer y jugar con sus hijos.',
   ],
   'robyn-kim': [
-    'Robyn Kim, MSN, FNP-BC, es una Enfermera Practicante Familiar certificada por la junta que atiende a pacientes en Living Water Clinic – Clínica Agua Viva tanto en Porterville como en Lindsay. Con una perspectiva global aplicada a la atención de salud local, la Sra. Kim ofrece atención primaria integral con un enfoque especial en la educación para la salud y la medicina preventiva.',
-    'La Sra. Kim obtuvo tanto su Licenciatura en Ciencias de Enfermería como su Maestría en Ciencias de Enfermería – Enfermera Practicante Familiar en Emory University, uno de los programas de enfermería mejor clasificados del país. Antes de unirse al equipo de Living Water, completó una rigurosa capacitación clínica en atención primaria, atención urgente y ginecología. Esta variada formación le permite atender una amplia gama de necesidades de salud, desde exámenes de bienestar de rutina hasta el tratamiento de enfermedades agudas y crónicas.',
-    'La filosofía de atención de la Sra. Kim se basa en fortalecer al paciente. Cree que la atención de salud más efectiva ocurre cuando los pacientes entienden bien su propio cuerpo y sus condiciones de salud.',
-    'Al enfocarse en la prevención y en una educación de salud clara, busca darles a sus pacientes las herramientas y la confianza que necesitan para cuidar su bienestar y velar por sus familias.',
-    'Su compromiso con la medicina va mucho más allá de las paredes de la clínica. Con un amplio trabajo misionero en Yemen, México y Perú, la Sra. Kim desarrolló un gran corazón para servir a poblaciones desatendidas. Le apasiona en especial eliminar las barreras de idioma, cultura y dinero que muchas veces impiden que las personas reciban la atención de calidad que merecen.',
-    'Su práctica se guía por su fuerte fe, que la inspira a tratar a cada paciente con la mayor compasión, amabilidad y respeto. Ve su papel como el de una líder servidora en la comunidad, dedicada a fomentar un futuro más equitativo y saludable para los residentes del Valle Central.',
+    "Robyn Kim es enfermera practicante familiar y atiende a la comunidad en Living Water Clinic.",
+    "Obtuvo su Licenciatura en Enfermería y su Maestría en Ciencias de Enfermería – Enfermera Practicante Familiar en la Universidad de Emory. Durante su formación adquirió una amplia experiencia clínica en atención primaria, atención de urgencias y ginecología.",
+    "Robyn se enfoca en una atención centrada en el paciente, con educación para la salud, prevención de enfermedades y servicios integrales de bienestar, desde exámenes de bienestar de rutina hasta el tratamiento de enfermedades agudas y crónicas. Pone énfasis en la atención compasiva, la defensa de la salud y en ayudar a los pacientes a tomar un papel activo para lograr su mejor salud y bienestar.",
+    "Siempre me ha apasionado ayudar a los demás, lo que me llevó a seguir una carrera en el cuidado de la salud. Mi camino en el campo médico me ayudó a reconocer las necesidades de muchas personas en comunidades con pocos servicios, especialmente quienes enfrentan barreras de idioma, culturales y económicas.",
+    "La fe es una parte esencial de mi vida y de mi forma de ejercer la medicina. Gracias a mi experiencia en trabajo misionero en Yemen, México y Perú, he visto cómo la fe puede transformar vidas por medio del amor de Jesucristo. Cristo nos da un ejemplo de cómo es esa fe: amor incondicional, compasión y bondad.",
+    "Su amor me llena de humildad y me motiva a servir y cuidar a mis pacientes con este importante recordatorio diario.",
   ],
   'ronald-ybarra': [
     'El Dr. Ronald Ybarra es un quiropráctico de mucha experiencia que ha sido parte vital del equipo de Living Water Clinic desde noviembre de 2021. Nativo del Centro de California, la carrera del Dr. Ybarra se define por más de tres décadas de excelencia clínica y un profundo compromiso de ofrecer soluciones de salud integrales a las comunidades del Valle Central.',

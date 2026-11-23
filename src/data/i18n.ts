@@ -16,7 +16,7 @@ export const es: Record<string, string> = {
   'about.p2': 'Nuestro equipo combina atención basada en evidencia y de alta calidad con un servicio cálido y personal, para que cada visita sea acogedora.',
   'about.stat1': 'Clínicas',
   'about.stat2': 'Proveedores dedicados',
-  'about.stat3': 'Idiomas',
+  'about.stat3': 'Atención bilingüe en inglés y español',
   'about.cta': 'Nuestra historia',
 
   'services.eyebrow': 'Nuestros servicios',
@@ -26,7 +26,7 @@ export const es: Record<string, string> = {
   'common.tap': 'Toque una tarjeta para voltearla.',
 
   'spec.eyebrow': 'Multiespecialidad',
-  'spec.title': 'Más que atención primaria. <em>Living Water es multiespecialidad.</em>',
+  'spec.title': 'Atención médica integral, <em>primaria y especializada.</em>',
   'spec.text': 'Una sola clínica de confianza para su atención primaria y los especialistas que pueda necesitar, para que su cuidado esté conectado y cerca de casa.',
 
   'mission.eyebrow': 'Nuestra misión',
@@ -40,8 +40,8 @@ export const es: Record<string, string> = {
   'care.title': 'Cuidado que renueva <em class="text-gold-300">a la persona completa.</em>',
 
   'doc.eyebrow': 'Nuestros proveedores',
-  'doc.title': 'Conozca a nuestros <em>doctores</em>',
-  'doc.cta': 'Ver los 38 proveedores',
+  'doc.title': 'Conozca a nuestros <em>proveedores</em>',
+  'doc.cta': 'Ver los 41 proveedores',
   'doc.profile': 'Ver perfil',
 
   'dental.eyebrow': 'Dental',
