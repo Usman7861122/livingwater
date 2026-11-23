@@ -2,6 +2,7 @@
 import MapEmbed from '../ui/MapEmbed.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Icon from '../ui/Icon.astro';
+import { serviceNotes } from '../../data/serviceNotes';
 import { locations, SITE_URL, type Location } from '../../data/site';
 import { services, bySlug, svcPath, fillS, seoS, siblingOf, offeredAt, type Svc } from '../../data/servicePages';
 
@@ -12,7 +13,7 @@ const pathFor = (l?: Location) => svcPath(svc, l);
 const fm = { ...svc, images: { hero: svc.images.hero } };
 const related = svc.related.map((r) => [bySlug[r].title, svcPath(bySlug[r])]);
 const lower = svc.short;
-const ctx = { city: location ? location.city : 'Tulare and Fresno County', clinic: location ? (sib ? sib.name : location.name) : 'Living Water Clinic' };
+const ctx = { city: location ? location.city : 'Tulare and Fresno counties', clinic: location ? (sib ? sib.name : location.name) : 'Living Water Clinic' };
 const f = (t: string) => fillS(t, ctx);
 const meta = seoS(svc, location);
 const canonical = new URL(pathFor(location).replace(/\/?$/, '/'), SITE_URL).href;
@@ -116,6 +117,20 @@ const mapSrc = location ? `https://www.google.com/maps?q=${encodeURIComponent(`L
     </div>
   </section>
 
+  {(serviceNotes[svc.slug] ?? []).length > 0 && (
+    <section class="bg-cream-50 pt-16">
+      <div class="container-x">
+        <div class="rounded-2xl border border-gold-500/40 bg-white p-8 md:p-10" data-reveal>
+          <p class="eyebrow" data-es="Es bueno saber">Good to know</p>
+          <div class="mt-4 space-y-4 text-lg leading-relaxed text-navy-900">
+            {serviceNotes[svc.slug].map(([en, es]) => <p data-es={es}>{en}</p>)}
+            {svc.slug === 'obgyn' && <p data-es="Proveedora: Aeysha Walden, MSN, CNM, WHNP-BC, enfermera partera certificada y enfermera practicante de salud de la mujer."><span>Provider: <a href="/providers/aeysha-walden/" class="link-underline font-semibold">Aeysha Walden, MSN, CNM, WHNP-BC</a>, Certified Nurse-Midwife and Women’s Health Nurse Practitioner.</span></p>}
+          </div>
+        </div>
+      </div>
+    </section>
+  )}
+
   <!-- Photo trio -->
   <section class="bg-cream-50 pb-4 pt-20">
     <div class="container-x grid gap-5 md:grid-cols-3">
@@ -133,7 +148,7 @@ const mapSrc = location ? `https://www.google.com/maps?q=${encodeURIComponent(`L
   <section class="section bg-cream-50">
     <div class="container-x">
       <p class="eyebrow" data-reveal>How it works</p>
-      <h2 class="h-section mt-5 max-w-2xl text-navy-900" data-reveal style="--d:80ms">{location ? `Your visit in ${location.city},` : 'Simple, caring,'} <em>{location ? 'simple and never rushed.' : 'and never rushed.'}</em></h2>
+      <h2 class="h-section mt-5 max-w-2xl text-navy-900" data-reveal style="--d:80ms">What to expect during your visit</h2>
       <div class="mt-12 grid gap-6 md:grid-cols-2">
         {fm.steps.map(([h, t], i) => (
           <div class="rounded-2xl bg-navy-900 p-8 text-cream-50 md:p-10" data-reveal style={`--d:${i * 100}ms`}>
@@ -149,7 +164,7 @@ const mapSrc = location ? `https://www.google.com/maps?q=${encodeURIComponent(`L
   <section class="on-dark bg-navy-950 py-20">
     <div class="container-x flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
       <div>
-        <h2 class="h-section" data-reveal>Do not <em>wait it out.</em></h2>
+        <h2 class="h-section" data-reveal>When to seek medical care</h2>
         <p class="mt-4 max-w-xl text-lg text-cream-200" data-reveal style="--d:80ms">Small health problems are easier to treat early. If something feels wrong, {location ? `call our ${location.city} clinic` : 'call us'}. In an emergency, dial 911.</p>
       </div>
       {location ? <a href={`tel:${phone.tel}`} class="btn btn-gold shrink-0" data-reveal><Icon name="phone" size={18} /> Call {phone.phone}</a> : <a href="#locations" class="btn btn-gold shrink-0" data-reveal>Find your clinic</a>}
@@ -174,7 +189,7 @@ const mapSrc = location ? `https://www.google.com/maps?q=${encodeURIComponent(`L
     <div class="container-x grid gap-12 lg:grid-cols-12">
       <div class="lg:col-span-4">
         <p class="eyebrow" data-reveal>FAQ</p>
-        <h2 class="h-section mt-5 text-navy-900" data-reveal style="--d:80ms">{location ? `${location.city} patients` : 'Patients'} <em>ask us often.</em></h2>
+        <h2 class="h-section mt-5 text-navy-900" data-reveal style="--d:80ms">Frequently asked questions</h2>
       </div>
       <div class="lg:col-span-8 divide-y divide-navy-900/10 border-y border-navy-900/10">
         {fm.faq.map(([q, a]) => (
@@ -196,7 +211,7 @@ const mapSrc = location ? `https://www.google.com/maps?q=${encodeURIComponent(`L
       <h2 class="h-section mt-5 max-w-3xl" data-reveal style="--d:80ms">
         {location
           ? (others.length === 0 ? <>Offered at <em>this clinic only.</em></> : <>Also available at <em>{others.length} more {others.length === 1 ? 'clinic' : 'clinics'}.</em></>)
-          : (medical.length === 1 ? <>{svc.title} care at <em>{medical[0].city}.</em></> : <>{svc.title} care at <em>{medical.length} clinics.</em></>)}
+          : (medical.length === 1 ? <>{svc.title} services at our {medical[0].city} clinic.</> : <>{svc.short.charAt(0).toUpperCase() + svc.short.slice(1)} at {['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven'][medical.length]} clinics.</>)}
       </h2>
       {location && (
         <div class="mt-10 grid gap-6 overflow-hidden rounded-2xl border border-white/10 bg-white/5 lg:grid-cols-2" data-reveal>

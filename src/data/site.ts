@@ -87,10 +87,15 @@ export const nav: NavItem[] = [
         { title: l('Specialties', 'Especialidades'), links: [
           { label: l('Chiropractic Care', 'Quiropráctica'), href: '/services/chiropractic-care/' },
           { label: l('Optometry', 'Optometría'), href: '/services/optometry/' },
-          { label: l('Foot Care', 'Cuidado de los pies'), href: '/services/foot-care/' },
+          { label: l('Podiatry', 'Podología'), href: '/services/foot-care/' },
           { label: l('Nephrology', 'Nefrología'), href: '/services/nephrology/' },
-          { label: l('OB-GYN', 'Obstetricia y ginecología'), href: '/services/obgyn/' },
+          { label: l('OB/GYN', 'Obstetricia y ginecología'), href: '/services/obgyn/' },
           { label: l('Behavioral Health', 'Salud conductual'), href: '/services/behavioral-health/' },
+          { label: l('Internal Medicine', 'Medicina interna'), href: '/services/internal-medicine/' },
+          { label: l('Chronic Care Management', 'Manejo de cuidado crónico'), href: '/services/chronic-care-management/' },
+          { label: l('Workers’ Compensation', 'Compensación laboral'), href: '/services/workers-compensation/' },
+          { label: l('Behavioral Health Integration', 'Integración de salud conductual'), href: '/services/behavioral-health-integration/' },
+          { label: l('Mobile Clinic', 'Clínica móvil'), href: '/services/mobile-clinic/' },
           { label: l('View all services', 'Ver todos los servicios'), href: '/services/', heading: l('Explore', 'Explorar') },
         ] },
       ],
@@ -170,7 +175,7 @@ export const services = [
 ];
 
 export const specialties = [
-  { n: '01', href: '/services/obgyn/', img: '/images/specialties/obgyn.jpg', title: l('OB-GYN', 'Obstetricia y ginecología'), text: l('Women’s health, pregnancy and gynecologic care.', 'Salud de la mujer, embarazo y cuidado ginecológico.') },
+  { n: '01', href: '/services/obgyn/', img: '/images/specialties/obgyn.jpg', title: l('OB/GYN', 'Obstetricia y ginecología'), text: l('Women’s health, pregnancy and gynecologic care.', 'Salud de la mujer, embarazo y cuidado ginecológico.') },
   { n: '02', img: '/images/specialties/podiatry.jpg', title: l('Podiatry', 'Podología'), text: l('Foot and ankle care, from pain to diabetic foot checks.', 'Cuidado de pies y tobillos, del dolor a revisiones para diabetes.'), href: '/services/foot-care/' },
   { n: '03', img: '/images/specialties/chiro.jpg', title: l('Chiropractic', 'Quiropráctica'), text: l('Relief for back, neck and joint discomfort.', 'Alivio para dolor de espalda, cuello y articulaciones.'), href: '/services/chiropractic-care/' },
   { n: '04', img: '/images/specialties/optometry.jpg', title: l('Optometry', 'Optometría'), text: l('Eye exams and vision care for the whole family.', 'Exámenes de la vista y cuidado visual para toda la familia.'), href: '/services/optometry/' },

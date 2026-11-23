@@ -62,10 +62,22 @@ import { hubSchema } from '../../lib/schema';
     </section>
   ))}
 
+  <section class="section bg-cream-50">
+    <div class="container-x">
+      <p class="eyebrow" data-reveal>More programs</p>
+      <h2 class="h-section mt-5 max-w-3xl text-navy-900" data-reveal style="--d:80ms">Additional care programs</h2>
+      <ul class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {[['Internal Medicine','/services/internal-medicine/'],['Chronic Care Management (CCM)','/services/chronic-care-management/'],['Workers’ Compensation','/services/workers-compensation/'],['Behavioral Health Integration (BHI)','/services/behavioral-health-integration/'],['Mobile Clinic','/services/mobile-clinic/']].map(([t,h]) => (
+          <li><a href={h} class="link-underline font-serif text-xl text-navy-900">{t}</a></li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
   <section class="on-dark bg-navy-950 section">
     <div class="container-x">
       <p class="eyebrow" data-reveal>Find your clinic</p>
-      <h2 class="h-section mt-5 max-w-3xl" data-reveal style="--d:80ms">Every service, <em>5 clinics near you.</em></h2>
+      <h2 class="h-section mt-5 max-w-3xl" data-reveal style="--d:80ms">Healthcare services across our five medical clinics. Availability varies by location.</h2>
       <p class="mt-5 max-w-2xl text-lg text-cream-200" data-reveal style="--d:120ms">Choose a service above, then pick your city on its page to see the local clinic, phone number and directions.</p>
       <ul class="mt-10 grid gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-4">
         {sorted.map((x) => (

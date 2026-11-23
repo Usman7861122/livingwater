@@ -13,7 +13,7 @@ import { postsEs } from './es-blog';
 import { legal } from './legal';
 import { legalEs, legalChromeEs } from './es-legal';
 import { obgynEs } from './es-obgyn';
-import { pneumacareEs } from './es-pneumacare';
+import { pneumacareEs, auditEs } from './es-pneumacare';
 
 export const phrases: Record<string, string> = {};
 export const terms: Record<string, string> = {};
@@ -22,7 +22,6 @@ export const attrSuffixes: [string, string][] = [
 ];
 
 const add = (en: string, es: string) => { if (en && es) phrases[en] = es; };
-for (const [k, v] of Object.entries(pneumacareEs)) phrases[k] = v;
 
 // ---- Service data (paired by position) ----
 for (const s of services) {
@@ -226,6 +225,7 @@ Object.assign(phrases, {
 // ---- Region name used as {city} ----
 Object.assign(terms, {
   'Tulare and Fresno County': 'los condados de Tulare y Fresno',
+  'Tulare and Fresno counties': 'los condados de Tulare y Fresno',
   'Tulare and Fresno Counties': 'los condados de Tulare y Fresno',
 });
 
@@ -238,6 +238,8 @@ Object.assign(phrases, {
   'Pediatric Wellness Checkups in Woodlake': 'Chequeos pediátricos de bienestar en Woodlake',
   'Child Ear Pain: What to Do and Where to Go': 'Dolor de oído en niños: qué hacer y adónde ir',
 });
+// Client-approved text always wins over position-paired text.
+for (const [k, v] of Object.entries({ ...pneumacareEs, ...auditEs })) phrases[k] = v;
 for (const [k, v] of Object.entries({ ...phrases })) {
   const suffix = ' | Living Water Clinic';
   if (k.endsWith(suffix) && v.endsWith(suffix)) {

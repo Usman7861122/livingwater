@@ -5,7 +5,7 @@ import { insurance, locations } from '../../data/site';
 const main = locations.find((x) => x.id === 'lindsay-medical')!;
 ---
 <BaseLayout title="Accepted Insurance | Living Water Clinic" description="Living Water Clinic accepts Medi-Cal, Medicare, Anthem Blue Cross, Health Net, Aetna, Cigna and more. Self-pay patients are welcome too." solidHeader>
-  <PageHero crumbs={[['Home', '/'], ['Resources', '/resources/'], ['Insurances']]} eyebrow="Insurance" title="Accepted <em>insurance plans.</em>" text="If you don’t see your insurance in the list, please call the office to confirm.">
+  <PageHero crumbs={[['Home', '/'], ['Resources', '/resources/'], ['Insurance']]} eyebrow="Insurance" title="Accepted Insurance <em>Plans and Networks.</em>" text="Insurance participation varies by plan, provider, service and location. Please contact your preferred clinic to confirm your coverage.">
     <a href={`tel:${main.tel}`} class="btn btn-gold">Call {main.phone}</a>
   </PageHero>
   <section class="section bg-cream-100"><div class="container-x">

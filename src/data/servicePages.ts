@@ -27,14 +27,14 @@ const lang = ['Do you offer care in Spanish?', 'Yes. Our {city} team speaks Engl
 const others: Svc[] = [
   {
     slug: 'pediatric-care', title: 'Pediatric Care', short: 'pediatric care',
-    summary: 'Gentle, caring health care for babies, children and teens, from first checkups to school-age shots and sick visits.',
+    summary: 'Gentle, caring health care for babies, children and teens, from first checkups to school-required immunizations and sick visits.',
     heroAlt: 'Pediatrician examining a child while a parent watches', labels: ['Newborns & babies', 'Kids & school age', 'Teens'],
     alts: ['Pediatrician checking a baby', 'Doctor talking with a child and parent', 'Doctor talking with a teenager'],
     intro: ['Pediatric care in {city} starts with a simple promise: your child is safe, heard and treated with kindness. Our providers know how to put little ones at ease and how to talk with teens in a way that respects them.', 'At our {clinic} location, we follow your child\'s growth from the first week of life through the teen years, and we keep you in the loop at every step.'],
     help: [['Well-child checkups', 'Regular visits to track growth, development, vision, hearing and healthy habits.'], ['Vaccines', 'Shots on schedule, plus school and daycare forms for {city} families.'], ['Sick and injury visits', 'Fever, ear infections, coughs, stomach bugs, rashes and minor injuries.'], ['School and sports physicals', 'Quick, thorough exams so your child is ready for class and play.']],
     when: [['Your baby is new to the family', 'Early checkups catch small problems and answer new-parent questions.'], ['Shots are due', 'Staying on schedule protects your child and classmates.'], ['Your child is sick', 'Fever, trouble breathing or a cough that will not go away should be checked.'], ['You have worries about growth or learning', 'Talk to us early. Many concerns are easy to support when found young.']],
     steps: [['Step 1 · Meet your provider', 'At {clinic}, we review your child\'s history, growth and shots. We answer your questions and do a gentle exam, always at your child\'s pace.'], ['Step 2 · A plan for growing up', 'We set up regular visits, update shots and share simple tips for sleep, food and screen time that fit your family.']],
-    faq: [['At what age can my child be seen in {city}?', 'Our {city} team sees patients from newborns through the teen years. Call us to set up your baby\'s first visit.'], ['Do you give school shots?', 'Yes. We keep vaccines up to date and complete school and daycare forms.'], ['Can parents stay with their child?', 'Of course. Parents are welcome at every visit.'], ['Do you take my insurance?', ins]],
+    faq: [['At what age can my child be seen in {city}?', 'Our {city} team sees patients from newborns through the teen years. Call us to set up your baby\'s first visit.'], ['Do you give school-required immunizations?', 'Yes. We keep vaccines up to date and complete school and daycare forms.'], ['Can parents stay with their child?', 'Of course. Parents are welcome at every visit.'], ['Do you take my insurance?', ins]],
     related: ['family-medicine', 'annual-wellness-visit', 'asthma', 'virtual-urgent-care', 'diabetes', 'optometry'],
   },
   {
@@ -68,7 +68,7 @@ const others: Svc[] = [
     alts: ['Person checking blood glucose', 'Doctor talking with a patient about healthy food', 'Smiling patient with a doctor after a diabetes visit'],
     intro: ['Diabetes care in {city} is about steady, simple steps. We help you understand your blood sugar, choose foods you enjoy and use medicines safely, without judgment.', 'At our {clinic} location, your team checks your whole health, including heart, eyes, feet and kidneys, because diabetes can affect all of them. We are here for the long run.'],
     help: [['Blood sugar and A1C checks', 'Regular testing and a clear target that fits you.'], ['Medicines and insulin', 'Safe, easy-to-follow plans and help with supplies.'], ['Food and activity coaching', 'Practical ideas for {city} families, using foods you already love.'], ['Complication checks', 'Eye, foot and kidney checks, with referrals to our specialists when needed.']],
-    when: [['You were told you have prediabetes', 'Early changes can lower your risk a lot.'], ['You are always thirsty or tired', 'Strong thirst, frequent urination and tiredness should be checked.'], ['Your sugar numbers are hard to control', 'We can adjust your plan and support you.'], ['It has been a while since your last check', 'Regular visits help prevent serious problems.']],
+    when: [['You were told you have prediabetes', 'Early changes can lower your risk a lot.'], ['You are always thirsty or tired', 'Strong thirst, frequent urination and tiredness should be checked.'], ['Your blood glucose levels are hard to control', 'We can adjust your plan and support you.'], ['It has been a while since your last check', 'Regular visits help prevent serious problems.']],
     steps: [['Step 1 · Check and understand', 'At {clinic}, we review your tests, medicines and daily life. We set simple goals together.'], ['Step 2 · Steady support', 'We follow your numbers, adjust your plan and connect you with eye, foot and kidney care when it helps.']],
     faq: [['Can diabetes be controlled?', 'Yes. Many people live well with diabetes with the right plan, medicines and support.'], ['Do you help with prediabetes?', 'Yes. Our {city} team helps lower the risk of type 2 diabetes with simple lifestyle steps.'], ['Do you offer care for eyes and feet too?', 'Yes. We offer optometry and foot care within Living Water Clinic.'], ['Do you take my insurance?', ins]],
     related: ['family-medicine', 'weight-loss-management', 'foot-care', 'optometry', 'nephrology', 'remote-patient-monitoring'],
@@ -78,7 +78,7 @@ const others: Svc[] = [
     summary: 'Clear action plans and steady support so you and your family can breathe easier every day.',
     heroAlt: 'Child using an inhaler with a parent', labels: ['Breathe easier', 'Check your lungs', 'Know your plan'],
     alts: ['Child using an asthma inhaler', 'Doctor listening to a patient\'s lungs', 'Doctor explaining an asthma plan to a patient'],
-    intro: ['Asthma care in {city} helps you and your child stay ahead of symptoms. We find your triggers, choose the right medicines and teach you what to do if your breathing gets hard.', 'At our {clinic} location, every patient receives a written asthma action plan in plain words, so you always know the next step.'],
+    intro: ['Asthma care in {city} helps you and your child stay ahead of symptoms. We find your triggers, choose the right medicines and teach you what to do if your breathing gets hard.', 'At our {clinic} location, your provider explains your asthma plan in plain words, so you always know the next step.'],
     help: [['Breathing tests and exams', 'We check how well your lungs work and look for signs of asthma.'], ['Inhalers and medicines', 'The right medicine, and teaching so you use your inhaler well.'], ['Trigger planning', 'Dust, smoke, pollen and weather can all play a part. We help {city} families plan around them.'], ['An asthma action plan', 'A simple green, yellow and red guide for good days and hard days.']],
     when: [['You cough or wheeze at night', 'Night symptoms can mean asthma is not well controlled.'], ['You use your rescue inhaler often', 'That is a sign your daily plan may need to change.'], ['Your child gets short of breath at play', 'We can help them stay active with a clear plan.'], ['You had an asthma scare', 'A follow-up visit can help prevent the next one.']],
     steps: [['Step 1 · Find your triggers', 'At {clinic}, we talk about symptoms, home and work, and we check your breathing.'], ['Step 2 · Build your plan', 'We prescribe medicines, show you how to use them and write your action plan. We schedule follow-ups to keep it working.']],
@@ -92,7 +92,7 @@ const others: Svc[] = [
     alts: ['Fresh fruit and vegetables', 'Person walking outdoors for exercise', 'Doctor encouraging a patient'],
     intro: ['Weight loss management in {city} is not about quick fixes. It is about steady changes you can keep, with a team that listens and does not judge.', 'At our {clinic} location, we look at the full picture: food, sleep, stress, medicines and health conditions. Then we build a plan that fits your family and your budget.'],
     help: [['Health and weight review', 'We check your health, labs and goals before we make a plan.'], ['Food and activity plans', 'Practical meals and movement that work for busy {city} families.'], ['Medical support', 'When it is right for you, we talk about medicine options safely.'], ['Regular check-ins', 'Short follow-ups that keep you motivated and on track.']],
-    when: [['Your weight affects your health', 'It can raise the risk of diabetes, blood pressure and joint pain.'], ['Diets have not worked before', 'A medical plan can make a real difference.'], ['You want to feel more energy', 'Small steps can improve sleep, mood and strength.'], ['You want support, not pressure', 'We celebrate every win.']],
+    when: [['Your weight affects your health', 'It can raise the risk of diabetes, high blood pressure and joint pain.'], ['Diets have not worked before', 'A medical plan can make a real difference.'], ['You want to feel more energy', 'Small steps can improve sleep, mood and strength.'], ['You want support, not pressure', 'We celebrate every win.']],
     steps: [['Step 1 · Start with your story', 'At {clinic}, we talk about what you have tried, what you enjoy and what is hard. We check your health and labs.'], ['Step 2 · Build and adjust', 'We set small, clear goals and review them often. Your plan changes as you do.']],
     faq: [['Do I need a lot of weight to lose?', 'No. Any amount of healthy weight loss can help your health, and we start where you are.'], ['Will I have to follow a strict diet?', 'No. We focus on balanced eating you can keep long term.'], ['Is this only for adults?', 'Our team can also guide families, and pediatric providers help with children\'s healthy growth.'], ['Do you take my insurance?', ins]],
     related: ['diabetes', 'family-medicine', 'annual-wellness-visit', 'remote-patient-monitoring', 'chiropractic-care', 'foot-care'],
@@ -134,7 +134,7 @@ const others: Svc[] = [
     related: ['diabetes', 'pediatric-care', 'family-medicine', 'annual-wellness-visit', 'nephrology', 'remote-patient-monitoring'],
   },
   {
-    slug: 'foot-care', title: 'Foot Care', short: 'foot care',
+    slug: 'foot-care', title: 'Podiatry', short: 'podiatry',
     summary: 'Caring treatment for foot and ankle pain, nails, skin and diabetic foot health, so you can keep walking comfortably.',
     heroAlt: 'Podiatrist examining a patient\'s foot', labels: ['Foot & ankle pain', 'Diabetic foot care', 'Keep walking'],
     alts: ['Podiatrist checking a foot', 'Doctor examining a patient\'s ankle', 'Person walking comfortably outdoors'],
@@ -158,7 +158,7 @@ const others: Svc[] = [
     related: ['diabetes', 'remote-patient-monitoring', 'family-medicine', 'annual-wellness-visit', 'weight-loss-management', 'optometry'],
   },
   {
-    slug: 'obgyn', title: 'OB-GYN', short: 'OB-GYN and women’s health',
+    slug: 'obgyn', title: 'OB/GYN', short: 'OB/GYN and women’s health',
     summary: 'Caring women’s health services, from yearly exams to pregnancy care, in a warm place where you feel heard.',
     heroAlt: 'OB-GYN provider talking with a pregnant patient', labels: ['Women’s health exams', 'Pregnancy care', 'Support at every stage'],
     alts: ['Provider talking with a woman about her health', 'Mother with her young child after a visit', 'Family smiling with their provider'],
@@ -215,7 +215,7 @@ export const seoS = (s: Svc, l?: Location) => {
 // Specialty services that are NOT offered at every medical clinic. Any slug not listed here is offered at all medical clinics.
 export const onlyAt: Record<string, string[]> = {
   'chiropractic-care': ['lindsay-medical', 'woodlake'],
-  optometry: ['lindsay-medical'],
+  optometry: ['lindsay-medical', 'woodlake'],
   obgyn: ['lindsay-medical'],
   'behavioral-health': ['lindsay-medical', 'woodlake'],
   'foot-care': ['lindsay-medical'],

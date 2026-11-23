@@ -9,7 +9,7 @@ const dentalLocs = locations.filter((x) => x.type === 'Dental');
 const lindsay = dentalLocs.find((x) => x.id === 'lindsay-dental')!;
 const dentists = providers.filter((p) => p.cat === 'dental');
 const kids = [
-  'Free check-ups for children with Medi-Cal',
+  'Checkups may be covered by eligible insurance plans',
   'Exams, cleanings, fluoride treatments and sealants to get ready for school',
   'Fillings and extractions when needed',
   'A calm, friendly approach so kids feel safe',
@@ -18,11 +18,11 @@ const kids = [
 const all = ['Digital X-rays', 'Routine and deep cleanings', 'Preventive dental care', 'Exams and fluoride for kids', 'Tooth-colored fillings, crowns and bridges', 'Root canals', 'Tooth extractions', 'Partials and dentures'];
 const why = ['Now accepting new dental patients', 'Over 20 years of trusted dental care', 'Walk-ins welcome when available', 'A warm, caring place', 'Bilingual staff who speak English and Spanish'];
 ---
-<BaseLayout title="Dental Care for Kids, Adults and Families | Living Water Clinic" description="Complete dental care for the whole family in Lindsay and Visalia, CA. Now accepting new patients. We accept Medi-Cal, Medicaid and most private insurance." solidHeader>
+<BaseLayout title="Dental Care for Kids, Adults and Families | Living Water Clinic" description="Complete dental care for the whole family in Lindsay and Visalia, CA. Now accepting new patients. We accept Medi-Cal Dental and participating private dental plans." solidHeader>
   <PageHero video="/video/dental-hero.mp4" poster="/video/dental-hero-poster.jpg" crumbs={[['Home', '/'], ['Dental']]} eyebrow="Dental" title="Complete dental care <em>for the whole family.</em>" text="Now accepting new dental patients: kids, adults and families. Kind, gentle and trusted care in Lindsay and Visalia.">
     <a href={`tel:${lindsay.tel}`} class="btn btn-gold"><Icon name="phone" size={18} /> {lindsay.phone}</a>
     <a href="/dental/services/" class="btn btn-outline-light">Dental services</a>
-    <p class="w-full text-sm text-cream-200/80">We accept Medi-Cal, Medicaid and most private insurance plans.</p>
+    <p class="w-full text-sm text-cream-200/80">We accept Medi-Cal Dental and participating private dental insurance plans. Please contact your preferred dental clinic to confirm your coverage and eligibility.</p>
   </PageHero>
 
   <section class="section bg-cream-50">
@@ -71,7 +71,7 @@ const why = ['Now accepting new dental patients', 'Over 20 years of trusted dent
             <li class="flex items-start gap-4 rounded-xl border border-navy-900/10 bg-white p-5" data-reveal style={`--d:${i * 50}ms`}><span class="mt-0.5 grid h-8 w-8 shrink-0 place-items-center rounded-full bg-navy-900 text-gold-400"><Icon name="check" size={16} /></span><span class="text-mist">{k}</span></li>
           ))}
         </ul>
-        <p class="mt-6 rounded-xl bg-navy-900 p-6 text-cream-100" data-reveal><strong class="text-gold-300">Did you know?</strong> Children must have a dental screening before they start Kindergarten. An early first visit helps meet this rule.</p>
+        <p class="mt-6 rounded-xl bg-navy-900 p-6 text-cream-100" data-reveal><strong class="text-gold-300">Kindergarten oral health assessments.</strong> Our dental team can assist families with oral health assessments required for eligible children entering California public schools. Contact our clinic for appointment availability and assistance with applicable forms.</p>
       </div>
     </div>
   </section>

@@ -19,7 +19,7 @@ export const fm = {
   when: [
     ['You do not have a regular doctor', 'Choose one {city} team for the whole family, so your records stay in one place.'],
     ['A child needs shots or a school form', 'We keep vaccines up to date and complete school and sports forms.'],
-    ['A health problem keeps coming back', 'Tiredness, pain, high sugar or blood pressure should be checked, not ignored.'],
+    ['A health problem keeps coming back', 'Tiredness, pain, high blood sugar or high blood pressure should be checked, not ignored.'],
     ['You need a referral', 'We connect {city} patients with our in-house specialists or trusted partners.'],
   ],
   steps: [

@@ -338,7 +338,7 @@ export const esServices: Record<string, SvcEs> = {
     ],
   },
   'foot-care': {
-    title: 'Cuidado de los Pies', short: 'cuidado de los pies',
+    title: 'Podología', short: 'podología',
     summary: 'Tratamiento cariñoso para el dolor de pies y tobillos, las uñas, la piel y la salud de los pies con diabetes, para que siga caminando con comodidad.',
     heroAlt: 'Podiatra examinando el pie de un paciente',
     labels: ['Dolor de pies y tobillos', 'Cuidado de pies con diabetes', 'Siga caminando'],
@@ -402,7 +402,7 @@ export const esServices: Record<string, SvcEs> = {
     ],
   },
   obgyn: {
-    title: 'Ginecología y Obstetricia (OB-GYN)', short: 'ginecología y salud de la mujer',
+    title: 'Obstetricia y ginecología (OB/GYN)', short: 'ginecología y salud de la mujer',
     summary: 'Servicios de salud de la mujer con cariño, desde los exámenes anuales hasta la atención del embarazo, en un lugar cálido donde se siente escuchada.',
     heroAlt: 'Proveedora de OB-GYN hablando con una paciente embarazada',
     labels: ['Exámenes de salud de la mujer', 'Atención del embarazo', 'Apoyo en cada etapa'],
