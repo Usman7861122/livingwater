@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PageHero from '../../../components/ui/PageHero.astro';
+import Icon from '../../../components/ui/Icon.astro';
+const counties = ['Butte', 'Shasta', 'Colusa', 'Glenn', 'Tehama', 'Yuba', 'Sutter', 'Lassen', 'Yolo', 'Surrounding areas'];
+---
+<BaseLayout title="PneumaCare Partnership | Living Water Clinic" description="Living Water Clinic partners with PneumaCare to bring telemedicine to Medi-Cal patients in nine Northern California counties. See who may qualify and learn more." solidHeader>
+  <PageHero crumbs={[['Home', '/'], ['About', '/about/'], ['Partnerships']]} eyebrow="Love Through Healthcare" title="Living Water Clinic + PneumaCare Partnership" text="Our Partnership" image="/images/about.jpg" imageAlt="Living Water Clinic care team with a patient">
+    <a href="/about-us/pneumacare-partnership/telemedicine/" class="btn btn-gold">Learn More</a>
+  </PageHero>
+
+  <section class="section bg-cream-50"><div class="container-x grid gap-12 lg:grid-cols-12">
+    <div class="lg:col-span-6">
+      <p class="eyebrow" data-reveal>Our Partnership</p>
+      <p class="mt-6 text-lg leading-relaxed text-mist" data-reveal style="--d:80ms">Living Water Clinic is proud to partner with PneumaCare to expand access to telemedicine services and community outreach. Together, we help eligible patients connect with healthcare providers and receive personalized medical care.</p>
+      <h2 class="mt-12 font-serif text-3xl text-navy-900" data-reveal>Who May Qualify?</h2>
+      <p class="mt-4 text-lg leading-relaxed text-mist" data-reveal>Patients with Medi-Cal, including Managed Medi-Cal and Partnership HealthPlan of California, may qualify for services through this partnership. Eligibility and coverage are subject to verification.</p>
+    </div>
+    <div class="lg:col-span-6">
+      <h2 class="font-serif text-3xl text-navy-900" data-reveal>Counties We Serve</h2>
+      <ul class="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3">
+        {counties.map((c, i) => <li class="rounded-xl border border-navy-900/10 bg-white px-4 py-3 text-navy-900" data-reveal style={`--d:${i * 40}ms`}>{c}</li>)}
+      </ul>
+    </div>
+  </div></section>
+
+  <section class="on-dark bg-navy-950 section text-center"><div class="container-x">
+    <h2 class="h-section mx-auto max-w-3xl" data-reveal>Learn how telemedicine works and how to get started.</h2>
+    <div class="mt-9" data-reveal style="--d:100ms"><a href="/about-us/pneumacare-partnership/telemedicine/" class="btn btn-gold">Learn More<Icon name="arrow" size={18} /></a></div>
+  </div></section>
+</BaseLayout>

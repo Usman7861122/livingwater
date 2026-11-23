@@ -13,6 +13,7 @@ import { postsEs } from './es-blog';
 import { legal } from './legal';
 import { legalEs, legalChromeEs } from './es-legal';
 import { obgynEs } from './es-obgyn';
+import { pneumacareEs } from './es-pneumacare';
 
 export const phrases: Record<string, string> = {};
 export const terms: Record<string, string> = {};
@@ -21,6 +22,7 @@ export const attrSuffixes: [string, string][] = [
 ];
 
 const add = (en: string, es: string) => { if (en && es) phrases[en] = es; };
+for (const [k, v] of Object.entries(pneumacareEs)) phrases[k] = v;
 
 // ---- Service data (paired by position) ----
 for (const s of services) {

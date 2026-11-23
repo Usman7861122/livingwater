@@ -1,0 +1,62 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import PageHero from '../../../../components/ui/PageHero.astro';
+const why = [
+  ['Care Anywhere', 'Connect with a healthcare provider from home or another safe location.'],
+  ['Save Time', 'Avoid unnecessary trips to the clinic.'],
+  ['Easy Scheduling', 'Our team helps you schedule your appointment.'],
+  ['Personalized Care', 'Receive assistance with your healthcare needs.'],
+  ['PneumaCare Support', 'Your care coordinator can help you get connected.'],
+];
+const help = ['General health concerns', 'Diabetes and asthma care', 'Medication refills', 'Stomach problems and acid reflux', 'Urinary tract infections (UTIs)', 'Weight management', 'Substance use concerns', 'Follow-up visits and ongoing health conditions'];
+const steps = [
+  'Ask your PneumaCare care coordinator about telemedicine.',
+  'Complete a consent form so Living Water Clinic can contact you.',
+  'Our scheduling team will contact you to arrange your appointment.',
+  'Connect with your healthcare provider for your scheduled appointment.',
+];
+---
+<BaseLayout title="Telemedicine with PneumaCare | Living Water Clinic" description="Medical care wherever you are. Connect with a Living Water Clinic provider by telemedicine through our PneumaCare partnership, without traveling to a clinic." solidHeader>
+  <PageHero crumbs={[['Home', '/'], ['About', '/about/'], ['Partnerships', '/about-us/pneumacare-partnership/'], ['Telemedicine']]} eyebrow="Living Water Clinic + PneumaCare Partnership" title="Medical Care Wherever You Are!" text="Connect with a healthcare provider without traveling to a clinic." image="/images/care.jpg" imageAlt="A patient talking with a care provider">
+    <a href="tel:+15596351746,1015" class="btn btn-gold">Call Now</a>
+    <a href="mailto:alexchavez@livingwaterclinic.com" class="btn btn-outline-light">Email Us</a>
+  </PageHero>
+
+  <section class="section bg-cream-50"><div class="container-x">
+    <h2 class="h-section text-navy-900" data-reveal>Why Choose Telemedicine?</h2>
+    <ul class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {why.map(([h, t], i) => (
+        <li class="rounded-2xl border border-navy-900/10 bg-white p-7" data-reveal style={`--d:${i * 60}ms`}>
+          <h3 class="font-serif text-2xl text-navy-900">{h}</h3>
+          <p class="mt-3 text-mist">{t}</p>
+        </li>
+      ))}
+    </ul>
+  </div></section>
+
+  <section class="section bg-cream-100"><div class="container-x grid gap-12 lg:grid-cols-2">
+    <div>
+      <h2 class="font-serif text-3xl text-navy-900" data-reveal>How Can We Help You?</h2>
+      <ul class="mt-6 space-y-3">
+        {help.map((t, i) => <li class="flex items-center gap-3 text-lg text-navy-900" data-reveal style={`--d:${i * 40}ms`}><span class="h-2 w-2 shrink-0 rounded-full bg-gold-500"></span>{t}</li>)}
+      </ul>
+      <p class="mt-6 text-mist" data-reveal>Some health concerns may require an in-person visit.</p>
+    </div>
+    <div>
+      <h2 class="font-serif text-3xl text-navy-900" data-reveal>How to Get Started</h2>
+      <ol class="mt-6 space-y-3">
+        {steps.map((t, i) => <li class="flex gap-4 rounded-xl border border-navy-900/10 bg-white p-5" data-reveal style={`--d:${i * 50}ms`}><span class="font-serif text-2xl text-gold-700">{i + 1}</span><span class="text-navy-900">{t}</span></li>)}
+      </ol>
+    </div>
+  </div></section>
+
+  <section class="on-dark bg-navy-950 section text-center"><div class="container-x">
+    <h2 class="h-section mx-auto max-w-3xl" data-reveal>Contact Our Team</h2>
+    <p class="mt-5 text-lg" data-reveal style="--d:60ms">Call: <a href="tel:+15596351746,1015" class="link-underline">(559) 635-1746, ext. 1015</a></p>
+    <p class="mt-2 text-lg" data-reveal style="--d:80ms">Email: <a href="mailto:alexchavez@livingwaterclinic.com" class="link-underline">alexchavez@livingwaterclinic.com</a></p>
+    <div class="mt-9 flex flex-wrap justify-center gap-3" data-reveal style="--d:120ms">
+      <a href="tel:+15596351746,1015" class="btn btn-gold">Call Now</a>
+      <a href="mailto:alexchavez@livingwaterclinic.com" class="btn btn-outline-light">Email Us</a>
+    </div>
+  </div></section>
+</BaseLayout>

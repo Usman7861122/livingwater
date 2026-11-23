@@ -58,6 +58,7 @@ export const nav: NavItem[] = [
           { label: l('Our Office', 'Nuestra oficina'), href: '/about/our-office/' },
           { label: l('Sobre Nosotros'), href: '/about/sobre-nosotros/' },
           { label: l('Management', 'Administración'), href: '/about/management/' },
+          { label: l('Partnerships', 'Alianzas'), href: '/about-us/pneumacare-partnership/' },
         ] },
         { title: l('Join & Learn', 'Únase e infórmese'), links: [
           { label: l('Careers', 'Empleos'), href: 'https://recruitingbypaycor.com/career/CareerHome.action?clientId=8a7883c6876de6fb01877b50739f08cf' },
