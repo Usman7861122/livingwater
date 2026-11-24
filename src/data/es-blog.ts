@@ -5,14 +5,14 @@ export const postsEs: Record<string, PostEs> = {
   "yearly-wellness-visit-why-it-matters": {
     title: "Por qué importa la visita anual de bienestar (aun cuando se siente bien)",
     excerpt: "Una visita anual ayuda a usted y a su proveedor a adelantarse a los problemas de salud.",
-    alt: "Un proveedor hablando con un paciente durante una visita anual de bienestar",
+    alt: "Una médica hablando con un paciente sonriente durante un chequeo",
     body: [{"p": ["Muchas personas solo ven a un proveedor cuando se sienten enfermas. Una visita anual de bienestar es diferente. Es una oportunidad para revisar su salud, hacer preguntas y crear un plan mientras se siente bien."]}, {"h": "Qué puede incluir una visita de bienestar", "ul": ["Una revisión de su historial de salud y de sus medicinas actuales", "Revisión de la presión arterial, la estatura y el peso", "Una conversación sobre las vacunas y los exámenes de detección que pueden ser adecuados para usted", "Tiempo para preguntar sobre el sueño, el estrés, la comida y la actividad"]}, {"h": "Por qué ayuda", "p": ["Algunos problemas de salud, como la presión arterial alta o la diabetes en etapa temprana, pueden crecer despacio sin señales claras. Las visitas regulares ayudan a su proveedor a notar cambios a tiempo y a hablar con usted sobre los próximos pasos."]}, {"h": "Cómo prepararse", "ul": ["Traiga una lista de sus medicinas", "Escriba sus preguntas", "Traiga su tarjeta de seguro, si tiene una", "Pida a un familiar que lo acompañe si le ayuda"]}, {"p": ["Nuestro equipo puede atenderle en inglés o en español. La cobertura del seguro para las visitas de bienestar depende de su plan, y nuestro programa de descuentos según los ingresos puede ayudarle si no tiene cobertura."]}],
     cta: "Conozca la visita anual de bienestar",
   },
   "asthma-simple-steps-to-breathe-easier": {
     title: "Vivir con asma: pasos sencillos para respirar mejor",
     excerpt: "Conozca sus desencadenantes, tome su medicina según las indicaciones y sepa cuándo pedir ayuda.",
-    alt: "Un niño usando un inhalador con ayuda de un proveedor",
+    alt: "Un médico mostrando a una paciente cómo usar un inhalador",
     body: [{"p": ["El asma afecta las vías respiratorias de los pulmones. Con la atención adecuada, muchas personas con asma pueden mantenerse activas y dormir bien. Su proveedor puede ayudarle a crear un plan que se ajuste a su vida."]}, {"h": "Señales comunes del asma", "ul": ["Tos, sobre todo de noche o al hacer ejercicio", "Silbidos al respirar", "Opresión en el pecho", "Falta de aire"]}, {"h": "Conozca sus desencadenantes", "p": ["Los desencadenantes son cosas que pueden empeorar el asma. Los más comunes son el humo, el polvo, el polen, las mascotas, el aire frío y los resfriados o la gripe. En el Valle Central, los días de mala calidad del aire también pueden ser un desencadenante para algunas personas."]}, {"h": "Pasos que pueden ayudar", "ul": ["Tome sus medicinas exactamente como se lo indique su proveedor", "Lleve su inhalador con usted", "Pregunte a su proveedor si un plan de acción para el asma es adecuado para usted", "Mantenga su chequeo anual y pregunte por las vacunas"]}, {"h": "Cuándo pedir ayuda urgente", "p": ["Si tiene mucha dificultad para respirar, no puede hablar en oraciones completas o sus labios o su cara se ven azulados, llame al 911 de inmediato."]}],
     cta: "Conozca la atención del asma",
   },
@@ -33,7 +33,7 @@ export const postsEs: Record<string, PostEs> = {
   "when-to-use-virtual-urgent-care": {
     title: "Cuándo usar la atención de urgencias virtual (y cuándo ir en persona)",
     excerpt: "Las visitas virtuales pueden ayudar con muchos problemas comunes. Así puede elegir.",
-    alt: "Un paciente en una videollamada con un proveedor",
+    alt: "Una paciente en una videollamada con una médica en una laptop en casa",
     body: [{"p": ["Una visita de atención de urgencias virtual le permite hablar con un proveedor por video o por teléfono desde su casa. Puede ahorrarle tiempo y es una buena opción para algunos problemas de salud comunes."]}, {"h": "Problemas que pueden ser adecuados para una visita virtual", "ul": ["Síntomas de resfriado o gripe", "Dolor de garganta o tos", "Sarpullidos o problemas leves de la piel", "Síntomas de ojo rojo", "Preguntas sobre una medicina"]}, {"h": "Vaya en persona o llame al 911 si", "ul": ["Tiene dolor de pecho o dificultad para respirar", "Tiene un sangrado fuerte o un corte profundo", "Cree que se rompió un hueso", "Tiene señales de un derrame cerebral, como la cara caída o dificultad para hablar"]}, {"h": "Cómo prepararse", "ul": ["Busque un lugar tranquilo con buena luz", "Tenga sus medicinas cerca", "Pruebe su teléfono, tableta o computadora antes de la visita", "Tenga el nombre de su farmacia a la mano"]}, {"p": ["Su proveedor le dirá si necesita ser atendido en persona. Si no está seguro de adónde ir, llame a la clínica más cercana."]}],
     cta: "Conozca la atención de urgencias virtual",
   },
