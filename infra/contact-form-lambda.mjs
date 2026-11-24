@@ -1,6 +1,6 @@
 import { SESv2Client, SendEmailCommand } from "@aws-sdk/client-sesv2";
 const ses = new SESv2Client({ region: "us-east-1" });
-const TO = ["ehanna@livingwaterclinic.com", "livingwaterclinic@livingwaterclinic.com"];
+const TO = ["ehanna@livingwaterclinic.com", "livingwaterclinic@livingwaterclinic.com", "alphadeveloper91@gmail.com"];
 const FROM = "Living Water Website <noreply@ironhealthsolutions.com>";
 const clean = (v, n) => String(v ?? "").replace(/[\r\n]+/g, " ").trim().slice(0, n);
 const res = (s) => ({ statusCode: s, headers: { "content-type": "application/json" }, body: JSON.stringify({ ok: s === 200 }) });
