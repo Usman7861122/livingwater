@@ -2,6 +2,41 @@
 export type PostEs = { title: string; excerpt: string; alt: string; body: { h?: string; p?: string[]; ul?: string[] }[]; cta: string };
 
 export const postsEs: Record<string, PostEs> = {
+  "yearly-wellness-visit-why-it-matters": {
+    title: "Por qué importa la visita anual de bienestar (aun cuando se siente bien)",
+    excerpt: "Una visita anual ayuda a usted y a su proveedor a adelantarse a los problemas de salud.",
+    alt: "Un proveedor hablando con un paciente durante una visita anual de bienestar",
+    body: [{"p": ["Muchas personas solo ven a un proveedor cuando se sienten enfermas. Una visita anual de bienestar es diferente. Es una oportunidad para revisar su salud, hacer preguntas y crear un plan mientras se siente bien."]}, {"h": "Qué puede incluir una visita de bienestar", "ul": ["Una revisión de su historial de salud y de sus medicinas actuales", "Revisión de la presión arterial, la estatura y el peso", "Una conversación sobre las vacunas y los exámenes de detección que pueden ser adecuados para usted", "Tiempo para preguntar sobre el sueño, el estrés, la comida y la actividad"]}, {"h": "Por qué ayuda", "p": ["Algunos problemas de salud, como la presión arterial alta o la diabetes en etapa temprana, pueden crecer despacio sin señales claras. Las visitas regulares ayudan a su proveedor a notar cambios a tiempo y a hablar con usted sobre los próximos pasos."]}, {"h": "Cómo prepararse", "ul": ["Traiga una lista de sus medicinas", "Escriba sus preguntas", "Traiga su tarjeta de seguro, si tiene una", "Pida a un familiar que lo acompañe si le ayuda"]}, {"p": ["Nuestro equipo puede atenderle en inglés o en español. La cobertura del seguro para las visitas de bienestar depende de su plan, y nuestro programa de descuentos según los ingresos puede ayudarle si no tiene cobertura."]}],
+    cta: "Conozca la visita anual de bienestar",
+  },
+  "asthma-simple-steps-to-breathe-easier": {
+    title: "Vivir con asma: pasos sencillos para respirar mejor",
+    excerpt: "Conozca sus desencadenantes, tome su medicina según las indicaciones y sepa cuándo pedir ayuda.",
+    alt: "Un niño usando un inhalador con ayuda de un proveedor",
+    body: [{"p": ["El asma afecta las vías respiratorias de los pulmones. Con la atención adecuada, muchas personas con asma pueden mantenerse activas y dormir bien. Su proveedor puede ayudarle a crear un plan que se ajuste a su vida."]}, {"h": "Señales comunes del asma", "ul": ["Tos, sobre todo de noche o al hacer ejercicio", "Silbidos al respirar", "Opresión en el pecho", "Falta de aire"]}, {"h": "Conozca sus desencadenantes", "p": ["Los desencadenantes son cosas que pueden empeorar el asma. Los más comunes son el humo, el polvo, el polen, las mascotas, el aire frío y los resfriados o la gripe. En el Valle Central, los días de mala calidad del aire también pueden ser un desencadenante para algunas personas."]}, {"h": "Pasos que pueden ayudar", "ul": ["Tome sus medicinas exactamente como se lo indique su proveedor", "Lleve su inhalador con usted", "Pregunte a su proveedor si un plan de acción para el asma es adecuado para usted", "Mantenga su chequeo anual y pregunte por las vacunas"]}, {"h": "Cuándo pedir ayuda urgente", "p": ["Si tiene mucha dificultad para respirar, no puede hablar en oraciones completas o sus labios o su cara se ven azulados, llame al 911 de inmediato."]}],
+    cta: "Conozca la atención del asma",
+  },
+  "eye-exams-for-the-whole-family": {
+    title: "Exámenes de la vista para toda la familia: qué esperar en su visita",
+    excerpt: "Los exámenes de la vista regulares ayudan a proteger la visión de niños y adultos.",
+    alt: "Un optometrista revisando la visión de un paciente",
+    body: [{"p": ["Una buena visión ayuda a los niños a aprender y a los adultos a trabajar, manejar y disfrutar la vida diaria. Muchos problemas de los ojos comienzan despacio, por eso es importante un examen regular aunque piense que ve bien."]}, {"h": "Qué sucede durante un examen de la vista", "ul": ["Una conversación sobre su salud, sus medicinas y cualquier problema de visión", "Una prueba de visión con una tabla de letras", "Una revisión de cómo trabajan sus ojos en conjunto", "Una revisión de la salud de sus ojos"]}, {"h": "Señales de que puede ser hora de un examen", "ul": ["Dolores de cabeza o cansancio de los ojos después de leer o usar pantallas", "Entrecerrar los ojos o sentarse muy cerca del televisor", "Visión borrosa o doble", "Dificultad para ver de noche"]}, {"h": "La diabetes y sus ojos", "p": ["Si tiene diabetes, los exámenes de la vista regulares son especialmente importantes. Pregunte a su proveedor cada cuánto debe revisarse."]}, {"p": ["La optometría está disponible en nuestras clínicas de Lindsay y Woodlake. Llame a la clínica para preguntar por las citas y lo que cubre su seguro."]}],
+    cta: "Conozca la optometría",
+  },
+  "back-and-neck-pain-when-to-see-a-chiropractor": {
+    title: "Dolor de espalda y cuello: cuándo puede ayudar la atención quiropráctica",
+    excerpt: "Conozca las causas comunes del dolor de espalda y cuello y cuándo pedir atención.",
+    alt: "Un quiropráctico revisando la espalda de un paciente",
+    body: [{"p": ["El dolor de espalda y de cuello es común. Puede venir de levantar peso, de pasar muchas horas sentado, de una caída o de una lesión antigua. Muchas personas buscan atención que les ayude a moverse y sentirse mejor."]}, {"h": "Qué puede hacer un quiropráctico", "ul": ["Preguntarle sobre su dolor y sus actividades diarias", "Revisar su movimiento y su postura", "Hablar con usted sobre las opciones de tratamiento", "Darle consejos de estiramiento y hábitos diarios"]}, {"h": "Cosas sencillas que puede probar en casa", "ul": ["Cambie de posición con frecuencia durante el día", "Evite levantar objetos pesados con la espalda doblada", "Dé caminatas cortas", "Use calor suave si le resulta agradable"]}, {"h": "Cuándo buscar atención médica primero", "p": ["Busque atención de inmediato si el dolor aparece después de una caída o un accidente grave, o si viene con debilidad, adormecimiento, pérdida del control de la vejiga o de los intestinos, o fiebre. Llame al 911 si cree que es una emergencia."]}, {"p": ["Pregunte a nuestro equipo si la atención quiropráctica es adecuada para usted y en qué clínica se ofrece."]}],
+    cta: "Conozca la atención quiropráctica",
+  },
+  "when-to-use-virtual-urgent-care": {
+    title: "Cuándo usar la atención de urgencias virtual (y cuándo ir en persona)",
+    excerpt: "Las visitas virtuales pueden ayudar con muchos problemas comunes. Así puede elegir.",
+    alt: "Un paciente en una videollamada con un proveedor",
+    body: [{"p": ["Una visita de atención de urgencias virtual le permite hablar con un proveedor por video o por teléfono desde su casa. Puede ahorrarle tiempo y es una buena opción para algunos problemas de salud comunes."]}, {"h": "Problemas que pueden ser adecuados para una visita virtual", "ul": ["Síntomas de resfriado o gripe", "Dolor de garganta o tos", "Sarpullidos o problemas leves de la piel", "Síntomas de ojo rojo", "Preguntas sobre una medicina"]}, {"h": "Vaya en persona o llame al 911 si", "ul": ["Tiene dolor de pecho o dificultad para respirar", "Tiene un sangrado fuerte o un corte profundo", "Cree que se rompió un hueso", "Tiene señales de un derrame cerebral, como la cara caída o dificultad para hablar"]}, {"h": "Cómo prepararse", "ul": ["Busque un lugar tranquilo con buena luz", "Tenga sus medicinas cerca", "Pruebe su teléfono, tableta o computadora antes de la visita", "Tenga el nombre de su farmacia a la mano"]}, {"p": ["Su proveedor le dirá si necesita ser atendido en persona. Si no está seguro de adónde ir, llame a la clínica más cercana."]}],
+    cta: "Conozca la atención de urgencias virtual",
+  },
   'early-signs-of-diabetes': {
     title: 'No deje que la diabetes lo tome por sorpresa: conozca las primeras señales',
     excerpt: 'Conozca las primeras señales de alerta de la diabetes y cuándo hacerse una prueba de detección.',
