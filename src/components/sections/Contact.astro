@@ -1,5 +1,8 @@
 ---
 import Icon from '../ui/Icon.astro';
+import { locations } from '../../data/site';
+const ENDPOINT = 'https://4hbgi2ifhjutkwvjnwtn36gpwi0feybm.lambda-url.us-east-1.on.aws/';
+const clinics = [...locations.filter((x) => x.type === 'Medical'), ...locations.filter((x) => x.type === 'Dental')];
 ---
 
 <section id="contact" class="section bg-cream-100">
@@ -15,14 +18,58 @@ import Icon from '../ui/Icon.astro';
     </div>
     <div class="lg:col-span-7" data-reveal style="--d:120ms">
       <div class="rounded-3xl bg-white p-8 shadow-xl sm:p-10">
-        <h3 class="font-serif text-2xl text-navy-900" data-es="Reserve su visita">Book your visit</h3>
-        <p class="mt-3 text-mist" data-es="Elija su proveedor y una hora que le quede bien. Es rápido y fácil.">Choose your provider and a time that works for you. It is quick and easy.</p>
-        <div class="mt-8 flex flex-wrap gap-3">
-          <a href="https://phreesia.me/LWCOnlineScheduling" target="_blank" rel="noopener noreferrer" class="btn btn-navy"><span data-es="Reservar en línea">Book online</span></a>
-          <a href="https://patient.athenahealth.com/6501/" target="_blank" rel="noopener noreferrer" class="btn btn-outline"><span data-es="Portal del paciente">Patient Portal</span></a>
-        </div>
-        <p class="mt-6 text-sm text-mist" data-es="Para emergencias, llame al 911.">For emergencies, call 911.</p>
+        <form id="contact-form" class="contact-form" data-endpoint={ENDPOINT} novalidate>
+          <p class="text-xs font-semibold tracking-widest text-gold-700 uppercase" data-es="Póngase en contacto">Get in touch</p>
+          <div class="mt-6 grid gap-x-8 gap-y-6 sm:grid-cols-2">
+            <label class="cf-field"><span data-es="Nombre completo">Full name</span><input name="name" type="text" autocomplete="name" required /></label>
+            <label class="cf-field"><span data-es="Teléfono">Phone</span><input name="phone" type="tel" autocomplete="tel" required /></label>
+            <label class="cf-field"><span data-es="Correo electrónico">Email</span><input name="email" type="email" autocomplete="email" required /></label>
+            <label class="cf-field"><span data-es="Clínica preferida">Preferred location</span>
+              <select name="location">
+                <option value="No preference" data-es="Sin preferencia">No preference</option>
+                {clinics.map((c) => <option value={`${c.name} (${c.city})`}>{c.name}, {c.city}</option>)}
+              </select>
+            </label>
+          </div>
+          <label class="cf-field mt-6"><span data-es="¿En qué podemos ayudarle?">How can we help?</span><textarea name="message" rows="4" required placeholder="Tell us how we can help."></textarea></label>
+          <input type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" class="hidden" />
+          <div class="mt-6 flex flex-wrap items-center justify-between gap-4">
+            <p class="max-w-xs text-xs text-mist" data-es="Por favor no incluya expedientes médicos aquí. Los pediremos de forma segura cuando hablemos.">Please don’t include medical records here. We’ll ask for them securely once we’ve spoken.</p>
+            <button type="submit" class="btn btn-navy"><span data-es="Enviar mensaje">Send message</span></button>
+          </div>
+          <p id="cf-status" role="status" class="mt-4 text-sm font-semibold text-navy-900" hidden></p>
+        </form>
+        <p class="mt-6 text-sm text-mist"><span data-es="Para emergencias, llame al 911.">For emergencies, call 911.</span> <a href="https://phreesia.me/LWCOnlineScheduling" target="_blank" rel="noopener noreferrer" class="link-underline font-semibold text-navy-900" data-es="Reservar en línea">Book online</a></p>
       </div>
     </div>
   </div>
 </section>
+
+<style>
+  .cf-field { display: block; }
+  .cf-field > span { display: block; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #5b6475; }
+  .cf-field input, .cf-field select, .cf-field textarea { width: 100%; margin-top: 0.4rem; border: 0; border-bottom: 1px solid rgba(15, 23, 42, 0.25); background: transparent; padding: 0.55rem 0; font: inherit; color: #0f1b3d; outline: none; }
+  .cf-field textarea { resize: vertical; }
+  .cf-field input:focus, .cf-field select:focus, .cf-field textarea:focus { border-bottom-color: #b8924a; }
+</style>
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement | null;
+  const status = document.getElementById('cf-status');
+  const es = () => document.documentElement.lang === 'es';
+  const say = (en: string, sp: string) => { if (status) { status.hidden = false; status.textContent = es() ? sp : en; } };
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const d = Object.fromEntries(new FormData(form).entries()) as Record<string, string>;
+    if (d.company) return;
+    if (!d.name?.trim() || !d.phone?.trim() || !d.email?.trim() || !d.message?.trim()) { say('Please fill in your name, phone, email and message.', 'Por favor complete su nombre, teléfono, correo y mensaje.'); return; }
+    const btn = form.querySelector('button[type=submit]') as HTMLButtonElement; btn.disabled = true;
+    try {
+      const r = await fetch(form.dataset.endpoint || '', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ ...d, lang: es() ? 'es' : 'en', page: location.href }) });
+      if (!r.ok) throw new Error(String(r.status));
+      form.reset();
+      say('Thank you. We received your message and will call you back within one business day.', 'Gracias. Recibimos su mensaje y le llamaremos en un día hábil.');
+    } catch {
+      say('Sorry, we could not send your message. Please call your nearest clinic.', 'Lo sentimos, no pudimos enviar su mensaje. Por favor llame a la clínica más cercana.');
+    } finally { btn.disabled = false; }
+  });
+</script>

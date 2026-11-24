@@ -183,4 +183,6 @@ export const auditEs: Record<string, string> = {
   "Talking with your employer and medical case manager when needed": "Hablar con su empleador y su administrador de caso médico cuando sea necesario",
   "Sending work status reports about your ability to work": "Enviar informes del estado laboral sobre su capacidad para trabajar",
   "Your provider helps decide your treatment and when you can return to work.": "Su proveedor ayuda a decidir su tratamiento y cuándo puede volver al trabajo.",
+  "Tell us how we can help.": "Cuéntenos cómo podemos ayudarle.",
+  "No preference": "Sin preferencia",
 };
