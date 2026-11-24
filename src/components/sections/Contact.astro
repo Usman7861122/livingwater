@@ -45,7 +45,22 @@ const clinics = [...locations.filter((x) => x.type === 'Medical'), ...locations.
   </div>
 </section>
 
+
+<dialog id="cf-thanks" class="cf-dialog" aria-labelledby="cf-thanks-title">
+  <div class="cf-dialog-card">
+    <div class="cf-check" aria-hidden="true"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7" /></svg></div>
+    <h3 id="cf-thanks-title" class="font-serif text-3xl text-navy-900" data-es="¡Gracias!">Thank you!</h3>
+    <p class="mt-3 text-mist" data-es="Recibimos su mensaje y le llamaremos en un día hábil.">We received your message and will call you back within one business day.</p>
+    <p class="mt-3 text-sm text-mist" data-es="Para emergencias, llame al 911.">For emergencies, call 911.</p>
+    <button type="button" id="cf-thanks-close" class="btn btn-navy mt-6"><span data-es="Cerrar">Close</span></button>
+  </div>
+</dialog>
 <style>
+  .cf-dialog { border: 0; padding: 0; background: transparent; max-width: 92vw; margin: auto; }
+  .cf-dialog::backdrop { background: rgba(10, 18, 40, 0.6); backdrop-filter: blur(2px); }
+  .cf-dialog-card { width: min(28rem, 92vw); border-radius: 1.5rem; background: #fff; padding: 2.25rem 2rem; text-align: center; box-shadow: 0 25px 60px rgba(0,0,0,.35); animation: cfpop .25s ease-out; }
+  .cf-check { margin: 0 auto 1rem; display: grid; place-items: center; width: 3.5rem; height: 3.5rem; border-radius: 9999px; background: #0f1b3d; color: #d9b36c; }
+  @keyframes cfpop { from { opacity: 0; transform: translateY(12px) scale(.96); } to { opacity: 1; transform: none; } }
   .cf-field { display: block; }
   .cf-field > span { display: block; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #5b6475; }
   .cf-field input, .cf-field select, .cf-field textarea { width: 100%; margin-top: 0.4rem; border: 0; border-bottom: 1px solid rgba(15, 23, 42, 0.25); background: transparent; padding: 0.55rem 0; font: inherit; color: #0f1b3d; outline: none; }
@@ -57,6 +72,9 @@ const clinics = [...locations.filter((x) => x.type === 'Medical'), ...locations.
   const status = document.getElementById('cf-status');
   const es = () => document.documentElement.lang === 'es';
   const say = (en: string, sp: string) => { if (status) { status.hidden = false; status.textContent = es() ? sp : en; } };
+  const thanks = document.getElementById('cf-thanks') as HTMLDialogElement | null;
+  document.getElementById('cf-thanks-close')?.addEventListener('click', () => thanks?.close());
+  thanks?.addEventListener('click', (e) => { if (e.target === thanks) thanks.close(); });
   form?.addEventListener('submit', async (e) => {
     e.preventDefault();
     const d = Object.fromEntries(new FormData(form).entries()) as Record<string, string>;
@@ -67,7 +85,9 @@ const clinics = [...locations.filter((x) => x.type === 'Medical'), ...locations.
       const r = await fetch(form.dataset.endpoint || '', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ ...d, lang: es() ? 'es' : 'en', page: location.href }) });
       if (!r.ok) throw new Error(String(r.status));
       form.reset();
-      say('Thank you. We received your message and will call you back within one business day.', 'Gracias. Recibimos su mensaje y le llamaremos en un día hábil.');
+      if (status) status.hidden = true;
+      const dlg = document.getElementById('cf-thanks') as HTMLDialogElement | null;
+      if (dlg && typeof dlg.showModal === 'function') dlg.showModal(); else say('Thank you. We received your message and will call you back within one business day.', 'Gracias. Recibimos su mensaje y le llamaremos en un día hábil.');
     } catch {
       say('Sorry, we could not send your message. Please call your nearest clinic.', 'Lo sentimos, no pudimos enviar su mensaje. Por favor llame a la clínica más cercana.');
     } finally { btn.disabled = false; }

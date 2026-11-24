@@ -185,4 +185,7 @@ export const auditEs: Record<string, string> = {
   "Your provider helps decide your treatment and when you can return to work.": "Su proveedor ayuda a decidir su tratamiento y cuándo puede volver al trabajo.",
   "Tell us how we can help.": "Cuéntenos cómo podemos ayudarle.",
   "No preference": "Sin preferencia",
+  "Thank you!": "¡Gracias!",
+  "We received your message and will call you back within one business day.": "Recibimos su mensaje y le llamaremos en un día hábil.",
+  "Close": "Cerrar",
 };
