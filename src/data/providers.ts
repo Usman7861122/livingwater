@@ -37,7 +37,6 @@ export const providers: P[] = [
   f('martha-moreno', 'Martha Moreno', 'F.N.P.-C.'),
   f('michele-millan-patterson', 'Michele Millan-Patterson', 'A.G.N.P.-C.'),
   f('noel-guido', 'Noel Guido', 'P.A.-C', 'Primary Care & Family Medicine'),
-  f('oscar-campos', 'Oscar Campos', 'D.C.', 'Chiropractor', 'specialty'),
   f('osvaldo-gutierrez', 'Osvaldo Gutierrez', 'M.D.', 'Internal Medicine', 'internal'),
   f('ranjeet-bajwa', 'Ranjeet Bajwa', 'O.D., F.A.A.O.', 'Optometrist', 'specialty'),
   f('robyn-kim', 'Robyn Kim', 'F.N.P.-C.'),
